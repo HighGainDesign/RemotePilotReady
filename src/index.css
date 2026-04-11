@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-850: #162031;
+  --color-slate-925: #0c1322;
+  --color-sky-accent: #38bdf8;
+  --color-amber-accent: #fbbf24;
+  --color-green-accent: #34d399;
+  --color-red-accent: #f87171;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-slate-925);
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+/* Card flip animation */
+.card-inner {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Swipe animation */
+.card-swipe {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+.card-swipe.swipe-left {
+  transform: translateX(-120%) rotate(-15deg);
+  opacity: 0;
+}
+.card-swipe.swipe-right {
+  transform: translateX(120%) rotate(15deg);
+  opacity: 0;
+}
+
+/* Touch feedback */
+@media (hover: none) {
+  .tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 2px;
+}
+
+/* Safe area padding for iOS */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
