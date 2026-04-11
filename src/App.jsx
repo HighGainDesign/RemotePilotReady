@@ -62,8 +62,8 @@ export default function App() {
             </svg>
           </div>
           <div>
-            <h1 className="text-base font-semibold text-white leading-tight">Part 107 Study</h1>
-            <p className="text-xs text-slate-400">Remote Pilot Certification</p>
+            <h1 className="text-base font-semibold text-white leading-tight">RemotePilotReady</h1>
+            <p className="text-xs text-slate-400">Part 107 Certification Study</p>
           </div>
         </div>
       </header>
