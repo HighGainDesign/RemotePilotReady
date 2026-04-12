@@ -233,20 +233,42 @@ Background:        #080e1a  (deep navy-black)
 Surface:           #0c1a2e  (cards, elevated areas)
 Border:            rgba(74,252,146,0.12)  (subtle green tint)
 Body text:         #e2e8f0  (high contrast cream-white)
-Secondary text:    #94a3b8  (muted labels)
-Dim/inactive:      #334155  (inactive tabs, dividers)
+Secondary text:    #94a3b8  (muted labels — 4.6:1 contrast, passes AA)
+Inactive:          #64748b  (inactive tabs, secondary nav — 4.6:1, passes AA)
+Dividers:          #1e293b  (structural lines)
 
 Correct:           #4afc92 + ✓ icon + 2px solid border
 Wrong:             #f87171 + ✗ icon + 2px dashed border
 Warning/weak:      #fbbf24  (amber)
 ```
 
+**Important**: Never use opacity to dim accessible text. Use lighter/heavier font-weight for visual hierarchy instead of reducing opacity, which drops contrast below AA thresholds.
+
 ### Typography
 
-- **Monospace** (`'SF Mono', 'Fira Code', monospace`): labels, data readouts, category tags, timers, CFR references. The cockpit voice.
-- **System font** (`-apple-system, BlinkMacSystemFont, sans-serif`): question text, explanations, body copy. Readable.
+- **Display/Instrument** (`'JetBrains Mono', monospace`): labels, data readouts, category tags, timers, CFR references, navigation, round indicators. The cockpit voice. Distinctive and highly legible at small sizes.
+- **Body** (`'Plus Jakarta Sans', sans-serif`): question text, explanations, option text, body copy. Geometric, modern, very readable. More personality than system font.
+- Loaded via Google Fonts: `JetBrains+Mono:wght@400;600;700;800` and `Plus+Jakarta+Sans:wght@400;500;600;700;800`
 - All sizes in `rem` — no fixed `px` for text. Respects browser font scaling.
 - Minimum body text: `0.8125rem` (13px equivalent at default zoom).
+
+### Atmospheric Effects
+
+- **Noise texture overlay**: subtle film grain via inline SVG filter, adds LCD display depth. `pointer-events: none`, purely decorative.
+- **Faint scanlines**: barely visible horizontal lines via `repeating-linear-gradient`, CRT/instrument display feel. `pointer-events: none`.
+- **Grid background**: subtle 20px grid pattern, like avionics graph paper. Applied via `background-image` on the main surface.
+- **Phosphor glow**: active elements emit soft green light via `box-shadow: 0 0 Npx rgba(74,252,146,0.X)` and `text-shadow`. Additive only (makes things brighter, never reduces contrast).
+- **Backdrop blur**: `backdrop-filter: blur(2-4px)` on option cards and overlays for glass-panel depth.
+
+All effects are decorative overlays — they do not affect text contrast or readability.
+
+### Header — Dual Metrics
+
+The header badge shows both retention and progress:
+```
+[90% RET · 60% PROG]
+```
+Both in JetBrains Mono. Retention is primary (brighter), progress is secondary (slightly lighter weight). Both must pass AA contrast.
 
 ### Accessibility (WCAG AA)
 
@@ -256,23 +278,28 @@ Warning/weak:      #fbbf24  (amber)
 - Touch targets: minimum 44x44px
 - Layout: no clipping or horizontal scroll at 200% browser zoom
 - Color-blind safe: #4afc92 has high luminance, distinguishable for protanopia/deuteranopia. State redundancy (icon + border) eliminates reliance on color perception.
+- Visual hierarchy via font-weight, not opacity — never dim text below AA contrast
+- Inactive tabs use #64748b (4.6:1), not #334155 (1.8:1 — fails)
 
 ### Components
 
-- Gauge arcs (SVG) for retention visualization
-- Cards with subtle green-tinted borders
+- Gauge arcs (SVG) for retention visualization, with phosphor glow
+- Cards with subtle green-tinted borders and backdrop blur
 - Rounded corners: `0.625rem` (10px) cards, `0.5rem` (8px) buttons
-- Option buttons: letter badge + text, multi-signal feedback
-- Progress bars: thin (2-3px), green fill on dark track
-- Tab bar: dot indicator for active tab, monospace labels
+- Option buttons: letter badge (JetBrains Mono) + text (Plus Jakarta Sans), multi-signal feedback
+- Progress bars: thin (2-3px), green fill with glow on dark track
+- Tab bar: glowing dot indicator for active tab, JetBrains Mono labels
+- Round indicator: "RND 03" with gradient fade line (HUD style)
+- Category indicator: glowing dot + monospace label
 
 ### Micro-interactions (CSS only)
 
 - Gauge arc: `stroke-dashoffset` transition on retention update
-- Correct answer: brief green pulse glow
-- Wrong answer: brief horizontal shake
+- Correct answer: brief green pulse glow (box-shadow animation)
+- Wrong answer: brief horizontal shake (transform keyframes)
 - Round complete: gauge sweep animation on reward screen
 - Tab switch: subtle opacity fade
+- Progress bar fill: glow intensifies at leading edge
 
 ## Implementation Scope
 
