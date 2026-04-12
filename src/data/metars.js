@@ -201,6 +201,181 @@ const metarExamples = [
         explanation: "When temperature and dewpoint are equal (zero spread), relative humidity is 100% and the air is fully saturated. This directly causes fog and low clouds. A spread of 4°C or less generally indicates high moisture and the potential for fog or precipitation."
       }
     ]
+  },
+  {
+    id: 6,
+    raw: "KMIA 151952Z 18012KT 6SM TSRA BKN035CB OVC080 29/24 A2971 RMK AO2 LTG DSNT S RAB30 TSB45 SLP082",
+    categories: ["Weather"],
+    breakdown: [
+      { field: "KMIA", label: "Station ID", explanation: "Miami International Airport" },
+      { field: "151952Z", label: "Date/Time", explanation: "15th day at 19:52 Zulu time" },
+      { field: "18012KT", label: "Wind", explanation: "Wind from 180° (south) at 12 knots" },
+      { field: "6SM", label: "Visibility", explanation: "6 statute miles visibility (reduced by thunderstorm)" },
+      { field: "TSRA", label: "Weather", explanation: "Thunderstorm with moderate rain" },
+      { field: "BKN035CB", label: "Clouds", explanation: "Broken cumulonimbus clouds at 3,500 feet AGL — CB tag indicates thunderstorm cell" },
+      { field: "OVC080", label: "Clouds", explanation: "Overcast at 8,000 feet AGL" },
+      { field: "29/24", label: "Temp/Dewpoint", explanation: "Temperature 29°C, dewpoint 24°C (small spread of 5°C — very humid, tropical)" },
+      { field: "A2971", label: "Altimeter", explanation: "Altimeter setting 29.71 inches of mercury (low pressure associated with storm)" },
+      { field: "RMK AO2", label: "Remarks", explanation: "Automated station with precipitation discriminator" },
+      { field: "LTG DSNT S", label: "Remarks", explanation: "Lightning distant to the south" },
+      { field: "RAB30", label: "Remarks", explanation: "Rain began at 30 minutes past the hour" },
+      { field: "TSB45", label: "Remarks", explanation: "Thunderstorm began at 45 minutes past the hour" },
+      { field: "SLP082", label: "Sea Level Pressure", explanation: "Sea level pressure 1008.2 hPa (below normal, consistent with storm system)" }
+    ],
+    questions: [
+      {
+        question: "What does 'TSRA' in this METAR indicate?",
+        answer: "Thunderstorm with rain currently at or near the station",
+        options: [
+          "Thunderstorm reported at a distant location",
+          "Thunderstorm with rain currently at or near the station",
+          "Trace rain with no thunderstorm activity",
+          "Tropical storm advisory"
+        ],
+        correctIndex: 1,
+        explanation: "In METAR weather phenomena, 'TS' is the descriptor for thunderstorm and 'RA' is the precipitation type for rain. Combined as 'TSRA', it means thunderstorm with rain occurring at or in the vicinity of the station. A '+' prefix would indicate heavy; '-' would indicate light."
+      },
+      {
+        question: "What does the 'CB' suffix on BKN035CB indicate, and why does it matter?",
+        answer: "CB means cumulonimbus — an active thunderstorm cell with severe turbulence, icing, and lightning hazards",
+        options: [
+          "CB means ceiling below minimums — no special hazard",
+          "CB means cloud base, a routine cloud type identifier",
+          "CB means cumulonimbus — an active thunderstorm cell with severe turbulence, icing, and lightning hazards",
+          "CB means coastal breeze, indicating sea-effect clouds"
+        ],
+        correctIndex: 2,
+        explanation: "When a cloud layer is tagged with 'CB', it identifies the cloud type as cumulonimbus — the thunderstorm cloud. Cumulonimbus clouds contain severe turbulence, heavy precipitation, icing, and lightning. The CB tag is always significant and indicates an extreme hazard to all aircraft, including drones."
+      },
+      {
+        question: "Based on this METAR, can you legally and safely fly under Part 107?",
+        answer: "No — thunderstorm activity, lightning, and associated turbulence make this unsafe and potentially illegal",
+        options: [
+          "Yes — visibility is 6 SM which meets the 3 SM minimum",
+          "Yes — the thunderstorm is distant to the south, so local flight is permitted",
+          "No — thunderstorm activity, lightning, and associated turbulence make this unsafe and potentially illegal",
+          "Only if you stay below 300 feet AGL to avoid the cloud ceiling"
+        ],
+        correctIndex: 2,
+        categories: ["Weather", "Regulations"],
+        explanation: "While visibility (6 SM) technically meets the Part 107 minimum, the remote PIC must not create a hazard to persons or property and must maintain VLOS. Active thunderstorms produce lightning, microburst winds, and severe turbulence — flying is both extremely dangerous and incompatible with the remote PIC's safety obligations under 14 CFR § 107.23. No reasonable remote PIC would fly in these conditions."
+      }
+    ]
+  },
+  {
+    id: 7,
+    raw: "KBOS 081756Z 04005KT 010V070 10SM SCT020 BKN150 18/12 A3015 RMK AO2 SLP208",
+    categories: ["Weather"],
+    breakdown: [
+      { field: "KBOS", label: "Station ID", explanation: "Boston Logan International Airport" },
+      { field: "081756Z", label: "Date/Time", explanation: "8th day at 17:56 Zulu time" },
+      { field: "04005KT", label: "Wind", explanation: "Wind from 040° (northeast) at 5 knots — light wind" },
+      { field: "010V070", label: "Variable Wind", explanation: "Wind direction varying between 010° and 070° — wind is light and shifting" },
+      { field: "10SM", label: "Visibility", explanation: "10 statute miles visibility" },
+      { field: "SCT020", label: "Clouds", explanation: "Scattered clouds at 2,000 feet AGL (3-4 oktas, not a ceiling)" },
+      { field: "BKN150", label: "Clouds", explanation: "Broken clouds at 15,000 feet AGL (ceiling — 5-7 oktas)" },
+      { field: "18/12", label: "Temp/Dewpoint", explanation: "Temperature 18°C, dewpoint 12°C (spread of 6°C — moderate humidity)" },
+      { field: "A3015", label: "Altimeter", explanation: "Altimeter setting 30.15 inches of mercury" },
+      { field: "RMK AO2", label: "Remarks", explanation: "Automated station with precipitation discriminator" },
+      { field: "SLP208", label: "Sea Level Pressure", explanation: "Sea level pressure 1020.8 hPa" }
+    ],
+    questions: [
+      {
+        question: "What does the wind group '04005KT 010V070' tell you?",
+        answer: "Wind is from 040° at 5 knots, but the direction is variable between 010° and 070°",
+        options: [
+          "Wind is from 040° at 5 knots with gusts to 70 knots",
+          "Wind is from 040° at 5 knots, but the direction is variable between 010° and 070°",
+          "Wind is variable from all directions at 10 mph",
+          "Wind speed varies between 4 and 70 knots"
+        ],
+        correctIndex: 1,
+        explanation: "When wind speed is 6 knots or less and the direction varies significantly, the METAR reports the mean direction followed by a variability group formatted as 'dddVddd', where V separates the two extreme directions. Here, wind is generally from 040° at 5 knots but varies between 010° (nearly north) and 070° (east-northeast). Variable winds are common in light, shifting conditions."
+      },
+      {
+        question: "What is the ceiling in this METAR?",
+        answer: "15,000 feet AGL (BKN150)",
+        options: [
+          "2,000 feet AGL (SCT020)",
+          "No ceiling — sky is clear",
+          "15,000 feet AGL (BKN150)",
+          "Cannot be determined from this METAR"
+        ],
+        correctIndex: 2,
+        explanation: "A ceiling is defined by the lowest broken (BKN) or overcast (OVC) layer. SCT (scattered, 3-4 oktas) does not constitute a ceiling. The lowest BKN layer here is BKN150, meaning a ceiling at 15,000 feet AGL. With the practical drone altitude limit of 400 feet AGL, cloud clearance is not an operational factor here."
+      },
+      {
+        question: "Based on this METAR, can you fly under Part 107, and what is the maximum altitude considering cloud clearance?",
+        answer: "Yes — 400 feet AGL is the practical limit and is well below the 2,000-foot scattered layer (500 ft below cloud = 1,500 ft, but 400 ft AGL governs)",
+        options: [
+          "No — scattered clouds at 2,000 feet prohibit flight",
+          "Yes — 400 feet AGL is the practical limit and is well below the 2,000-foot scattered layer (500 ft below cloud = 1,500 ft, but 400 ft AGL governs)",
+          "Yes — you can fly up to 1,500 feet AGL (500 feet below the SCT020 layer)",
+          "Yes, but only up to 300 feet AGL due to the variable winds"
+        ],
+        correctIndex: 1,
+        categories: ["Weather", "Regulations"],
+        explanation: "Visibility is 10 SM (exceeds 3 SM minimum). The scattered layer at 2,000 feet would require 500-foot clearance below (1,500 ft max by cloud rule), but the standard 400-foot AGL ceiling under Part 107 is the binding constraint in practice. Conditions are excellent for drone operations. Variable light winds present no significant hazard."
+      }
+    ]
+  },
+  {
+    id: 8,
+    raw: "KSLC 221553Z 29006KT 1/4SM +FZRA FG OVC002 M02/M02 A3028 RMK AO2 SLP316 P0005",
+    categories: ["Weather"],
+    breakdown: [
+      { field: "KSLC", label: "Station ID", explanation: "Salt Lake City International Airport, Utah" },
+      { field: "221553Z", label: "Date/Time", explanation: "22nd day at 15:53 Zulu time" },
+      { field: "29006KT", label: "Wind", explanation: "Wind from 290° (west-northwest) at 6 knots" },
+      { field: "1/4SM", label: "Visibility", explanation: "1/4 statute mile visibility — extremely low" },
+      { field: "+FZRA", label: "Weather", explanation: "Heavy freezing rain — liquid rain freezing on contact with surfaces" },
+      { field: "FG", label: "Weather", explanation: "Fog (visibility below 5/8 SM)" },
+      { field: "OVC002", label: "Clouds", explanation: "Overcast at 200 feet AGL — extremely low ceiling" },
+      { field: "M02/M02", label: "Temp/Dewpoint", explanation: "Temperature −2°C, dewpoint −2°C (both below freezing — icing conditions)" },
+      { field: "A3028", label: "Altimeter", explanation: "Altimeter setting 30.28 inches of mercury" },
+      { field: "RMK AO2", label: "Remarks", explanation: "Automated station with precipitation discriminator" },
+      { field: "SLP316", label: "Sea Level Pressure", explanation: "Sea level pressure 1031.6 hPa (high pressure)" },
+      { field: "P0005", label: "Remarks", explanation: "Precipitation accumulation of 0.05 inches in the past hour" }
+    ],
+    questions: [
+      {
+        question: "What does '+FZRA' mean and why is it dangerous for drone operations?",
+        answer: "Heavy freezing rain — supercooled liquid droplets freeze on contact, rapidly accreting ice on rotors and motors",
+        options: [
+          "Frozen rain forecast — conditions may deteriorate later",
+          "Light freezing rain — minor concern for drone operations",
+          "Heavy freezing rain — supercooled liquid droplets freeze on contact, rapidly accreting ice on rotors and motors",
+          "Freezing rain advisory — fly at your discretion"
+        ],
+        correctIndex: 2,
+        explanation: "The '+' prefix means heavy intensity, 'FZ' means freezing, and 'RA' means rain. Heavy freezing rain is one of the most dangerous weather conditions for aircraft. Ice accumulates rapidly on rotor blades, changing their aerodynamic profile and adding weight — this can cause loss of control. Most consumer drones are not designed for icing conditions."
+      },
+      {
+        question: "Can you fly under Part 107 in these conditions?",
+        answer: "No — visibility is 1/4 SM (far below the 3 SM minimum) and freezing rain creates extreme icing hazard",
+        options: [
+          "Yes — the airport conditions don't affect drone operations elsewhere",
+          "No — visibility is 1/4 SM (far below the 3 SM minimum) and freezing rain creates extreme icing hazard",
+          "Yes, if you use a VO to assist with visibility",
+          "Only if your drone is rated for icing conditions"
+        ],
+        correctIndex: 1,
+        categories: ["Weather", "Regulations"],
+        explanation: "At 1/4 SM visibility, conditions are 12 times below the 3 SM Part 107 minimum. No exception exists for this. Additionally, freezing rain poses a catastrophic icing hazard to drone rotors. This is a clear no-fly situation on both regulatory and safety grounds."
+      },
+      {
+        question: "The OVC002 ceiling is 200 feet AGL. If visibility were legal, what would the cloud clearance requirement limit your maximum altitude to?",
+        answer: "Negative — you cannot fly at all; 500 feet below a 200-foot ceiling would be −300 feet (below ground)",
+        options: [
+          "200 feet AGL — right at the ceiling",
+          "100 feet AGL (half the ceiling height)",
+          "Negative — you cannot fly at all; 500 feet below a 200-foot ceiling would be −300 feet (below ground)",
+          "Any altitude since the drone is small"
+        ],
+        correctIndex: 2,
+        explanation: "Part 107 requires at least 500 feet below clouds. With an OVC ceiling at only 200 feet AGL, there is no altitude at which you could legally fly and maintain 500-foot cloud separation — even if visibility were adequate. This illustrates how ceiling and visibility work together to restrict operations."
+      }
+    ]
   }
 ];
 

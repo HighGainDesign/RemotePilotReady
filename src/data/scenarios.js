@@ -158,6 +158,118 @@ const scenarios = [
     categories: ["Regulations", "Operations"],
     explanation: "Under Part 107, the remote PIC must report any operation that results in serious injury, loss of consciousness, or property damage (other than to the drone) of $500 or more to the FAA within 10 calendar days. The property owner's willingness to press charges is irrelevant to your FAA reporting obligation.",
     references: ["14 CFR § 107.9"]
+  },
+  {
+    id: 11,
+    title: "Night Lighting Check",
+    situation: "You are planning an evening real estate shoot. Civil twilight ends at 8:15 PM and you intend to fly at 8:30 PM. Your drone has a built-in LED status light visible from about 1 mile away. You have completed FAA-approved Part 107 recurrent training that includes night operations.",
+    question: "Can you legally conduct this night operation?",
+    options: [
+      "Yes, any lighting on the drone satisfies the night operations requirement",
+      "Yes, because you completed recurrent training that covers night operations",
+      "No, because your anti-collision light is only visible for 1 mile, not the required 3 statute miles",
+      "No, night operations always require a waiver regardless of lighting"
+    ],
+    correctIndex: 2,
+    categories: ["Operations", "Regulations"],
+    explanation: "Part 107 permits night operations without a waiver, but the drone must be equipped with anti-collision lighting visible for at least 3 statute miles. A status light visible for only 1 mile does not meet this requirement. You would need to add supplemental anti-collision lighting that meets the 3 SM visibility threshold before flying after civil twilight.",
+    references: ["14 CFR § 107.29(b)"]
+  },
+  {
+    id: 12,
+    title: "Operations Over People — Category Classification",
+    situation: "A marketing company wants you to fly your drone directly over a crowd of spectators at an outdoor festival. Your drone weighs 0.45 lbs (204 grams) with no exposed rotating parts that could lacerate skin. The drone has no FAA-accepted means of compliance declaration on file.",
+    question: "Under the Operations Over People rules, which category applies and what is required?",
+    options: [
+      "Category 1 — no additional requirements since the drone weighs under 0.55 lbs with no laceration risk",
+      "Category 2 — you must have an FAA-accepted declaration of compliance",
+      "Category 3 — you must restrict access below the flight path",
+      "No category applies; operations over crowds are always prohibited"
+    ],
+    correctIndex: 0,
+    categories: ["Regulations", "Operations"],
+    explanation: "Category 1 operations allow flight over people with no additional requirements as long as the drone weighs 0.55 lbs (250 grams) or less and does not have any exposed rotating parts that could lacerate human skin. At 0.45 lbs with no laceration hazard, this drone qualifies for Category 1. No declaration of compliance or waiver is needed.",
+    references: ["14 CFR § 107.110", "14 CFR § 107.115"]
+  },
+  {
+    id: 13,
+    title: "Remote ID Compliance",
+    situation: "You are flying a commercial inspection mission with a drone manufactured in 2022. A law enforcement officer on the ground asks you to demonstrate Remote ID compliance. Your drone does not have built-in Remote ID and you did not bring a Remote ID broadcast module.",
+    question: "Are you in compliance with Remote ID requirements?",
+    options: [
+      "Yes, Remote ID is only required for recreational flyers",
+      "Yes, Remote ID only applies within 5 miles of an airport",
+      "No, drones manufactured after the compliance date must broadcast Remote ID or use a broadcast module; flying without either is a violation",
+      "No, but you can comply by flying only in FAA-recognized identification areas (FRIAs)"
+    ],
+    correctIndex: 2,
+    categories: ["Regulations"],
+    explanation: "The FAA Remote ID rule requires that all drones flown under Part 107 either have built-in Remote ID capability, use a Remote ID broadcast module, or operate exclusively within an FAA-recognized identification area (FRIA). Flying a standard Part 107 commercial mission without Remote ID capability is a violation. You could use a broadcast module as an add-on, or fly only within a FRIA if your drone lacks built-in Remote ID.",
+    references: ["14 CFR § 89.110", "14 CFR § 89.115", "14 CFR § 89.120"]
+  },
+  {
+    id: 14,
+    title: "Density Altitude and Drone Performance",
+    situation: "You are hired to photograph a mountain resort in Colorado. The resort is at 8,500 feet MSL. The current temperature is 95°F (35°C). Standard temperature at sea level is 59°F (15°C), with a lapse rate of approximately 3.5°F per 1,000 feet.",
+    question: "What is the approximate density altitude, and how should it affect your flight planning?",
+    options: [
+      "Density altitude equals field elevation — no adjustment needed",
+      "Density altitude is approximately 11,500 feet MSL; expect significantly reduced rotor efficiency, shorter battery life, and reduced payload capacity",
+      "Density altitude is lower than field elevation because it's warm and dry",
+      "Density altitude only matters for fixed-wing aircraft, not drones"
+    ],
+    correctIndex: 1,
+    categories: ["Performance", "Weather"],
+    explanation: "Density altitude is pressure altitude corrected for non-standard temperature. At 8,500 ft MSL with 35°C temperature (standard temp at that altitude would be about 15°C − 29.75°C = −14.75°C ≈ −15°C, so you're about 50°C above standard), density altitude is roughly 11,500–12,000 feet MSL. High density altitude means thinner air, which reduces rotor thrust, extends battery drain, and lowers maximum payload. Plan for shorter flight times and potentially multiple batteries.",
+    references: ["FAA-H-8083-25 Pilot's Handbook of Aeronautical Knowledge Ch. 4"]
+  },
+  {
+    id: 15,
+    title: "Visual Observer Coordination",
+    situation: "You are conducting a linear infrastructure inspection (a pipeline) with a Visual Observer (VO). The VO radios you that the drone is approaching a bird flock on the right side and suggests you bank left immediately. At the same moment, you notice a manned helicopter in your area on the left.",
+    question: "What is the correct crew coordination action?",
+    options: [
+      "Always follow the VO's instructions immediately since that is their job",
+      "Ignore the VO and climb to avoid the helicopter",
+      "Communicate the helicopter conflict to the VO, retain final authority as remote PIC, and maneuver to avoid both hazards safely",
+      "Land immediately since there are two simultaneous hazards"
+    ],
+    correctIndex: 2,
+    categories: ["Crew Roles", "Operations"],
+    explanation: "The remote PIC retains final authority over the flight at all times — the VO assists but does not command. The correct action is to communicate the helicopter conflict to the VO, share situational awareness, and make a coordinated decision. The remote PIC has the ultimate responsibility for safety of flight and must give way to manned aircraft under all circumstances.",
+    references: ["14 CFR § 107.33", "14 CFR § 107.37(a)"]
+  },
+  {
+    id: 16,
+    title: "LAANC Authorization in Class C Airspace",
+    situation: "You need to fly a drone at 200 feet AGL for a construction survey near a regional airport with Class C airspace. The FAA UAS Facility Map shows a 200-foot ceiling authorization grid for your location. You submit a LAANC request through an authorized app.",
+    question: "If your LAANC request is automatically approved, what does this allow?",
+    options: [
+      "LAANC approval is only advisory — you still need to call the tower for permission",
+      "Automatic LAANC approval grants you real-time authorization to fly at or below the approved ceiling in that grid square without further ATC contact",
+      "LAANC approval allows flight in any airspace class up to 400 feet AGL",
+      "You must still file a flight plan with the FAA before flying"
+    ],
+    correctIndex: 1,
+    categories: ["Airspace", "Regulations"],
+    explanation: "LAANC (Low Altitude Authorization and Notification Capability) provides real-time airspace authorization for drone operations in controlled airspace. An automatic approval for your grid square at or below the UAS Facility Map ceiling grants immediate authorization to fly without additional ATC contact. This satisfies the 14 CFR § 107.41 requirement for operating in controlled airspace.",
+    references: ["14 CFR § 107.41", "FAA LAANC Program"]
+  },
+  {
+    id: 17,
+    title: "Physiological Impairment — Fatigue and Medication",
+    situation: "You have a commercial drone shoot scheduled for 8:00 AM. The previous night you slept only 3 hours due to a personal emergency. You also took an over-the-counter antihistamine (diphenhydramine/Benadryl) before bed for allergy symptoms.",
+    question: "What should you do regarding the scheduled flight?",
+    options: [
+      "Fly as planned — over-the-counter medications are not regulated under Part 107",
+      "Fly but limit the mission to under 30 minutes to reduce fatigue risk",
+      "Do not fly — both fatigue and diphenhydramine can impair judgment and reaction time, violating the prohibition on flying while impaired",
+      "Fly only if you have a Visual Observer present to compensate for your impairment"
+    ],
+    correctIndex: 2,
+    categories: ["Physiology", "Regulations"],
+    explanation: "Part 107 prohibits acting as remote PIC while impaired by any physical or mental condition that could interfere with safe operations. Diphenhydramine (Benadryl) is a sedating antihistamine known to cause drowsiness and impaired reaction time — the FAA considers it impairing. Combined with severe fatigue from only 3 hours of sleep, flying would be unsafe and unlawful. The responsible and legal action is to postpone the flight until you are rested and the medication has cleared your system.",
+    references: ["14 CFR § 107.17", "FAA AM-400-10/1 (Medications and Flying)"]
   }
 ];
 
