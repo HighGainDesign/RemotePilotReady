@@ -56,9 +56,16 @@ export default function App() {
       <header className="safe-top bg-slate-925/80 backdrop-blur-md border-b border-slate-700/50 sticky top-0 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center shrink-0">
-            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L20 14L12 10L4 14Z" opacity="0.9"/>
-              <path d="M12 10L20 14L12 22L4 14Z" opacity="0.6"/>
+            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <rect x="9.5" y="10" width="5" height="4" rx="1" fill="currentColor" stroke="none"/>
+              <line x1="10" y1="11" x2="6" y2="7"/>
+              <line x1="14" y1="11" x2="18" y2="7"/>
+              <line x1="10" y1="13" x2="6" y2="17"/>
+              <line x1="14" y1="13" x2="18" y2="17"/>
+              <circle cx="6" cy="7" r="1.5" fill="currentColor" opacity="0.5" stroke="none"/>
+              <circle cx="18" cy="7" r="1.5" fill="currentColor" opacity="0.5" stroke="none"/>
+              <circle cx="6" cy="17" r="1.5" fill="currentColor" opacity="0.5" stroke="none"/>
+              <circle cx="18" cy="17" r="1.5" fill="currentColor" opacity="0.5" stroke="none"/>
             </svg>
           </div>
           <div>
