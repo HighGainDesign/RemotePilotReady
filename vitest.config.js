@@ -5,7 +5,12 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'jsdom',
-    setupFiles: [],
+    environmentOptions: {
+      jsdom: {
+        url: 'http://localhost',
+      },
+    },
+    setupFiles: ['./vitest.setup.js'],
     globals: true,
   },
 })
