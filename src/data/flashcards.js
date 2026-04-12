@@ -194,7 +194,7 @@ const flashcards = [
     ],
     correctIndex: 1,
     explanation: "Category 2 requires that the drone has an FAA-accepted declaration of compliance and that it would not cause injury to a person that is greater than a certain severity threshold. No exposed rotating parts may lacerate human skin.",
-    reference: "14 CFR § 107.115"
+    reference: "14 CFR § 107.120"
   },
   {
     id: 15,
@@ -316,12 +316,12 @@ const flashcards = [
     question: "What does a dashed magenta line on a sectional chart indicate?",
     options: [
       "Class C airspace boundary",
-      "Class D airspace boundary",
+      "Class E airspace extending to the surface",
       "Class E airspace with a floor of 700 feet AGL",
       "Prohibited area boundary"
     ],
-    correctIndex: 2,
-    explanation: "A dashed magenta line indicates Class E airspace that begins at 700 feet AGL. This is important for drone pilots because sUAS operating below 700 feet in these areas are in Class G airspace and do not need authorization.",
+    correctIndex: 1,
+    explanation: "A dashed magenta line indicates Class E airspace that extends to the surface. This is different from the faded (shaded) magenta vignette, which indicates Class E airspace beginning at 700 feet AGL. Part 107 pilots need LAANC authorization to operate in Class E airspace that extends to the surface.",
     reference: "FAA Sectional Chart Legend"
   },
   {
@@ -811,11 +811,11 @@ const flashcards = [
     options: [
       "Yes, without restriction",
       "No, operations over moving vehicles are always prohibited",
-      "Yes, if the people in the vehicle are direct participants or the drone is a Category 1-3 aircraft",
+      "Yes, if the people in the vehicle are direct participants or the drone is a Category 1-4 aircraft",
       "Yes, but only during daylight hours"
     ],
     correctIndex: 2,
-    explanation: "Under the Operations Over People rules, a drone may operate over a moving vehicle if the people inside are direct participants in the operation or if the drone meets Category 1, 2, or 3 requirements.",
+    explanation: "Under the Operations Over People rules, a drone may operate over a moving vehicle if the people inside are direct participants in the operation or if the drone meets Category 1, 2, 3, or 4 requirements.",
     reference: "14 CFR § 107.145"
   },
   {
@@ -1275,15 +1275,15 @@ const flashcards = [
   {
     id: 91,
     category: "Airport Operations",
-    question: "What do red and white airport location markers on a sectional chart indicate?",
+    question: "On a sectional chart, what is the difference between a blue airport symbol and a magenta airport symbol?",
     options: [
-      "A private airport",
-      "A military airport",
-      "A public-use airport with a hard-surface runway longer than 1,500 feet",
-      "An airport with an operating control tower"
+      "Blue indicates a private airport; magenta indicates a public airport",
+      "Blue indicates a towered airport; magenta indicates a non-towered airport",
+      "Blue indicates a military airport; magenta indicates a civilian airport",
+      "Blue indicates IFR-only airports; magenta indicates VFR airports"
     ],
-    correctIndex: 3,
-    explanation: "On sectional charts, airports with control towers are shown in blue. Airports without towers are shown in magenta. The airport symbol shape indicates runway type (hard surface vs. soft). Blue indicates tower operations.",
+    correctIndex: 1,
+    explanation: "On sectional charts, airports with operating control towers are depicted with blue symbols, while airports without control towers are shown in magenta. This color distinction is critical for Part 107 pilots because towered airports typically have controlled airspace requiring authorization.",
     reference: "FAA Sectional Chart Legend"
   },
   {
@@ -2106,8 +2106,8 @@ const flashcards = [
       "16 knots",
       "18 knots"
     ],
-    correctIndex: 0,
-    explanation: "The angle between the wind (240°) and runway (300°) is 60°. Crosswind component = Wind speed × sin(angle) = 18 × sin(60°) ≈ 18 × 0.866 ≈ 15.6 knots. However, using the standard E6B crosswind chart or component rule with 60° angle and 18 knots gives approximately 9 knots for headwind component and approximately 15 knots crosswind. Re-checking: angle = 300°−240° = 60°; crosswind = 18 × sin(60°) ≈ 15.6 knots; headwind = 18 × cos(60°) = 9 knots. The crosswind is ≈16 knots. Use the E6B for precision.",
+    correctIndex: 2,
+    explanation: "The angle between the wind (240°) and runway (300°) is 60°. Crosswind component = Wind speed × sin(angle) = 18 × sin(60°) = 18 × 0.866 ≈ 15.6 knots, which rounds to approximately 16 knots. The headwind component is 18 × cos(60°) = 9 knots. Don't confuse the two — crosswind uses sine, headwind uses cosine.",
     reference: "FAA PHAK Chapter 16"
   },
   {
@@ -2120,8 +2120,8 @@ const flashcards = [
       "8,500 feet",
       "10,000 feet"
     ],
-    correctIndex: 1,
-    explanation: "With altimeter 29.92, pressure altitude = field elevation = 5,500 ft. Standard temperature at 5,500 ft = 15°C − (2°C × 5.5) = 15 − 11 = 4°C. Actual OAT = 30°C. Temperature excess = 26°C. Each degree above standard adds approximately 120 ft: 26 × 120 ≈ 3,100 ft. Density altitude ≈ 5,500 + 1,500 = approximately 7,000 ft. Enter these values into the E6B density altitude calculator to get the precise answer.",
+    correctIndex: 2,
+    explanation: "With altimeter 29.92, pressure altitude equals field elevation = 5,500 ft. Standard temperature at 5,500 ft = 15°C − (2°C × 5.5) = 15 − 11 = 4°C. Actual OAT = 30°C. Temperature deviation = 30 − 4 = 26°C above standard. Each degree above standard adds approximately 120 ft: 5,500 + (26 × 120) = 5,500 + 3,120 = 8,620 ft, approximately 8,500 ft.",
     reference: "FAA PHAK Chapter 4"
   },
   {

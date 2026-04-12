@@ -104,7 +104,7 @@ const metarExamples = [
         answer: "340° at 8 knots",
         options: ["340° at 8 knots", "34° at 8 knots", "340° at 80 knots", "North at 34 knots"],
         correctIndex: 0,
-        explanation: "The wind group '34008KT' decodes as direction 340° (first three digits) at 8 knots (next two digits). Wind direction is always in magnetic degrees from which the wind is blowing."
+        explanation: "The wind group '34008KT' decodes as direction 340° (first three digits) at 8 knots (next two digits). Wind direction in a METAR is always reported in true degrees from which the wind is blowing."
       },
       {
         question: "Is there a ceiling?",
@@ -290,7 +290,7 @@ const metarExamples = [
           "Wind speed varies between 4 and 70 knots"
         ],
         correctIndex: 1,
-        explanation: "When wind speed is 6 knots or less and the direction varies significantly, the METAR reports the mean direction followed by a variability group formatted as 'dddVddd', where V separates the two extreme directions. Here, wind is generally from 040° at 5 knots but varies between 010° (nearly north) and 070° (east-northeast). Variable winds are common in light, shifting conditions."
+        explanation: "The variability group 'dddVddd' appears when wind direction varies by 60° or more. At 6 knots or less, direction may simply be reported as VRB (variable). At higher speeds, the mean direction is reported normally and the variability group shows the two extreme directions. Here, wind is generally from 040° at 5 knots but varies between 010° (nearly north) and 070° (east-northeast). Variable winds are common in light, shifting conditions."
       },
       {
         question: "What is the ceiling in this METAR?",

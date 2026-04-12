@@ -214,13 +214,13 @@ const scenarios = [
     question: "What is the approximate density altitude, and how should it affect your flight planning?",
     options: [
       "Density altitude equals field elevation — no adjustment needed",
-      "Density altitude is approximately 11,500 feet MSL; expect significantly reduced rotor efficiency, shorter battery life, and reduced payload capacity",
+      "Density altitude is approximately 13,000 feet MSL; expect significantly reduced rotor efficiency, shorter battery life, and reduced payload capacity",
       "Density altitude is lower than field elevation because it's warm and dry",
       "Density altitude only matters for fixed-wing aircraft, not drones"
     ],
     correctIndex: 1,
     categories: ["Performance", "Weather"],
-    explanation: "Density altitude is pressure altitude corrected for non-standard temperature. At 8,500 ft MSL with 35°C temperature (standard temp at that altitude would be about 15°C − 29.75°C = −14.75°C ≈ −15°C, so you're about 50°C above standard), density altitude is roughly 11,500–12,000 feet MSL. High density altitude means thinner air, which reduces rotor thrust, extends battery drain, and lowers maximum payload. Plan for shorter flight times and potentially multiple batteries.",
+    explanation: "Density altitude is pressure altitude corrected for non-standard temperature. At 8,500 ft MSL, standard temperature (ISA) = 15°C − (2°C × 8.5) = 15 − 17 = −2°C. Actual temperature is 35°C, which is 37°C above standard. Density altitude ≈ 8,500 + (120 × 37) = 8,500 + 4,440 ≈ 12,940 ft, roughly 13,000 feet MSL. High density altitude means thinner air, which reduces rotor thrust, extends battery drain, and lowers maximum payload. Plan for shorter flight times and potentially multiple batteries.",
     references: ["FAA-H-8083-25 Pilot's Handbook of Aeronautical Knowledge Ch. 4"]
   },
   {

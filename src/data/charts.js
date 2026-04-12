@@ -98,7 +98,7 @@ const chartScenarios = [
           "You always need authorization inside any blue line"
         ],
         correctIndex: 1,
-        explanation: "Under the outer tier labeled '100/30', the Class B airspace floor is 3,000 feet MSL. If you are flying at 200 feet AGL and the ground elevation keeps you well below 3,000 feet MSL, you are beneath the Class B shelf and not inside the controlled airspace. However, you may still be within the Mode C veil (30 NM), which requires your drone to have ADS-B Out if required by the specific area rules. Always check LAANC grid altitudes."
+        explanation: "Under the outer tier labeled '100/30', the Class B airspace floor is 3,000 feet MSL. If you are flying at 200 feet AGL and the ground elevation keeps you well below 3,000 feet MSL, you are beneath the Class B shelf and not inside the controlled airspace. However, you may still be within the Mode C veil (30 NM), which is an area of dense air traffic where situational awareness is especially important. Always check LAANC grid altitudes."
       },
       {
         question: "What is the 'Mode C veil' associated with Class B airspace?",
