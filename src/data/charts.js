@@ -5,6 +5,7 @@ const chartScenarios = [
     description: "Identify the airspace class and airport features indicated by a dashed blue circle",
     chartType: "airport_class_d",
     features: ["Class D airspace", "Control tower (CT)", "Hard surface runway", "Tower frequency"],
+    categories: ["Airspace", "Airport Operations"],
     questions: [
       {
         question: "What class of airspace is indicated by the dashed blue line surrounding the airport?",
@@ -42,6 +43,7 @@ const chartScenarios = [
     description: "Identify the two-ring structure of Class C airspace shown with solid magenta lines",
     chartType: "airport_class_c",
     features: ["Class C inner ring (5 NM)", "Class C outer ring (10 NM)", "Solid magenta lines", "Altitude shelves"],
+    categories: ["Airspace"],
     questions: [
       {
         question: "What type of airspace is indicated by the solid magenta circles?",
@@ -79,6 +81,7 @@ const chartScenarios = [
     description: "Identify the multi-layered Class B airspace structure shown with solid blue lines",
     chartType: "class_b",
     features: ["Class B solid blue lines", "Multiple altitude shelves", "Wedding cake layers", "Mode C veil (30 NM)"],
+    categories: ["Airspace"],
     questions: [
       {
         question: "What type of airspace is depicted by solid blue lines with altitude labels?",
@@ -116,6 +119,7 @@ const chartScenarios = [
     description: "Distinguish between Class E to the surface and Class E starting at 700 ft AGL",
     chartType: "class_e",
     features: ["Dashed magenta line (Class E to surface)", "Faded magenta shading (Class E at 700 AGL)", "Transition areas"],
+    categories: ["Airspace"],
     questions: [
       {
         question: "A dashed magenta line forms a circle around an airport. What does this indicate?",
@@ -158,6 +162,7 @@ const chartScenarios = [
     description: "Read obstruction symbols and understand MSL vs AGL height notations",
     chartType: "obstructions",
     features: ["Obstruction symbol", "MSL height (bold)", "AGL height (parentheses)", "Lighted vs unlighted", "Group obstructions"],
+    categories: ["Operations"],
     questions: [
       {
         question: "An obstruction symbol shows '1548' in bold above '(305)' in lighter text. What do these numbers mean?",
@@ -200,6 +205,7 @@ const chartScenarios = [
     description: "Identify VFR waypoints and checkpoint symbols on sectional charts",
     chartType: "vfr_waypoints",
     features: ["VFR waypoint flag (magenta)", "VFR checkpoint", "Five-letter identifier", "GPS coordinates"],
+    categories: ["Airport Operations"],
     questions: [
       {
         question: "What does a magenta flag symbol on a sectional chart represent?",
@@ -242,6 +248,7 @@ const chartScenarios = [
     description: "Identify MOA boundaries and understand their significance for drone operations",
     chartType: "moa",
     features: ["Magenta hatched boundary", "MOA name and altitudes", "Controlling agency", "Operating hours"],
+    categories: ["Airspace", "Regulations"],
     questions: [
       {
         question: "What type of boundary is indicated by magenta hatched lines on a sectional chart?",
@@ -284,6 +291,7 @@ const chartScenarios = [
     description: "Identify restricted/prohibited area boundaries and understand the differences",
     chartType: "restricted_area",
     features: ["Blue hatched boundary", "R- prefix (Restricted)", "P- prefix (Prohibited)", "Altitude and time limits"],
+    categories: ["Airspace", "Regulations"],
     questions: [
       {
         question: "What type of special use airspace is indicated by blue hatched lines?",
@@ -326,6 +334,7 @@ const chartScenarios = [
     description: "Understand Temporary Flight Restrictions and how they appear on charts",
     chartType: "tfr",
     features: ["TFR boundary (not on printed charts)", "NOTAM reference", "Radius and altitude", "Common TFR triggers"],
+    categories: ["Regulations", "Operations"],
     questions: [
       {
         question: "Where would you find active TFR information before a Part 107 flight?",
@@ -368,6 +377,7 @@ const chartScenarios = [
     description: "Decode the airport information block found next to airport symbols",
     chartType: "airport_data",
     features: ["Airport name", "Field elevation", "Runway length", "CTAF/UNICOM frequency", "Lighting availability"],
+    categories: ["Airport Operations"],
     questions: [
       {
         question: "Next to a magenta airport symbol, you see the data: 'SMITHVILLE (6J2)' with '1280' and 'L 72'. What is the field elevation?",
@@ -405,5 +415,11 @@ const chartScenarios = [
     ]
   }
 ];
+
+export function getQuestionIds() {
+  return chartScenarios.flatMap(s =>
+    s.questions.map((_, qi) => `charts_${s.id}_${qi}`)
+  )
+}
 
 export default chartScenarios;

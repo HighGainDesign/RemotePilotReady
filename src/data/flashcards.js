@@ -1488,4 +1488,12 @@ const flashcards = [
 
 export const categories = ["All", "Regulations", "Airspace", "Weather", "Operations", "Crew Roles", "Performance", "Airport Operations", "Physiology"];
 
+flashcards.forEach(card => {
+  card.categories = [card.category]
+})
+
+export function getQuestionIds() {
+  return flashcards.map(c => `questions_${c.id}`)
+}
+
 export default flashcards;
