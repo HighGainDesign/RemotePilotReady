@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import StudyMode from './components/StudyMode'
+import ExamMode from './components/ExamMode'
 import Calculator from './components/Calculator'
 import QuickReference from './components/QuickReference'
 
@@ -51,17 +52,6 @@ function RefIcon({ className }) {
   )
 }
 
-function ExamPlaceholder() {
-  return (
-    <div className="px-4 py-12 text-center">
-      <div className="font-instrument text-phosphor text-[0.6875rem] font-bold tracking-widest mb-3 glow-phosphor-text">
-        EXAM MODE
-      </div>
-      <p className="text-secondary-text text-[0.875rem] mb-2">60 questions · 2 hours · 70% to pass</p>
-      <p className="text-inactive text-[0.75rem]">Coming soon</p>
-    </div>
-  )
-}
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('study')
@@ -90,7 +80,7 @@ export default function App() {
             <StudyMode />
           </div>
           <div style={{ display: activeTab === 'exam' ? 'block' : 'none' }}>
-            <ExamPlaceholder />
+            <ExamMode />
           </div>
           <div style={{ display: activeTab === 'e6b' ? 'block' : 'none' }}>
             <Calculator />
