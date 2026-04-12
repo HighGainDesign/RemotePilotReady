@@ -1,12 +1,22 @@
 @import "tailwindcss";
 
 @theme {
+  /* Cockpit color palette */
+  --color-cockpit-bg: #080e1a;
+  --color-cockpit-surface: #0c1a2e;
+  --color-cockpit-border: rgba(74, 252, 146, 0.12);
+  --color-phosphor: #4afc92;
+  --color-phosphor-dim: rgba(74, 252, 146, 0.06);
+  --color-amber-accent: #fbbf24;
+  --color-red-accent: #f87171;
+  --color-body-text: #e2e8f0;
+  --color-secondary-text: #94a3b8;
+  --color-inactive: #64748b;
+  --color-divider: #1e293b;
+
+  /* Legacy aliases for components not yet migrated */
   --color-slate-850: #162031;
   --color-slate-925: #0c1322;
-  --color-sky-accent: #38bdf8;
-  --color-amber-accent: #fbbf24;
-  --color-green-accent: #34d399;
-  --color-red-accent: #f87171;
 }
 
 html, body, #root {
@@ -16,41 +26,61 @@ html, body, #root {
 }
 
 body {
-  background-color: var(--color-slate-925);
-  color: #e2e8f0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-cockpit-bg);
+  color: var(--color-body-text);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overscroll-behavior: none;
 }
 
-/* Card flip animation */
-.card-inner {
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-.card-inner.flipped {
-  transform: rotateY(180deg);
-}
-.card-front, .card-back {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.card-back {
-  transform: rotateY(180deg);
+/* Instrument font utility */
+.font-instrument {
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Swipe animation */
-.card-swipe {
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+/* Atmospheric noise overlay */
+.cockpit-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  z-index: 1;
 }
-.card-swipe.swipe-left {
-  transform: translateX(-120%) rotate(-15deg);
-  opacity: 0;
+
+/* Faint scanlines */
+.cockpit-scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(74, 252, 146, 0.008) 2px,
+    rgba(74, 252, 146, 0.008) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
 }
-.card-swipe.swipe-right {
-  transform: translateX(120%) rotate(15deg);
-  opacity: 0;
+
+/* Grid background */
+.cockpit-grid {
+  background-image:
+    linear-gradient(rgba(74, 252, 146, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 252, 146, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Phosphor glow utility */
+.glow-phosphor {
+  box-shadow: 0 0 8px rgba(74, 252, 146, 0.15);
+}
+
+.glow-phosphor-text {
+  text-shadow: 0 0 8px rgba(74, 252, 146, 0.3);
 }
 
 /* Touch feedback */
@@ -61,21 +91,28 @@ body {
 }
 
 /* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 2px;
-}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* Safe area padding for iOS */
-.safe-bottom {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+.safe-top { padding-top: env(safe-area-inset-top, 0px); }
+
+/* Animation keyframes */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
 }
-.safe-top {
-  padding-top: env(safe-area-inset-top, 0px);
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 rgba(74, 252, 146, 0); }
+  50% { box-shadow: 0 0 16px rgba(74, 252, 146, 0.3); }
 }
+
+.animate-shake { animation: shake 0.4s ease-in-out; }
+.animate-pulse-glow { animation: pulse-glow 0.6s ease-in-out; }
