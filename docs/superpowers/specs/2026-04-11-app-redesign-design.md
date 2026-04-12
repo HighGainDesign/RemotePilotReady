@@ -270,6 +270,26 @@ The header badge shows both retention and progress:
 ```
 Both in JetBrains Mono. Retention is primary (brighter), progress is secondary (slightly lighter weight). Both must pass AA contrast.
 
+### Single-Screen Constraint
+
+Text-only questions (question bank, scenarios) must fit on a single phone screen with no scrolling. Target layout budget on iPhone SE (484px usable):
+
+```
+Header + sub-nav:       ~80px
+Round indicator + bar:  ~30px
+Question card:          ~80-120px (max 3 lines)
+4 option buttons:       ~200px (4 × 48px + gaps)
+Total:                  ~390-430px  ← fits within 484px
+```
+
+Rules:
+- Question text: max 3 lines at body size. Longer questions scroll internally — options stay visible.
+- Option text: single line preferred, wraps to 2 lines max.
+- Explanation appears only after answering, below the fold — acceptable since the user has already committed.
+- Category pills and stats: single compact row.
+
+Visual questions (Charts, METAR) are exempt — the chart SVG or METAR string is the primary content and takes ~200px. Options appear below the fold; a short scroll is acceptable since studying the visual IS the exercise.
+
 ### Accessibility (WCAG AA)
 
 - All text: minimum 4.5:1 contrast ratio against background
