@@ -1,21 +1,16 @@
 import { useState } from 'react'
-import Flashcards from './components/Flashcards'
-import ScenarioTrainer from './components/ScenarioTrainer'
-import MetarDecoder from './components/MetarDecoder'
-import QuickReference from './components/QuickReference'
+import StudyMode from './components/StudyMode'
 import Calculator from './components/Calculator'
-import ChartTrainer from './components/ChartTrainer'
+import QuickReference from './components/QuickReference'
 
 const tabs = [
-  { id: 'flashcards', label: 'Study', icon: CardIcon },
-  { id: 'scenarios', label: 'Scenarios', icon: ScenarioIcon },
-  { id: 'charts', label: 'Charts', icon: ChartIcon },
-  { id: 'metar', label: 'METAR', icon: MetarIcon },
+  { id: 'study', label: 'STUDY', icon: StudyIcon },
+  { id: 'exam', label: 'EXAM', icon: ExamIcon },
   { id: 'e6b', label: 'E6B', icon: E6BIcon },
-  { id: 'reference', label: 'Reference', icon: ReferenceIcon },
+  { id: 'reference', label: 'REF', icon: RefIcon },
 ]
 
-function CardIcon({ className }) {
+function StudyIcon({ className }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="3" y="4" width="18" height="16" rx="2" />
@@ -24,20 +19,11 @@ function CardIcon({ className }) {
   )
 }
 
-function ScenarioIcon({ className }) {
+function ExamIcon({ className }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M12 3v6m0 0l-3-2m3 2l3-2M6 13l-2 3h4l-2 3M18 13l-2 3h4l-2 3M12 13v4m0 0l-2-1.5M12 17l2-1.5" />
-    </svg>
-  )
-}
-
-function MetarIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M3 15h2m4 0h2m4 0h2m2 0h2" />
-      <path d="M5 9a4 4 0 017-2.6A3.5 3.5 0 0118 9a3 3 0 01-1 5.8" />
-      <path d="M8 19l1-2m3 2l1-2m3 2l1-2" />
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 3" />
     </svg>
   )
 }
@@ -56,16 +42,7 @@ function E6BIcon({ className }) {
   )
 }
 
-function ChartIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M3 7l6-3 6 3 6-3v14l-6 3-6-3-6 3V7z" />
-      <path d="M9 4v14M15 7v14" />
-    </svg>
-  )
-}
-
-function ReferenceIcon({ className }) {
+function RefIcon({ className }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 4h16v16H4z" />
@@ -74,48 +51,58 @@ function ReferenceIcon({ className }) {
   )
 }
 
+function ExamPlaceholder() {
+  return (
+    <div className="px-4 py-12 text-center">
+      <div className="font-instrument text-phosphor text-[0.6875rem] font-bold tracking-widest mb-3 glow-phosphor-text">
+        EXAM MODE
+      </div>
+      <p className="text-secondary-text text-[0.875rem] mb-2">60 questions · 2 hours · 70% to pass</p>
+      <p className="text-inactive text-[0.75rem]">Coming soon</p>
+    </div>
+  )
+}
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState('flashcards')
+  const [activeTab, setActiveTab] = useState('study')
 
   return (
-    <div className="flex flex-col h-full min-h-screen bg-slate-925">
+    <div className="flex flex-col h-full min-h-screen bg-cockpit-bg">
       {/* Header */}
-      <header className="safe-top bg-slate-925/80 backdrop-blur-md border-b border-slate-700/50 sticky top-0 z-50">
+      <header className="safe-top bg-cockpit-bg/80 backdrop-blur-md border-b border-cockpit-border sticky top-0 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center shrink-0">
-            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-              <rect x="9.5" y="10" width="5" height="4" rx="1" fill="currentColor" stroke="none"/>
-              <line x1="10" y1="11" x2="6" y2="7"/>
-              <line x1="14" y1="11" x2="18" y2="7"/>
-              <line x1="10" y1="13" x2="6" y2="17"/>
-              <line x1="14" y1="13" x2="18" y2="17"/>
-              <circle cx="6" cy="7" r="1.5" fill="currentColor" opacity="0.5" stroke="none"/>
-              <circle cx="18" cy="7" r="1.5" fill="currentColor" opacity="0.5" stroke="none"/>
-              <circle cx="6" cy="17" r="1.5" fill="currentColor" opacity="0.5" stroke="none"/>
-              <circle cx="18" cy="17" r="1.5" fill="currentColor" opacity="0.5" stroke="none"/>
-            </svg>
+          <div className="w-8 h-8 rounded-full border-2 border-phosphor flex items-center justify-center glow-phosphor">
+            <span className="text-phosphor text-[0.875rem]" style={{ filter: 'drop-shadow(0 0 4px rgba(74,252,146,0.4))' }}>✦</span>
           </div>
           <div>
-            <h1 className="text-base font-semibold text-white leading-tight">RemotePilotReady</h1>
-            <p className="text-xs text-slate-400">Part 107 Certification Study</p>
+            <h1 className="font-instrument text-body-text text-[0.875rem] font-extrabold tracking-[0.15em] leading-tight">
+              RPR
+            </h1>
+            <p className="font-instrument text-inactive text-[0.5rem] tracking-[0.15em]">PART 107</p>
           </div>
         </div>
       </header>
 
-      {/* Content */}
+      {/* Content — all tabs mounted, display toggled */}
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-2xl mx-auto">
-          {activeTab === 'flashcards' && <Flashcards />}
-          {activeTab === 'scenarios' && <ScenarioTrainer />}
-          {activeTab === 'charts' && <ChartTrainer />}
-          {activeTab === 'metar' && <MetarDecoder />}
-          {activeTab === 'e6b' && <Calculator />}
-          {activeTab === 'reference' && <QuickReference />}
+          <div style={{ display: activeTab === 'study' ? 'block' : 'none' }}>
+            <StudyMode />
+          </div>
+          <div style={{ display: activeTab === 'exam' ? 'block' : 'none' }}>
+            <ExamPlaceholder />
+          </div>
+          <div style={{ display: activeTab === 'e6b' ? 'block' : 'none' }}>
+            <Calculator />
+          </div>
+          <div style={{ display: activeTab === 'reference' ? 'block' : 'none' }}>
+            <QuickReference />
+          </div>
         </div>
       </main>
 
       {/* Tab Bar */}
-      <nav className="safe-bottom bg-slate-925/90 backdrop-blur-md border-t border-slate-700/50 sticky bottom-0 z-50">
+      <nav className="safe-bottom bg-cockpit-bg/90 backdrop-blur-md border-t border-cockpit-border sticky bottom-0 z-50">
         <div className="max-w-2xl mx-auto flex">
           {tabs.map((tab) => {
             const Icon = tab.icon
@@ -124,14 +111,18 @@ export default function App() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`tap-highlight flex-1 flex flex-col items-center gap-1 py-2 pt-3 transition-colors ${
-                  isActive
-                    ? 'text-sky-400'
-                    : 'text-slate-500 active:text-slate-300'
+                className={`tap-highlight flex-1 flex flex-col items-center gap-1 py-2 pt-3 transition-colors relative ${
+                  isActive ? 'text-phosphor' : 'text-inactive active:text-secondary-text'
                 }`}
               >
+                {isActive && (
+                  <div
+                    className="w-[5px] h-[5px] rounded-full bg-phosphor absolute top-1"
+                    style={{ boxShadow: '0 0 6px rgba(74,252,146,0.5)' }}
+                  />
+                )}
                 <Icon className="w-5 h-5" />
-                <span className="text-[10px] font-medium">{tab.label}</span>
+                <span className="font-instrument text-[0.5rem] font-semibold tracking-wider">{tab.label}</span>
               </button>
             )
           })}
