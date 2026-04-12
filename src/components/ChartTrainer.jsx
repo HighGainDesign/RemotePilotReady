@@ -21,7 +21,6 @@ function AirportClassD() {
       {/* CT frequency label */}
       <text x="200" y="80" fill="#60a5fa" fontSize="11" fontFamily="monospace" fontWeight="bold">CT 125.3</text>
       {/* Airspace label */}
-      <text x="150" y="215" fill="#60a5fa" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">Class D — Dashed Blue</text>
       {/* Altitude annotation */}
       <text x="68" y="70" fill="#94a3b8" fontSize="9" fontFamily="monospace">[SFC — 2500 AGL]</text>
     </svg>
@@ -47,9 +46,6 @@ function AirportClassC() {
       {/* Outer shelf label */}
       <text x="220" y="82" fill="#e879f9" fontSize="10" fontFamily="monospace" fontWeight="bold">40</text>
       <text x="220" y="94" fill="#e879f9" fontSize="9" fontFamily="monospace">20</text>
-      {/* NM annotations */}
-      <text x="150" y="185" fill="#94a3b8" fontSize="8" fontFamily="monospace" textAnchor="middle">5 NM inner / 10 NM outer</text>
-      <text x="150" y="225" fill="#e879f9" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">Class C — Solid Magenta</text>
     </svg>
   )
 }
@@ -74,7 +70,6 @@ function ClassB() {
       {/* Tier lines for visual clarity */}
       <line x1="170" y1="118" x2="205" y2="100" stroke="#60a5fa" strokeWidth="0.5" opacity="0.5" />
       <line x1="205" y1="100" x2="240" y2="75" stroke="#60a5fa" strokeWidth="0.5" opacity="0.5" />
-      <text x="150" y="225" fill="#60a5fa" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">Class B — Solid Blue (Wedding Cake)</text>
     </svg>
   )
 }
@@ -95,10 +90,6 @@ function ClassE() {
           <stop offset="100%" stopColor="#e879f9" stopOpacity="0" />
         </linearGradient>
       </defs>
-      {/* Labels */}
-      <text x="150" y="50" fill="#e879f9" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle">Class E to SFC</text>
-      <text x="150" y="190" fill="#e879f9" fontSize="10" fontFamily="monospace" textAnchor="middle" opacity="0.6">Class E 700 AGL</text>
-      <text x="150" y="225" fill="#e879f9" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">Class E — Dashed / Faded Magenta</text>
     </svg>
   )
 }
@@ -121,7 +112,6 @@ function Obstructions() {
         {/* Elevation labels */}
         <text x="0" y="28" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold" textAnchor="middle">1548</text>
         <text x="0" y="40" fill="#94a3b8" fontSize="10" fontFamily="monospace" textAnchor="middle">(305)</text>
-        <text x="0" y="55" fill="#fbbf24" fontSize="8" fontFamily="sans-serif" textAnchor="middle">LIGHTED</text>
       </g>
       {/* Unlighted tower */}
       <g transform="translate(200,100)">
@@ -132,11 +122,7 @@ function Obstructions() {
         {/* Elevation labels */}
         <text x="0" y="28" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold" textAnchor="middle">987</text>
         <text x="0" y="40" fill="#94a3b8" fontSize="10" fontFamily="monospace" textAnchor="middle">(210)</text>
-        <text x="0" y="55" fill="#94a3b8" fontSize="8" fontFamily="sans-serif" textAnchor="middle">UNLIGHTED</text>
       </g>
-      {/* Legend */}
-      <text x="150" y="22" fill="#94a3b8" fontSize="9" fontFamily="sans-serif" textAnchor="middle">Bold = MSL elevation / (AGL height)</text>
-      <text x="150" y="225" fill="#60a5fa" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">Obstructions — Tower Symbols</text>
     </svg>
   )
 }
@@ -160,9 +146,7 @@ function VfrWaypoints() {
         <line x1="-4" y1="0" x2="-1" y2="3" stroke="#e879f9" strokeWidth="1.5" />
         <line x1="-1" y1="3" x2="5" y2="-3" stroke="#e879f9" strokeWidth="1.5" />
         <text x="0" y="35" fill="#e879f9" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle">VPCPT</text>
-        <text x="0" y="48" fill="#94a3b8" fontSize="8" fontFamily="sans-serif" textAnchor="middle">(checkpoint)</text>
       </g>
-      <text x="150" y="225" fill="#e879f9" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">VFR Waypoints — Magenta Flags</text>
     </svg>
   )
 }
@@ -188,7 +172,6 @@ function Moa() {
       <text x="150" y="110" fill="#e879f9" fontSize="13" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">BRUSHY MOA</text>
       <text x="150" y="130" fill="#e879f9" fontSize="10" fontFamily="monospace" textAnchor="middle">8000 MSL to FL180</text>
       <text x="150" y="148" fill="#94a3b8" fontSize="9" fontFamily="monospace" textAnchor="middle">Intermittent by NOTAM</text>
-      <text x="150" y="225" fill="#e879f9" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">MOA — Magenta Hatched Boundary</text>
     </svg>
   )
 }
@@ -216,7 +199,6 @@ function RestrictedArea() {
       <circle cx="220" cy="100" r="45" fill="url(#restrictHatch)" stroke="#60a5fa" strokeWidth="2" />
       <text x="220" y="97" fill="#60a5fa" fontSize="12" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">P-56</text>
       <text x="220" y="112" fill="#60a5fa" fontSize="9" fontFamily="monospace" textAnchor="middle">SFC TO UNL</text>
-      <text x="150" y="225" fill="#60a5fa" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">Restricted / Prohibited — Blue Hatched</text>
     </svg>
   )
 }
@@ -233,10 +215,8 @@ function Tfr() {
         <path d="M0,-18 C-6,-8 -12,2 -8,12 C-6,18 -2,20 0,20 C2,20 6,18 8,12 C12,2 6,-8 0,-18Z" fill="#f97316" opacity="0.7" />
         <path d="M0,-6 C-3,0 -6,6 -4,12 C-3,16 -1,17 0,17 C1,17 3,16 4,12 C6,6 3,0 0,-6Z" fill="#fbbf24" opacity="0.8" />
       </g>
-      {/* Labels */}
-      <text x="150" y="45" fill="#f97316" fontSize="12" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">TFR</text>
-      <text x="150" y="200" fill="#f97316" fontSize="10" fontFamily="monospace" textAnchor="middle">3 NM radius / SFC to 3000 AGL</text>
-      <text x="150" y="225" fill="#f97316" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">TFR — Red/Orange Dashed</text>
+      {/* Radius and altitude data — as shown on apps/NOTAMs */}
+      <text x="150" y="200" fill="#f97316" fontSize="10" fontFamily="monospace" textAnchor="middle">3 NM / SFC — 3000 AGL</text>
     </svg>
   )
 }
@@ -261,11 +241,6 @@ function AirportData() {
         <text x="0" y="48" fill="#e879f9" fontSize="10" fontFamily="monospace">122.8</text>
         <text x="45" y="48" fill="#94a3b8" fontSize="8" fontFamily="sans-serif">CTAF</text>
       </g>
-      {/* Legend callouts */}
-      <text x="30" y="185" fill="#94a3b8" fontSize="8" fontFamily="sans-serif">Magenta = Non-towered airport</text>
-      <text x="30" y="198" fill="#94a3b8" fontSize="8" fontFamily="sans-serif">L = Lighted runway</text>
-      <text x="30" y="211" fill="#94a3b8" fontSize="8" fontFamily="sans-serif">72 = Runway length (hundreds of feet)</text>
-      <text x="150" y="232" fill="#e879f9" fontSize="10" fontFamily="sans-serif" textAnchor="middle" opacity="0.7">Airport Data Block</text>
     </svg>
   )
 }
@@ -383,11 +358,8 @@ export default function ChartTrainer() {
                   : 'bg-slate-800/60 text-slate-400 border-slate-700/40'
               }`}
             >
-              <span className="flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full border border-current flex items-center justify-center text-[9px] font-bold">
-                  {isDone ? '\u2713' : i + 1}
-                </span>
-                <span className="whitespace-nowrap">{s.title}</span>
+              <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center text-[10px] font-bold">
+                {isDone ? '\u2713' : i + 1}
               </span>
             </button>
           )
@@ -396,15 +368,19 @@ export default function ChartTrainer() {
 
       {/* Active scenario card */}
       <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-850 border border-slate-700/50 overflow-hidden">
-        {/* Title and description */}
+        {/* Title — hidden until scenario is completed to avoid spoilers */}
         <div className="px-5 pt-5 pb-3">
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-1">
             <span className="w-6 h-6 rounded-full bg-sky-500/15 text-sky-400 text-xs font-bold flex items-center justify-center">
               {activeScenario + 1}
             </span>
-            <h3 className="text-sm font-semibold text-white">{scenario.title}</h3>
+            <h3 className="text-sm font-semibold text-white">
+              {completedScenarios.has(activeScenario) ? scenario.title : 'Identify the chart symbols below'}
+            </h3>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">{scenario.description}</p>
+          {completedScenarios.has(activeScenario) && (
+            <p className="text-xs text-slate-400 leading-relaxed ml-8">{scenario.description}</p>
+          )}
         </div>
 
         {/* SVG Chart illustration */}
@@ -414,19 +390,22 @@ export default function ChartTrainer() {
           </div>
         </div>
 
-        {/* Feature callout pills */}
-        <div className="px-5 pb-4">
-          <div className="flex flex-wrap gap-1.5">
-            {scenario.features.map((feat, i) => (
-              <span
-                key={i}
-                className="px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400/80 text-[10px] font-medium ring-1 ring-sky-500/20"
-              >
-                {feat}
-              </span>
-            ))}
+        {/* Feature callout pills — only shown after completion */}
+        {completedScenarios.has(activeScenario) && (
+          <div className="px-5 pb-4">
+            <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold mb-1.5">Key features</p>
+            <div className="flex flex-wrap gap-1.5">
+              {scenario.features.map((feat, i) => (
+                <span
+                  key={i}
+                  className="px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400/80 text-[10px] font-medium ring-1 ring-sky-500/20"
+                >
+                  {feat}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Quiz or completion */}
         {scenarioComplete ? (
