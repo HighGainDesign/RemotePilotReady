@@ -1,12 +1,12 @@
 import { useState, useMemo } from 'react'
 
 const TABS = [
-  { id: 'density', label: 'Density Alt' },
+  { id: 'density', label: 'Density' },
   { id: 'heading', label: 'Heading' },
-  { id: 'crosswind', label: 'Crosswind' },
-  { id: 'converter', label: 'Converter' },
-  { id: 'tsd', label: 'Time/Spd/Dist' },
-  { id: 'guide', label: 'E6B Guide' },
+  { id: 'crosswind', label: 'Wind' },
+  { id: 'converter', label: 'Convert' },
+  { id: 'tsd', label: 'TSD' },
+  { id: 'guide', label: 'Guide' },
 ]
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -690,12 +690,12 @@ export default function Calculator() {
       </div>
 
       {/* Tab bar / segmented control */}
-      <div className="flex gap-1.5 mb-5 overflow-x-auto pb-1">
+      <div className="flex gap-1.5 mb-5 overflow-x-auto pb-1 scrollbar-hide">
         {TABS.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`tap-highlight flex-1 min-w-0 py-2.5 px-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap font-instrument ${
+            className={`tap-highlight shrink-0 py-2.5 px-3 rounded-xl text-xs font-medium transition-colors whitespace-nowrap font-instrument ${
               activeTab === tab.id
                 ? 'bg-phosphor/15 border border-phosphor/30 text-phosphor'
                 : 'bg-cockpit-surface border border-cockpit-border text-secondary-text active:bg-divider'
