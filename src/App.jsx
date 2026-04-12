@@ -75,27 +75,29 @@ export default function App() {
       {/* Header */}
       <header className="safe-top bg-cockpit-bg/80 backdrop-blur-md border-b border-cockpit-border sticky top-0 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <div className="w-9 h-9 flex items-center justify-center shrink-0" style={{ filter: 'drop-shadow(0 0 6px rgba(74,252,146,0.3))' }}>
-            <svg viewBox="0 0 24 24" className="w-9 h-9" fill="none">
+          <div className="w-9 h-9 shrink-0" style={{ filter: 'drop-shadow(0 0 6px rgba(74,252,146,0.3))' }}>
+            <svg viewBox="0 0 64 64" className="w-9 h-9" fill="none">
+              {/* iOS squircle background */}
+              <path d="M12 0h40c6.6 0 10.4 1.2 12 4s4 5.4 4 12v32c0 6.6-1.2 10.4-4 12s-5.4 4-12 4H12c-6.6 0-10.4-1.2-12-4S-4 54.6-4 48V16C-4 9.4-2.8 5.6 0 4S5.4 0 12 0z" fill="#0c1a2e" stroke="#4afc92" strokeWidth="1.5" strokeOpacity="0.25" />
               {/* Drone body */}
-              <rect x="9" y="10.5" width="6" height="3.5" rx="1" fill="#4afc92" />
+              <rect x="26" y="28" width="12" height="8" rx="2" fill="#4afc92" />
               {/* Arms */}
-              <line x1="10.5" y1="11.5" x2="5.5" y2="7" stroke="#4afc92" strokeWidth="1.2" strokeLinecap="round" />
-              <line x1="13.5" y1="11.5" x2="18.5" y2="7" stroke="#4afc92" strokeWidth="1.2" strokeLinecap="round" />
-              <line x1="10.5" y1="13" x2="5.5" y2="17" stroke="#4afc92" strokeWidth="1.2" strokeLinecap="round" />
-              <line x1="13.5" y1="13" x2="18.5" y2="17" stroke="#4afc92" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="28" y1="30" x2="18" y2="22" stroke="#4afc92" strokeWidth="1.8" strokeLinecap="round" opacity="0.7" />
+              <line x1="36" y1="30" x2="46" y2="22" stroke="#4afc92" strokeWidth="1.8" strokeLinecap="round" opacity="0.7" />
+              <line x1="28" y1="34" x2="18" y2="42" stroke="#4afc92" strokeWidth="1.8" strokeLinecap="round" opacity="0.7" />
+              <line x1="36" y1="34" x2="46" y2="42" stroke="#4afc92" strokeWidth="1.8" strokeLinecap="round" opacity="0.7" />
               {/* Rotors */}
-              <ellipse cx="5.5" cy="7" rx="3.5" ry="1" fill="#4afc92" opacity="0.4" />
-              <ellipse cx="18.5" cy="7" rx="3.5" ry="1" fill="#4afc92" opacity="0.4" />
-              <ellipse cx="5.5" cy="17" rx="3.5" ry="1" fill="#4afc92" opacity="0.4" />
-              <ellipse cx="18.5" cy="17" rx="3.5" ry="1" fill="#4afc92" opacity="0.4" />
+              <ellipse cx="18" cy="22" rx="7" ry="2" fill="#4afc92" opacity="0.3" />
+              <ellipse cx="46" cy="22" rx="7" ry="2" fill="#4afc92" opacity="0.3" />
+              <ellipse cx="18" cy="42" rx="7" ry="2" fill="#4afc92" opacity="0.3" />
+              <ellipse cx="46" cy="42" rx="7" ry="2" fill="#4afc92" opacity="0.3" />
               {/* Motor hubs */}
-              <circle cx="5.5" cy="7" r="1.2" fill="#4afc92" />
-              <circle cx="18.5" cy="7" r="1.2" fill="#4afc92" />
-              <circle cx="5.5" cy="17" r="1.2" fill="#4afc92" />
-              <circle cx="18.5" cy="17" r="1.2" fill="#4afc92" />
-              {/* Camera lens */}
-              <circle cx="12" cy="14.5" r="1" fill="#080e1a" stroke="#4afc92" strokeWidth="0.5" />
+              <circle cx="18" cy="22" r="2.5" fill="#4afc92" />
+              <circle cx="46" cy="22" r="2.5" fill="#4afc92" />
+              <circle cx="18" cy="42" r="2.5" fill="#4afc92" />
+              <circle cx="46" cy="42" r="2.5" fill="#4afc92" />
+              {/* Camera */}
+              <circle cx="32" cy="37" r="2" fill="#080e1a" stroke="#4afc92" strokeWidth="0.8" />
             </svg>
           </div>
           <div>

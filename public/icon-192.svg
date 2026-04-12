@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <rect width="192" height="192" rx="36" fill="#080e1a"/>
+  <!-- Drone body -->
+  <rect x="78" y="84" width="36" height="24" rx="6" fill="#4afc92"/>
+  <!-- Arms -->
+  <line x1="84" y1="90" x2="54" y2="66" stroke="#4afc92" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="108" y1="90" x2="138" y2="66" stroke="#4afc92" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="84" y1="102" x2="54" y2="126" stroke="#4afc92" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="108" y1="102" x2="138" y2="126" stroke="#4afc92" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <!-- Rotors -->
+  <ellipse cx="54" cy="66" rx="21" ry="6" fill="#4afc92" opacity="0.35"/>
+  <ellipse cx="138" cy="66" rx="21" ry="6" fill="#4afc92" opacity="0.35"/>
+  <ellipse cx="54" cy="126" rx="21" ry="6" fill="#4afc92" opacity="0.35"/>
+  <ellipse cx="138" cy="126" rx="21" ry="6" fill="#4afc92" opacity="0.35"/>
+  <!-- Motor hubs -->
+  <circle cx="54" cy="66" r="7.5" fill="#4afc92"/>
+  <circle cx="138" cy="66" r="7.5" fill="#4afc92"/>
+  <circle cx="54" cy="126" r="7.5" fill="#4afc92"/>
+  <circle cx="138" cy="126" r="7.5" fill="#4afc92"/>
+  <!-- Camera -->
+  <circle cx="96" cy="111" r="6" fill="#080e1a" stroke="#4afc92" stroke-width="2"/>
+  <!-- LED -->
+  <circle cx="96" cy="84" r="3" fill="#fbbf24"/>
+</svg>
