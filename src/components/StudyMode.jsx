@@ -154,14 +154,6 @@ export default function StudyMode() {
 
   return (
     <div className="px-4 py-4 relative cockpit-noise cockpit-scanlines cockpit-grid">
-      {/* Header with metrics */}
-      <div className="flex items-center gap-2 mb-3 relative z-10">
-        <div className="w-7 h-7 rounded-full border-2 border-phosphor flex items-center justify-center glow-phosphor">
-          <span className="text-phosphor text-[0.75rem]" style={{ filter: 'drop-shadow(0 0 4px rgba(74,252,146,0.4))' }}>&#10022;</span>
-        </div>
-        <span className="font-instrument text-body-text text-[0.8125rem] font-extrabold tracking-[0.15em]">RPR</span>
-      </div>
-
       {/* Sub-nav */}
       <div className="flex gap-0.5 mb-4 bg-cockpit-surface/80 rounded-[0.625rem] p-[3px] border border-cockpit-border relative z-10">
         {TRACKS.map(track => (
