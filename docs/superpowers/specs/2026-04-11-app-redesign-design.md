@@ -38,7 +38,7 @@ Each track maintains independent round state. Default opens to Questions (or las
 | Charts | 3 |
 | METAR | 2 |
 
-Rounds are mixed across categories, weighted toward weak areas (categories with lower mastery %).
+Rounds are mixed across categories, weighted toward weak areas (categories with lower retention %).
 
 ### Round Flow
 
@@ -49,14 +49,14 @@ Start Round → Q1 → Answer → Feedback + Explanation → Q2 → ... → Q10 
 - Each question: answer, see immediate feedback (correct/wrong), see explanation, tap Next
 - No recycling within the round — wrong answers are scheduled for future sessions via SR
 - Round is always the fixed size — answer and move on
-- Round complete → Reward screen with mastery dashboard
+- Round complete → Reward screen with retention dashboard
 
 ### Reward Screen (after each round)
 
-- Gauge animation showing mastery rate update
+- Gauge animation showing retention rate update
 - Category bars showing what shifted
 - Score for this round (e.g., "8/10 correct")
-- Coverage progress (e.g., "62% of material seen")
+- Progress progress (e.g., "62% of material seen")
 - "Next Round" button or exit
 
 ## Spaced Repetition — Session-Based SM-2
@@ -111,29 +111,29 @@ mastered = false
 2. **Recently missed**: `interval = 1` (short cycle)
 3. **New unseen questions**: fill remaining slots
 
-Weighted toward weak categories (lower mastery %).
+Weighted toward weak categories (lower retention %).
 
 ### Session Counter
 
 Shared across all tracks. Incremented each time any round is completed. All tracks use the same session counter so intervals are consistent.
 
-## Mastery Model
+## Retention Model
 
 ### Two Metrics
 
-- **Mastery rate** = mastered / attempted (%) — "How well do I know what I've studied?"
-- **Coverage** = attempted / total (%) — "How much material have I seen?"
+- **Retention** = mastered / attempted (%) — "How well do I remember what I've studied?"
+- **Progress** = attempted / total (%) — "How much material have I worked through?"
 
 Both shown as percentages so they remain stable when the question bank grows.
 
-### Category Mastery (unified across tracks)
+### Category Retention (unified across tracks)
 
 Categories: Regulations, Airspace, Weather, Operations, Crew Roles, Performance, Airport Operations, Physiology
 
-All sources (questions, scenarios, charts, METAR) are tagged with 1-2 categories. Category mastery aggregates across all sources:
+All sources (questions, scenarios, charts, METAR) are tagged with 1-2 categories. Category retention aggregates across all sources:
 
 ```
-Airspace mastery = all mastered Airspace-tagged items / all attempted Airspace-tagged items
+Airspace retention = all mastered Airspace-tagged items / all attempted Airspace-tagged items
 ```
 
 ### Track Progress (separate)
@@ -208,7 +208,7 @@ In exam mode, multi-question scenarios/charts/METARs are decomposed into individ
 
 ### Exam Readiness Gate
 
-If coverage < 50%, show warning: "You've covered X% of the material. Consider studying more before taking a practice exam." Advisory only — don't block.
+If progress < 50%, show warning: "You've covered X% of the material. Consider studying more before taking a practice exam." Advisory only — don't block.
 
 ## Persistence (localStorage)
 
@@ -259,7 +259,7 @@ Warning/weak:      #fbbf24  (amber)
 
 ### Components
 
-- Gauge arcs (SVG) for mastery visualization
+- Gauge arcs (SVG) for retention visualization
 - Cards with subtle green-tinted borders
 - Rounded corners: `0.625rem` (10px) cards, `0.5rem` (8px) buttons
 - Option buttons: letter badge + text, multi-signal feedback
@@ -268,7 +268,7 @@ Warning/weak:      #fbbf24  (amber)
 
 ### Micro-interactions (CSS only)
 
-- Gauge arc: `stroke-dashoffset` transition on mastery update
+- Gauge arc: `stroke-dashoffset` transition on retention update
 - Correct answer: brief green pulse glow
 - Wrong answer: brief horizontal shake
 - Round complete: gauge sweep animation on reward screen
@@ -282,9 +282,9 @@ Warning/weak:      #fbbf24  (amber)
 |------|---------|
 | `src/components/StudyMode.jsx` | Wrapper with sub-nav, delegates to track components, shows reward screen |
 | `src/components/ExamMode.jsx` | Full exam flow: setup, questions, review, results |
-| `src/components/MasteryDashboard.jsx` | Gauge, category bars, coverage — used in reward screen and exam results |
+| `src/components/Dashboard.jsx` | Gauge, category bars, progress — used in reward screen and exam results |
 | `src/components/RoundEngine.jsx` | Shared question presentation, answer handling, explanation display |
-| `src/lib/spaced-repetition.js` | SR algorithm, round question selection, mastery calculation |
+| `src/lib/spaced-repetition.js` | SR algorithm, round question selection, retention calculation |
 | `src/lib/storage.js` | localStorage helpers with JSON serialization |
 
 ### Modified Files
