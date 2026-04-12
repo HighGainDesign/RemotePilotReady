@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0f172a"/>
+  <rect width="64" height="64" rx="12" fill="#080e1a"/>
   <!-- Drone body -->
-  <rect x="26" y="28" width="12" height="8" rx="2" fill="#38bdf8"/>
+  <rect x="26" y="28" width="12" height="8" rx="2" fill="#4afc92"/>
   <!-- Arms -->
-  <line x1="28" y1="30" x2="18" y2="22" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
-  <line x1="36" y1="30" x2="46" y2="22" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
-  <line x1="28" y1="34" x2="18" y2="42" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
-  <line x1="36" y1="34" x2="46" y2="42" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="28" y1="30" x2="18" y2="22" stroke="#4afc92" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="36" y1="30" x2="46" y2="22" stroke="#4afc92" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="28" y1="34" x2="18" y2="42" stroke="#4afc92" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="36" y1="34" x2="46" y2="42" stroke="#4afc92" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
   <!-- Rotors -->
-  <ellipse cx="18" cy="22" rx="7" ry="2" fill="#38bdf8" opacity="0.5"/>
-  <ellipse cx="46" cy="22" rx="7" ry="2" fill="#38bdf8" opacity="0.5"/>
-  <ellipse cx="18" cy="42" rx="7" ry="2" fill="#38bdf8" opacity="0.5"/>
-  <ellipse cx="46" cy="42" rx="7" ry="2" fill="#38bdf8" opacity="0.5"/>
+  <ellipse cx="18" cy="22" rx="7" ry="2" fill="#4afc92" opacity="0.35"/>
+  <ellipse cx="46" cy="22" rx="7" ry="2" fill="#4afc92" opacity="0.35"/>
+  <ellipse cx="18" cy="42" rx="7" ry="2" fill="#4afc92" opacity="0.35"/>
+  <ellipse cx="46" cy="42" rx="7" ry="2" fill="#4afc92" opacity="0.35"/>
   <!-- Motor hubs -->
-  <circle cx="18" cy="22" r="2.5" fill="#e2e8f0"/>
-  <circle cx="46" cy="22" r="2.5" fill="#e2e8f0"/>
-  <circle cx="18" cy="42" r="2.5" fill="#e2e8f0"/>
-  <circle cx="46" cy="42" r="2.5" fill="#e2e8f0"/>
+  <circle cx="18" cy="22" r="2.5" fill="#4afc92"/>
+  <circle cx="46" cy="22" r="2.5" fill="#4afc92"/>
+  <circle cx="18" cy="42" r="2.5" fill="#4afc92"/>
+  <circle cx="46" cy="42" r="2.5" fill="#4afc92"/>
   <!-- Camera -->
-  <circle cx="32" cy="37" r="2" fill="#0f172a"/>
+  <circle cx="32" cy="37" r="2" fill="#080e1a" stroke="#4afc92" stroke-width="0.8"/>
   <!-- LED -->
-  <circle cx="32" cy="28" r="1" fill="#fbbf24"/>
+  <circle cx="32" cy="28" r="1.2" fill="#fbbf24"/>
 </svg>

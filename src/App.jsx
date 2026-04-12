@@ -75,8 +75,28 @@ export default function App() {
       {/* Header */}
       <header className="safe-top bg-cockpit-bg/80 backdrop-blur-md border-b border-cockpit-border sticky top-0 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full border-2 border-phosphor flex items-center justify-center glow-phosphor">
-            <span className="text-phosphor text-[0.875rem]" style={{ filter: 'drop-shadow(0 0 4px rgba(74,252,146,0.4))' }}>✦</span>
+          <div className="w-9 h-9 flex items-center justify-center shrink-0" style={{ filter: 'drop-shadow(0 0 6px rgba(74,252,146,0.3))' }}>
+            <svg viewBox="0 0 24 24" className="w-9 h-9" fill="none">
+              {/* Drone body */}
+              <rect x="9" y="10.5" width="6" height="3.5" rx="1" fill="#4afc92" />
+              {/* Arms */}
+              <line x1="10.5" y1="11.5" x2="5.5" y2="7" stroke="#4afc92" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="13.5" y1="11.5" x2="18.5" y2="7" stroke="#4afc92" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="10.5" y1="13" x2="5.5" y2="17" stroke="#4afc92" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="13.5" y1="13" x2="18.5" y2="17" stroke="#4afc92" strokeWidth="1.2" strokeLinecap="round" />
+              {/* Rotors */}
+              <ellipse cx="5.5" cy="7" rx="3.5" ry="1" fill="#4afc92" opacity="0.4" />
+              <ellipse cx="18.5" cy="7" rx="3.5" ry="1" fill="#4afc92" opacity="0.4" />
+              <ellipse cx="5.5" cy="17" rx="3.5" ry="1" fill="#4afc92" opacity="0.4" />
+              <ellipse cx="18.5" cy="17" rx="3.5" ry="1" fill="#4afc92" opacity="0.4" />
+              {/* Motor hubs */}
+              <circle cx="5.5" cy="7" r="1.2" fill="#4afc92" />
+              <circle cx="18.5" cy="7" r="1.2" fill="#4afc92" />
+              <circle cx="5.5" cy="17" r="1.2" fill="#4afc92" />
+              <circle cx="18.5" cy="17" r="1.2" fill="#4afc92" />
+              {/* Camera lens */}
+              <circle cx="12" cy="14.5" r="1" fill="#080e1a" stroke="#4afc92" strokeWidth="0.5" />
+            </svg>
           </div>
           <div>
             <h1 className="font-instrument text-body-text text-[0.875rem] font-extrabold tracking-[0.15em] leading-tight">
