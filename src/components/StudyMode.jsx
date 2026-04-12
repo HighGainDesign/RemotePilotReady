@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from 'react'
 import RoundEngine from './RoundEngine'
+import { chartRenderers } from './ChartSvg'
 import Dashboard from './Dashboard'
 import { loadState, saveState, KEYS } from '../lib/storage'
 import {
@@ -124,14 +125,13 @@ export default function StudyMode() {
     }
 
     if (ctx.type === 'chart') {
+      const ChartSvgComponent = chartRenderers[ctx.chartType]
       return (
         <div className="bg-cockpit-surface/60 border border-cockpit-border rounded-xl p-3">
           <div className="font-instrument text-phosphor text-[0.5625rem] font-bold tracking-widest mb-1.5">
             IDENTIFY THE CHART SYMBOLS
           </div>
-          <div className="text-secondary-text text-[0.75rem]">
-            [Chart: {ctx.chartType}]
-          </div>
+          {ChartSvgComponent && <ChartSvgComponent />}
         </div>
       )
     }
