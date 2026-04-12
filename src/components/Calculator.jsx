@@ -33,7 +33,7 @@ function fmt(n, decimals = 0) {
 function InputField({ label, value, onChange, unit, placeholder, min, max, step }) {
   return (
     <div>
-      <label className="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+      <label className="block text-[11px] font-semibold text-secondary-text uppercase tracking-wider mb-1.5 font-instrument">
         {label}
       </label>
       <div className="relative">
@@ -46,10 +46,10 @@ function InputField({ label, value, onChange, unit, placeholder, min, max, step 
           min={min}
           max={max}
           step={step || 'any'}
-          className="w-full bg-slate-900/60 border border-slate-700/50 rounded-xl px-4 py-3 text-base text-slate-200 font-mono placeholder-slate-600 focus:outline-none focus:border-sky-500/50 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          className="w-full bg-cockpit-bg/60 border border-cockpit-border rounded-xl px-4 py-3 text-base text-body-text font-mono placeholder-inactive focus:outline-none focus:border-phosphor/30 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
         {unit && (
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 font-medium pointer-events-none">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-inactive font-medium pointer-events-none font-instrument">
             {unit}
           </span>
         )}
@@ -59,15 +59,15 @@ function InputField({ label, value, onChange, unit, placeholder, min, max, step 
 }
 
 function ResultRow({ label, value, unit, accent }) {
-  const colorClass = accent === 'amber' ? 'text-amber-400'
+  const colorClass = accent === 'amber' ? 'text-amber-accent'
     : accent === 'green' ? 'text-green-400'
     : accent === 'red' ? 'text-red-400'
-    : 'text-sky-400'
+    : 'text-phosphor'
   return (
-    <div className="flex items-center justify-between py-2.5 border-b border-slate-700/20 last:border-0">
-      <span className="text-xs text-slate-400">{label}</span>
-      <span className={`text-sm font-semibold font-mono ${colorClass}`}>
-        {value}{unit ? <span className="text-xs text-slate-500 ml-1 font-sans">{unit}</span> : null}
+    <div className="flex items-center justify-between py-2.5 border-b border-cockpit-border last:border-0">
+      <span className="text-xs text-secondary-text">{label}</span>
+      <span className={`text-sm font-semibold font-instrument ${colorClass}`}>
+        {value}{unit ? <span className="text-xs text-inactive ml-1 font-sans">{unit}</span> : null}
       </span>
     </div>
   )
@@ -75,15 +75,15 @@ function ResultRow({ label, value, unit, accent }) {
 
 function ToggleButton({ options, value, onChange }) {
   return (
-    <div className="inline-flex rounded-lg bg-slate-900/60 border border-slate-700/50 p-0.5">
+    <div className="inline-flex rounded-lg bg-cockpit-bg/60 border border-cockpit-border p-0.5">
       {options.map((opt) => (
         <button
           key={opt.value}
           onClick={() => onChange(opt.value)}
-          className={`tap-highlight px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+          className={`tap-highlight px-3 py-1.5 rounded-md text-xs font-medium transition-colors font-instrument ${
             value === opt.value
-              ? 'bg-sky-500/20 text-sky-400'
-              : 'text-slate-500 active:text-slate-300'
+              ? 'bg-phosphor/15 text-phosphor'
+              : 'text-inactive active:text-body-text'
           }`}
         >
           {opt.label}
@@ -95,13 +95,13 @@ function ToggleButton({ options, value, onChange }) {
 
 function InfoBox({ children }) {
   return (
-    <div className="mt-3 px-3 py-2.5 rounded-xl bg-amber-500/5 border border-amber-500/15">
+    <div className="mt-3 px-3 py-2.5 rounded-xl bg-amber-accent/5 border border-amber-accent/15">
       <div className="flex gap-2">
-        <svg className="w-3.5 h-3.5 text-amber-400 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg className="w-3.5 h-3.5 text-amber-accent mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="10" />
           <path d="M12 16v.01M12 8v4" />
         </svg>
-        <p className="text-[11px] text-amber-400/80 leading-relaxed">{children}</p>
+        <p className="text-[11px] text-amber-accent/80 leading-relaxed">{children}</p>
       </div>
     </div>
   )
@@ -135,7 +135,7 @@ function DensityAltitude() {
       <InputField label="Altimeter Setting" value={altimeter} onChange={setAltimeter} unit="inHg" placeholder="29.92" step="0.01" />
       <div>
         <div className="flex items-center justify-between mb-1.5">
-          <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+          <label className="text-[11px] font-semibold text-secondary-text uppercase tracking-wider font-instrument">
             Outside Air Temperature
           </label>
           <ToggleButton
@@ -155,17 +155,17 @@ function DensityAltitude() {
             onChange={(e) => setTemp(e.target.value)}
             placeholder="25"
             step="any"
-            className="w-full bg-slate-900/60 border border-slate-700/50 rounded-xl px-4 py-3 text-base text-slate-200 font-mono placeholder-slate-600 focus:outline-none focus:border-sky-500/50 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full bg-cockpit-bg/60 border border-cockpit-border rounded-xl px-4 py-3 text-base text-body-text font-mono placeholder-inactive focus:outline-none focus:border-phosphor/30 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 font-medium pointer-events-none">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-inactive font-medium pointer-events-none font-instrument">
             {tempUnit === 'C' ? '\u00b0C' : '\u00b0F'}
           </span>
         </div>
       </div>
 
       {results && (
-        <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-850 border border-slate-700/50 p-4">
-          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Results</p>
+        <div className="rounded-2xl bg-gradient-to-br from-cockpit-surface to-cockpit-surface border border-cockpit-border p-4">
+          <p className="text-[10px] font-semibold text-inactive uppercase tracking-wider mb-2 font-instrument">Results</p>
           <ResultRow label="Pressure Altitude" value={fmt(results.pressureAlt)} unit="ft" />
           <ResultRow label="ISA Temp at Press. Alt" value={fmt(results.isaTemp, 1)} unit={'\u00b0C'} />
           <ResultRow label="OAT" value={fmt(results.oatC, 1)} unit={'\u00b0C'} />
@@ -242,7 +242,7 @@ function MagneticHeading() {
       <InputField label="True Course" value={trueCourse} onChange={setTrueCourse} unit={'\u00b0'} placeholder="270" min="0" max="360" />
       <div>
         <div className="flex items-center justify-between mb-1.5">
-          <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+          <label className="text-[11px] font-semibold text-secondary-text uppercase tracking-wider font-instrument">
             Magnetic Variation
           </label>
           <ToggleButton
@@ -264,16 +264,16 @@ function MagneticHeading() {
             min="0"
             max="90"
             step="any"
-            className="w-full bg-slate-900/60 border border-slate-700/50 rounded-xl px-4 py-3 text-base text-slate-200 font-mono placeholder-slate-600 focus:outline-none focus:border-sky-500/50 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full bg-cockpit-bg/60 border border-cockpit-border rounded-xl px-4 py-3 text-base text-body-text font-mono placeholder-inactive focus:outline-none focus:border-phosphor/30 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 font-medium pointer-events-none">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-inactive font-medium pointer-events-none font-instrument">
             {'\u00b0 ' + varDir}
           </span>
         </div>
       </div>
 
-      <div className="pt-2 border-t border-slate-700/30">
-        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-3">Wind Correction (optional)</p>
+      <div className="pt-2 border-t border-cockpit-border">
+        <p className="text-[10px] font-semibold text-inactive uppercase tracking-wider mb-3 font-instrument">Wind Correction (optional)</p>
         <div className="grid grid-cols-3 gap-3">
           <InputField label="Wind Dir" value={windDir} onChange={setWindDir} unit={'\u00b0'} placeholder="180" />
           <InputField label="Wind Spd" value={windSpd} onChange={setWindSpd} unit="kts" placeholder="15" />
@@ -282,8 +282,8 @@ function MagneticHeading() {
       </div>
 
       {results && (
-        <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-850 border border-slate-700/50 p-4">
-          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Results</p>
+        <div className="rounded-2xl bg-gradient-to-br from-cockpit-surface to-cockpit-surface border border-cockpit-border p-4">
+          <p className="text-[10px] font-semibold text-inactive uppercase tracking-wider mb-2 font-instrument">Results</p>
           <ResultRow label="Magnetic Course" value={fmt(results.magCourse)} unit={'\u00b0'} />
           {results.hasWind && (
             <>
@@ -339,10 +339,10 @@ function WindIndicator({ runwayHdg, windDir, headwind, crosswind, windSpd }) {
           {String(Math.round(runwayHdg / 10)).padStart(2, '0')}
         </text>
         {/* Wind arrow */}
-        <line x1={startX} y1={startY} x2={endX} y2={endY} stroke="#38bdf8" strokeWidth="2.5" strokeLinecap="round" />
-        <polygon points={`${endX},${endY} ${ax1},${ay1} ${ax2},${ay2}`} fill="#38bdf8" />
+        <line x1={startX} y1={startY} x2={endX} y2={endY} stroke="#4afc92" strokeWidth="2.5" strokeLinecap="round" />
+        <polygon points={`${endX},${endY} ${ax1},${ay1} ${ax2},${ay2}`} fill="#4afc92" />
         {/* Wind label */}
-        <text x={startX} y={startY - 5} textAnchor="middle" fill="#38bdf8" fontSize="8" fontFamily="monospace">
+        <text x={startX} y={startY - 5} textAnchor="middle" fill="#4afc92" fontSize="8" fontFamily="monospace">
           {windSpd}kt
         </text>
         {/* Crosswind indicator line (perpendicular to runway) */}
@@ -395,8 +395,8 @@ function CrosswindCalc() {
             windSpd={parseFloat(windSpd)}
           />
 
-          <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-850 border border-slate-700/50 p-4">
-            <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Components</p>
+          <div className="rounded-2xl bg-gradient-to-br from-cockpit-surface to-cockpit-surface border border-cockpit-border p-4">
+            <p className="text-[10px] font-semibold text-inactive uppercase tracking-wider mb-2 font-instrument">Components</p>
             <ResultRow
               label={results.headType === 'headwind' ? 'Headwind Component' : 'Tailwind Component'}
               value={fmt(results.absHeadwind, 1)}
@@ -495,10 +495,10 @@ function ConverterRow({ conv }) {
   }
 
   return (
-    <div className="rounded-xl bg-slate-800/60 border border-slate-700/30 p-3">
+    <div className="rounded-xl bg-cockpit-surface/60 border border-cockpit-border p-3">
       <div className="flex items-center gap-2">
         <div className="flex-1">
-          <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-1">
+          <label className="block text-[10px] font-semibold text-inactive uppercase tracking-wider mb-1 font-instrument">
             {conv.labelA}
           </label>
           <input
@@ -508,16 +508,16 @@ function ConverterRow({ conv }) {
             onChange={(e) => handleA(e.target.value)}
             placeholder="0"
             step="any"
-            className="w-full bg-slate-900/60 border border-slate-700/50 rounded-lg px-3 py-2.5 text-sm text-slate-200 font-mono placeholder-slate-600 focus:outline-none focus:border-sky-500/50 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full bg-cockpit-bg/60 border border-cockpit-border rounded-lg px-3 py-2.5 text-sm text-body-text font-mono placeholder-inactive focus:outline-none focus:border-phosphor/30 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
         </div>
         <div className="pt-4">
-          <svg className="w-4 h-4 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <svg className="w-4 h-4 text-inactive" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M7 16l-4-4m0 0l4-4m-4 4h18M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </div>
         <div className="flex-1">
-          <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-1">
+          <label className="block text-[10px] font-semibold text-inactive uppercase tracking-wider mb-1 font-instrument">
             {conv.labelB}
           </label>
           <input
@@ -527,7 +527,7 @@ function ConverterRow({ conv }) {
             onChange={(e) => handleB(e.target.value)}
             placeholder="0"
             step="any"
-            className="w-full bg-slate-900/60 border border-slate-700/50 rounded-lg px-3 py-2.5 text-sm text-slate-200 font-mono placeholder-slate-600 focus:outline-none focus:border-sky-500/50 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full bg-cockpit-bg/60 border border-cockpit-border rounded-lg px-3 py-2.5 text-sm text-body-text font-mono placeholder-inactive focus:outline-none focus:border-phosphor/30 transition-colors appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
         </div>
       </div>
@@ -589,21 +589,21 @@ function TimeSpeedDistance() {
 
   return (
     <div className="space-y-4">
-      <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+      <p className="text-[10px] font-semibold text-inactive uppercase tracking-wider font-instrument">
         Enter any 2 to calculate the 3rd
       </p>
       <InputField label="Distance" value={distance} onChange={setDistance} unit="NM" placeholder="--" />
       <InputField label="Groundspeed" value={groundspeed} onChange={setGroundspeed} unit="kts" placeholder="--" />
       <InputField label="Time" value={time} onChange={setTime} unit="min" placeholder="--" />
 
-      <div className="pt-2 border-t border-slate-700/30">
-        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-3">Fuel Burn (optional)</p>
+      <div className="pt-2 border-t border-cockpit-border">
+        <p className="text-[10px] font-semibold text-inactive uppercase tracking-wider mb-3 font-instrument">Fuel Burn (optional)</p>
         <InputField label="Fuel Flow" value={fuelFlow} onChange={setFuelFlow} unit="gal/hr" placeholder="0" />
       </div>
 
       {results && (
-        <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-850 border border-slate-700/50 p-4">
-          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Results</p>
+        <div className="rounded-2xl bg-gradient-to-br from-cockpit-surface to-cockpit-surface border border-cockpit-border p-4">
+          <p className="text-[10px] font-semibold text-inactive uppercase tracking-wider mb-2 font-instrument">Results</p>
           <ResultRow
             label="Distance"
             value={fmt(results.distance, 1)}
@@ -640,27 +640,27 @@ function TimeSpeedDistance() {
 function E6BGuide() {
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-slate-800/60 border border-slate-700/30 p-4">
-        <h3 className="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">What is an E6B?</h3>
-        <p className="text-xs text-slate-400 leading-relaxed">
+      <div className="rounded-xl bg-cockpit-surface/60 border border-cockpit-border p-4">
+        <h3 className="text-xs font-semibold text-phosphor uppercase tracking-wider mb-2 font-instrument">What is an E6B?</h3>
+        <p className="text-xs text-secondary-text leading-relaxed">
           The E6B flight computer is a circular slide rule used by pilots since the 1940s. It has two sides: the wind side
           (a rotating compass card with a sliding grid) and the calculator side (two concentric logarithmic scales). For Part
           107, you may see E6B-style problems involving wind correction, time/speed/distance, and fuel calculations.
         </p>
       </div>
 
-      <div className="rounded-xl bg-slate-800/60 border border-slate-700/30 p-4">
-        <h3 className="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Wind Side</h3>
-        <p className="text-xs text-slate-400 leading-relaxed">
+      <div className="rounded-xl bg-cockpit-surface/60 border border-cockpit-border p-4">
+        <h3 className="text-xs font-semibold text-phosphor uppercase tracking-wider mb-2 font-instrument">Wind Side</h3>
+        <p className="text-xs text-secondary-text leading-relaxed">
           The wind side solves the wind triangle -- the relationship between true course, true heading, wind direction/speed,
           groundspeed, and wind correction angle. You plot the wind vector on a sliding card, then read off the heading
           correction needed to maintain your desired course and the resulting groundspeed.
         </p>
       </div>
 
-      <div className="rounded-xl bg-slate-800/60 border border-slate-700/30 p-4">
-        <h3 className="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Calculator Side</h3>
-        <p className="text-xs text-slate-400 leading-relaxed">
+      <div className="rounded-xl bg-cockpit-surface/60 border border-cockpit-border p-4">
+        <h3 className="text-xs font-semibold text-phosphor uppercase tracking-wider mb-2 font-instrument">Calculator Side</h3>
+        <p className="text-xs text-secondary-text leading-relaxed">
           The calculator side handles time/speed/distance problems (e.g., "How long to fly 45 NM at 90 kts?"), fuel burn
           calculations (given flow rate and time), unit conversions, and density altitude/true airspeed corrections. Align
           values on the outer and inner scales to multiply, divide, or convert between units -- the same math this app's
@@ -685,8 +685,8 @@ export default function Calculator() {
     <div className="px-4 py-5">
       {/* Header */}
       <div className="mb-4">
-        <h2 className="text-sm font-semibold text-slate-300">Aviation Calculator</h2>
-        <p className="text-xs text-slate-500">Part 107 flight calculation tools</p>
+        <h2 className="text-sm font-semibold text-body-text">Aviation Calculator</h2>
+        <p className="text-xs text-inactive">Part 107 flight calculation tools</p>
       </div>
 
       {/* Tab bar / segmented control */}
@@ -695,10 +695,10 @@ export default function Calculator() {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`tap-highlight flex-1 min-w-0 py-2.5 px-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap ${
+            className={`tap-highlight flex-1 min-w-0 py-2.5 px-2 rounded-xl text-xs font-medium transition-colors whitespace-nowrap font-instrument ${
               activeTab === tab.id
-                ? 'bg-sky-500/15 border border-sky-500/30 text-sky-400'
-                : 'bg-slate-800 border border-slate-700/50 text-slate-400 active:bg-slate-700'
+                ? 'bg-phosphor/15 border border-phosphor/30 text-phosphor'
+                : 'bg-cockpit-surface border border-cockpit-border text-secondary-text active:bg-divider'
             }`}
           >
             {tab.label}
@@ -707,7 +707,7 @@ export default function Calculator() {
       </div>
 
       {/* Calculator cards */}
-      <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-850 border border-slate-700/50 p-5">
+      <div className="rounded-2xl bg-gradient-to-br from-cockpit-surface to-cockpit-surface border border-cockpit-border p-5">
         {activeTab === 'density' && <DensityAltitude />}
         {activeTab === 'heading' && <MagneticHeading />}
         {activeTab === 'crosswind' && <CrosswindCalc />}
@@ -717,8 +717,8 @@ export default function Calculator() {
       </div>
 
       {/* Disclaimer */}
-      <div className="mt-5 px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700/30">
-        <p className="text-[10px] text-slate-500 text-center leading-relaxed">
+      <div className="mt-5 px-4 py-3 rounded-xl bg-cockpit-surface/50 border border-cockpit-border">
+        <p className="text-[10px] text-inactive text-center leading-relaxed">
           These calculators use simplified formulas suitable for Part 107 study.
           For actual flight operations, always use official aviation tools and current data.
         </p>

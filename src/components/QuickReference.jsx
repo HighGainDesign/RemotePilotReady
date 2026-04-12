@@ -61,9 +61,9 @@ const iconMap = {
 }
 
 const accentColors = [
-  'from-sky-500/10 to-sky-600/5 border-sky-500/20',
+  'from-phosphor/10 to-phosphor/5 border-phosphor/20',
   'from-emerald-500/10 to-emerald-600/5 border-emerald-500/20',
-  'from-amber-500/10 to-amber-600/5 border-amber-500/20',
+  'from-amber-accent/10 to-amber-accent/5 border-amber-accent/20',
   'from-violet-500/10 to-violet-600/5 border-violet-500/20',
   'from-rose-500/10 to-rose-600/5 border-rose-500/20',
   'from-cyan-500/10 to-cyan-600/5 border-cyan-500/20',
@@ -73,9 +73,9 @@ const accentColors = [
 ]
 
 const textColors = [
-  'text-sky-400',
+  'text-phosphor',
   'text-emerald-400',
-  'text-amber-400',
+  'text-amber-accent',
   'text-violet-400',
   'text-rose-400',
   'text-cyan-400',
@@ -88,8 +88,8 @@ export default function QuickReference() {
   return (
     <div className="px-4 py-5">
       <div className="mb-4">
-        <h2 className="text-sm font-semibold text-slate-300">Quick Reference</h2>
-        <p className="text-xs text-slate-500">Key numbers and limits for Part 107</p>
+        <h2 className="text-sm font-semibold text-body-text">Quick Reference</h2>
+        <p className="text-xs text-inactive">Key numbers and limits for Part 107</p>
       </div>
 
       <div className="space-y-4">
@@ -102,7 +102,7 @@ export default function QuickReference() {
               <span className={textColors[si % textColors.length]}>
                 {iconMap[section.icon] || iconMap.gauge}
               </span>
-              <h3 className="text-sm font-semibold text-white">{section.title}</h3>
+              <h3 className={`text-sm font-semibold font-instrument ${textColors[si % textColors.length]}`}>{section.title}</h3>
             </div>
 
             <div className="space-y-0">
@@ -114,12 +114,12 @@ export default function QuickReference() {
                   }`}
                 >
                   <div className="flex-1 min-w-0 pr-3">
-                    <p className="text-xs text-slate-400">{item.label}</p>
+                    <p className="text-xs text-secondary-text">{item.label}</p>
                     {item.note && (
-                      <p className="text-[10px] text-slate-600 mt-0.5">{item.note}</p>
+                      <p className="text-[10px] text-inactive mt-0.5">{item.note}</p>
                     )}
                   </div>
-                  <span className={`text-sm font-semibold ${textColors[si % textColors.length]} text-right whitespace-nowrap`}>
+                  <span className={`text-sm font-semibold font-instrument ${textColors[si % textColors.length]} text-right whitespace-nowrap`}>
                     {item.value}
                   </span>
                 </div>
@@ -129,8 +129,8 @@ export default function QuickReference() {
         ))}
       </div>
 
-      <div className="mt-6 px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700/30">
-        <p className="text-[10px] text-slate-500 text-center leading-relaxed">
+      <div className="mt-6 px-4 py-3 rounded-xl bg-cockpit-surface/50 border border-cockpit-border">
+        <p className="text-[10px] text-inactive text-center leading-relaxed">
           Based on 14 CFR Part 107 regulations. Always verify current regulations
           before flight operations. This app is a study aid and not a substitute
           for official FAA materials.
