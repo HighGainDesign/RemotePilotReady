@@ -5,6 +5,8 @@ const TABS = [
   { id: 'heading', label: 'Heading' },
   { id: 'crosswind', label: 'Crosswind' },
   { id: 'converter', label: 'Converter' },
+  { id: 'tsd', label: 'Time/Spd/Dist' },
+  { id: 'guide', label: 'E6B Guide' },
 ]
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -546,6 +548,134 @@ function UnitConverter() {
   )
 }
 
+// ── 5. Time / Speed / Distance ──────────────────────────────────────────────
+
+function TimeSpeedDistance() {
+  const [distance, setDistance] = useState('')
+  const [groundspeed, setGroundspeed] = useState('')
+  const [time, setTime] = useState('')
+  const [fuelFlow, setFuelFlow] = useState('')
+
+  const results = useMemo(() => {
+    const d = parseFloat(distance)
+    const gs = parseFloat(groundspeed)
+    const t = parseFloat(time)
+    const ff = parseFloat(fuelFlow)
+
+    const filled = [!isNaN(d), !isNaN(gs), !isNaN(t)].filter(Boolean).length
+    if (filled < 2) return null
+
+    let calcDist = d, calcGs = gs, calcTime = t, solving = ''
+
+    if (isNaN(d) && !isNaN(gs) && !isNaN(t)) {
+      calcDist = gs * (t / 60)
+      solving = 'distance'
+    } else if (isNaN(gs) && !isNaN(d) && !isNaN(t)) {
+      calcGs = t > 0 ? d / (t / 60) : 0
+      solving = 'groundspeed'
+    } else if (isNaN(t) && !isNaN(d) && !isNaN(gs)) {
+      calcTime = gs > 0 ? (d / gs) * 60 : 0
+      solving = 'time'
+    } else {
+      // All three filled -- treat as informational, recalc distance from GS + time
+      calcDist = gs * (t / 60)
+      solving = 'distance'
+    }
+
+    const fuelUsed = !isNaN(ff) && calcTime > 0 ? ff * (calcTime / 60) : null
+
+    return { distance: calcDist, groundspeed: calcGs, time: calcTime, fuelUsed, solving }
+  }, [distance, groundspeed, time, fuelFlow])
+
+  return (
+    <div className="space-y-4">
+      <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+        Enter any 2 to calculate the 3rd
+      </p>
+      <InputField label="Distance" value={distance} onChange={setDistance} unit="NM" placeholder="--" />
+      <InputField label="Groundspeed" value={groundspeed} onChange={setGroundspeed} unit="kts" placeholder="--" />
+      <InputField label="Time" value={time} onChange={setTime} unit="min" placeholder="--" />
+
+      <div className="pt-2 border-t border-slate-700/30">
+        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-3">Fuel Burn (optional)</p>
+        <InputField label="Fuel Flow" value={fuelFlow} onChange={setFuelFlow} unit="gal/hr" placeholder="0" />
+      </div>
+
+      {results && (
+        <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-850 border border-slate-700/50 p-4">
+          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Results</p>
+          <ResultRow
+            label="Distance"
+            value={fmt(results.distance, 1)}
+            unit="NM"
+            accent={results.solving === 'distance' ? 'green' : undefined}
+          />
+          <ResultRow
+            label="Groundspeed"
+            value={fmt(results.groundspeed, 1)}
+            unit="kts"
+            accent={results.solving === 'groundspeed' ? 'green' : undefined}
+          />
+          <ResultRow
+            label="Time"
+            value={fmt(results.time, 1)}
+            unit="min"
+            accent={results.solving === 'time' ? 'green' : undefined}
+          />
+          {results.fuelUsed != null && (
+            <ResultRow label="Fuel Used" value={fmt(results.fuelUsed, 1)} unit="gal" accent="amber" />
+          )}
+        </div>
+      )}
+
+      <InfoBox>
+        Distance = GS x Time/60. Groundspeed = Distance / (Time/60). Time = (Distance / GS) x 60. Fuel = Flow x Time/60.
+      </InfoBox>
+    </div>
+  )
+}
+
+// ── 6. E6B Guide ────────────────────────────────────────────────────────────
+
+function E6BGuide() {
+  return (
+    <div className="space-y-4">
+      <div className="rounded-xl bg-slate-800/60 border border-slate-700/30 p-4">
+        <h3 className="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">What is an E6B?</h3>
+        <p className="text-xs text-slate-400 leading-relaxed">
+          The E6B flight computer is a circular slide rule used by pilots since the 1940s. It has two sides: the wind side
+          (a rotating compass card with a sliding grid) and the calculator side (two concentric logarithmic scales). For Part
+          107, you may see E6B-style problems involving wind correction, time/speed/distance, and fuel calculations.
+        </p>
+      </div>
+
+      <div className="rounded-xl bg-slate-800/60 border border-slate-700/30 p-4">
+        <h3 className="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Wind Side</h3>
+        <p className="text-xs text-slate-400 leading-relaxed">
+          The wind side solves the wind triangle -- the relationship between true course, true heading, wind direction/speed,
+          groundspeed, and wind correction angle. You plot the wind vector on a sliding card, then read off the heading
+          correction needed to maintain your desired course and the resulting groundspeed.
+        </p>
+      </div>
+
+      <div className="rounded-xl bg-slate-800/60 border border-slate-700/30 p-4">
+        <h3 className="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Calculator Side</h3>
+        <p className="text-xs text-slate-400 leading-relaxed">
+          The calculator side handles time/speed/distance problems (e.g., "How long to fly 45 NM at 90 kts?"), fuel burn
+          calculations (given flow rate and time), unit conversions, and density altitude/true airspeed corrections. Align
+          values on the outer and inner scales to multiply, divide, or convert between units -- the same math this app's
+          calculator tabs perform digitally.
+        </p>
+      </div>
+
+      <InfoBox>
+        On the Part 107 exam, E6B questions typically involve finding groundspeed, fuel burn, or estimated time en route.
+        The calculator tabs in this app cover these same calculations.
+      </InfoBox>
+    </div>
+  )
+}
+
 // ── Main Component ───────────────────────────────────────────────────────────
 
 export default function Calculator() {
@@ -582,6 +712,8 @@ export default function Calculator() {
         {activeTab === 'heading' && <MagneticHeading />}
         {activeTab === 'crosswind' && <CrosswindCalc />}
         {activeTab === 'converter' && <UnitConverter />}
+        {activeTab === 'tsd' && <TimeSpeedDistance />}
+        {activeTab === 'guide' && <E6BGuide />}
       </div>
 
       {/* Disclaimer */}

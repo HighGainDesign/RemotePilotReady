@@ -4,10 +4,12 @@ import ScenarioTrainer from './components/ScenarioTrainer'
 import MetarDecoder from './components/MetarDecoder'
 import QuickReference from './components/QuickReference'
 import Calculator from './components/Calculator'
+import ChartTrainer from './components/ChartTrainer'
 
 const tabs = [
   { id: 'flashcards', label: 'Study', icon: CardIcon },
   { id: 'scenarios', label: 'Scenarios', icon: ScenarioIcon },
+  { id: 'charts', label: 'Charts', icon: ChartIcon },
   { id: 'metar', label: 'METAR', icon: MetarIcon },
   { id: 'e6b', label: 'E6B', icon: E6BIcon },
   { id: 'reference', label: 'Reference', icon: ReferenceIcon },
@@ -54,6 +56,15 @@ function E6BIcon({ className }) {
   )
 }
 
+function ChartIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M3 7l6-3 6 3 6-3v14l-6 3-6-3-6 3V7z" />
+      <path d="M9 4v14M15 7v14" />
+    </svg>
+  )
+}
+
 function ReferenceIcon({ className }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -96,6 +107,7 @@ export default function App() {
         <div className="max-w-2xl mx-auto">
           {activeTab === 'flashcards' && <Flashcards />}
           {activeTab === 'scenarios' && <ScenarioTrainer />}
+          {activeTab === 'charts' && <ChartTrainer />}
           {activeTab === 'metar' && <MetarDecoder />}
           {activeTab === 'e6b' && <Calculator />}
           {activeTab === 'reference' && <QuickReference />}
