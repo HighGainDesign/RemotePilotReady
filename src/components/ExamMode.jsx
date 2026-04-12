@@ -228,7 +228,7 @@ function ExamScreen({ questionIds, answers, setAnswers, flagged, setFlagged, cur
         <button
           onClick={() => setCurrentIndex(i => Math.max(0, i - 1))}
           disabled={currentIndex === 0}
-          className="px-4 py-2 rounded-lg border border-cockpit-border text-secondary-text text-[0.8125rem] font-instrument disabled:opacity-30 hover:text-body-text"
+          className="px-4 py-2 rounded-lg border border-cockpit-border text-secondary-text text-[0.8125rem] font-instrument disabled:text-divider disabled:border-divider disabled:cursor-not-allowed hover:text-body-text"
         >
           PREV
         </button>
@@ -395,14 +395,14 @@ function ResultsScreen({ examResult, questionIds, onReset }) {
           <button
             onClick={() => setReviewIndex(i => Math.max(0, i - 1))}
             disabled={reviewIndex === 0}
-            className="px-4 py-2 rounded-lg border border-cockpit-border text-secondary-text text-[0.8125rem] font-instrument disabled:opacity-30"
+            className="px-4 py-2 rounded-lg border border-cockpit-border text-secondary-text text-[0.8125rem] font-instrument disabled:text-divider disabled:border-divider disabled:cursor-not-allowed"
           >
             PREV
           </button>
           <button
             onClick={() => setReviewIndex(i => Math.min(EXAM_SIZE - 1, i + 1))}
             disabled={reviewIndex === EXAM_SIZE - 1}
-            className="px-4 py-2 rounded-lg border border-cockpit-border text-secondary-text text-[0.8125rem] font-instrument disabled:opacity-30"
+            className="px-4 py-2 rounded-lg border border-cockpit-border text-secondary-text text-[0.8125rem] font-instrument disabled:text-divider disabled:border-divider disabled:cursor-not-allowed"
           >
             NEXT
           </button>
@@ -493,12 +493,23 @@ export default function ExamMode() {
       setAnswers(saved.answers || {})
       setFlagged(new Set(saved.flagged || []))
       setCurrentIndex(saved.currentIndex || 0)
-      setTimeRemaining(saved.timeRemaining ?? EXAM_DURATION)
+      // Compute wall-clock elapsed time since exam started
+      const elapsed = Date.now() - (saved.startTime || Date.now())
+      const remaining = Math.max(0, EXAM_DURATION - elapsed)
+      setTimeRemaining(remaining)
       setScreen('exam')
+      // If time already expired, auto-submit after state is set
+      if (remaining <= 0) {
+        setTimeout(() => submitExamRef.current(), 0)
+      }
     }
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Persist exam state on changes
+  const [examStartTime, setExamStartTime] = useState(() => {
+    const saved = loadState(KEYS.ACTIVE_EXAM, null)
+    return saved?.startTime || null
+  })
   useEffect(() => {
     if (screen === 'exam' && questionIds.length > 0) {
       saveState(KEYS.ACTIVE_EXAM, {
@@ -507,9 +518,10 @@ export default function ExamMode() {
         flagged: [...flagged],
         currentIndex,
         timeRemaining,
+        startTime: examStartTime,
       })
     }
-  }, [screen, questionIds, answers, flagged, currentIndex, timeRemaining])
+  }, [screen, questionIds, answers, flagged, currentIndex, timeRemaining, examStartTime])
 
   // Timer
   useEffect(() => {
@@ -592,6 +604,7 @@ export default function ExamMode() {
     setFlagged(new Set())
     setCurrentIndex(0)
     setTimeRemaining(EXAM_DURATION)
+    setExamStartTime(Date.now())
     setExamResult(null)
     setScreen('exam')
   }, [])

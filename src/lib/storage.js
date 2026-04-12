@@ -17,7 +17,11 @@ export function loadState(key, defaultValue) {
 }
 
 export function saveState(key, value) {
-  localStorage.setItem(key, JSON.stringify(value))
+  try {
+    localStorage.setItem(key, JSON.stringify(value))
+  } catch {
+    // localStorage quota exceeded — silently fail rather than crash
+  }
 }
 
 export function removeState(key) {

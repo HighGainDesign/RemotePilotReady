@@ -2862,7 +2862,7 @@ const flashcards = [
   }
 ];
 
-export const categories = ["All", "Regulations", "Airspace", "Weather", "Operations", "Crew Roles", "Performance", "Airport Operations", "Physiology"];
+export const categories = ["Regulations", "Airspace", "Weather", "Operations", "Crew Roles", "Performance", "Airport Operations", "Physiology"];
 
 flashcards.forEach(card => {
   card.categories = [card.category]

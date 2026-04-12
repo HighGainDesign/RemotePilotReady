@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import StudyMode from './components/StudyMode'
 import ExamMode from './components/ExamMode'
 import Calculator from './components/Calculator'
 import QuickReference from './components/QuickReference'
+import { loadState, KEYS } from './lib/storage'
+import { calcRetention, calcProgress } from './lib/spaced-repetition'
+import { getTotalQuestions } from './lib/question-data'
 
 const tabs = [
   { id: 'study', label: 'STUDY', icon: StudyIcon },
@@ -55,6 +58,17 @@ function RefIcon({ className }) {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('study')
+  const [questionStates, setQuestionStates] = useState(() => loadState(KEYS.QUESTIONS, {}))
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQuestionStates(loadState(KEYS.QUESTIONS, {}))
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const retention = Math.round(calcRetention(questionStates))
+  const progress = Math.round(calcProgress(questionStates, getTotalQuestions()))
 
   return (
     <div className="flex flex-col h-full min-h-screen bg-cockpit-bg">
@@ -69,6 +83,15 @@ export default function App() {
               RPR
             </h1>
             <p className="font-instrument text-inactive text-[0.5rem] tracking-[0.15em]">PART 107</p>
+          </div>
+          <div className="ml-auto flex gap-1.5">
+            <span className="font-instrument text-phosphor text-[0.625rem] font-bold glow-phosphor-text">
+              {retention}% <span className="text-phosphor/60 font-semibold">RET</span>
+            </span>
+            <span className="text-divider">&middot;</span>
+            <span className="font-instrument text-phosphor text-[0.625rem] font-bold glow-phosphor-text">
+              {progress}% <span className="text-phosphor/60 font-semibold">PROG</span>
+            </span>
           </div>
         </div>
       </header>
@@ -93,7 +116,7 @@ export default function App() {
 
       {/* Tab Bar */}
       <nav className="safe-bottom bg-cockpit-bg/90 backdrop-blur-md border-t border-cockpit-border sticky bottom-0 z-50">
-        <div className="max-w-2xl mx-auto flex">
+        <div className="max-w-2xl mx-auto flex" role="tablist">
           {tabs.map((tab) => {
             const Icon = tab.icon
             const isActive = activeTab === tab.id
@@ -101,6 +124,8 @@ export default function App() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                aria-label={`${tab.label} tab`}
+                aria-current={isActive ? 'page' : undefined}
                 className={`tap-highlight flex-1 flex flex-col items-center gap-1 py-2 pt-3 transition-colors relative ${
                   isActive ? 'text-phosphor' : 'text-inactive active:text-secondary-text'
                 }`}

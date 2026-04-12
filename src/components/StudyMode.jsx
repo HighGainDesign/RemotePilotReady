@@ -36,6 +36,12 @@ export default function StudyMode() {
 
   const trackConfig = TRACKS.find(t => t.id === activeTrack)
 
+  // Calculate metrics (before startRound so categoryRetention is available)
+  const retention = useMemo(() => calcRetention(questionStates), [questionStates])
+  const totalQuestions = useMemo(() => getTotalQuestions(), [])
+  const progress = useMemo(() => calcProgress(questionStates, totalQuestions), [questionStates, totalQuestions])
+  const categoryRetention = useMemo(() => calcCategoryRetention(questionStates), [questionStates])
+
   const startRound = useCallback(() => {
     const allIds = getAllIds(activeTrack)
     const selected = selectRoundQuestions(questionStates, allIds, trackConfig.roundSize, session, categoryRetention)
@@ -45,6 +51,16 @@ export default function StudyMode() {
     setShowReward(false)
     saveState(KEYS.ACTIVE_ROUND, { track: activeTrack, questionIds: selected, currentIndex: 0, score: 0 })
   }, [activeTrack, questionStates, trackConfig, session, categoryRetention])
+
+  // Restore active round on mount
+  useEffect(() => {
+    const savedRound = loadState(KEYS.ACTIVE_ROUND, null)
+    if (savedRound && savedRound.track === activeTrack) {
+      setRoundIds(savedRound.questionIds)
+      setRoundIndex(savedRound.currentIndex)
+      setRoundScore(savedRound.score || 0)
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-start first round
   useEffect(() => {
@@ -71,10 +87,12 @@ export default function StudyMode() {
       setSession(newSession)
       setQuestionStates(prev => incrementSessionCounters(prev))
       setShowReward(true)
+      removeState(KEYS.ACTIVE_ROUND)
     } else {
       setRoundIndex(prev => prev + 1)
+      saveState(KEYS.ACTIVE_ROUND, { track: activeTrack, questionIds: roundIds, currentIndex: roundIndex + 1, score: roundScore })
     }
-  }, [roundIndex, roundIds, session])
+  }, [roundIndex, roundIds, session, activeTrack, roundScore])
 
   const handleTrackChange = useCallback((trackId) => {
     setActiveTrack(trackId)
@@ -85,12 +103,6 @@ export default function StudyMode() {
   const handleNextRound = useCallback(() => {
     startRound()
   }, [startRound])
-
-  // Calculate metrics
-  const retention = useMemo(() => calcRetention(questionStates), [questionStates])
-  const totalQuestions = useMemo(() => getTotalQuestions(), [])
-  const progress = useMemo(() => calcProgress(questionStates, totalQuestions), [questionStates, totalQuestions])
-  const categoryRetention = useMemo(() => calcCategoryRetention(questionStates), [questionStates])
 
   // Current question data
   const currentQuestion = roundIds ? getQuestionData(roundIds[roundIndex]) : null
@@ -148,15 +160,6 @@ export default function StudyMode() {
           <span className="text-phosphor text-[0.75rem]" style={{ filter: 'drop-shadow(0 0 4px rgba(74,252,146,0.4))' }}>&#10022;</span>
         </div>
         <span className="font-instrument text-body-text text-[0.8125rem] font-extrabold tracking-[0.15em]">RPR</span>
-        <div className="ml-auto flex gap-1.5">
-          <span className="font-instrument text-phosphor text-[0.625rem] font-bold glow-phosphor-text">
-            {Math.round(retention)}% <span className="text-phosphor/60 font-semibold">RET</span>
-          </span>
-          <span className="text-divider">&middot;</span>
-          <span className="font-instrument text-phosphor text-[0.625rem] font-bold glow-phosphor-text">
-            {Math.round(progress)}% <span className="text-phosphor/60 font-semibold">PROG</span>
-          </span>
-        </div>
       </div>
 
       {/* Sub-nav */}

@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------ */
 /*  SVG chart illustrations — one per chartType                        */
-/*  Exported for use in ChartTrainer and StudyMode                     */
+/*  Exported for use in StudyMode and ExamMode                         */
 /* ------------------------------------------------------------------ */
 
 function AirportClassD() {

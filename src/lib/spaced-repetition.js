@@ -43,15 +43,20 @@ export function processAnswer(state, correct) {
 export function incrementSessionCounters(states) {
   const updated = {}
   for (const [id, state] of Object.entries(states)) {
-    updated[id] = {
-      ...state,
-      sessionsSinceLastSeen: state.sessionsSinceLastSeen + 1,
+    // Only increment for questions that have been seen and have a review interval
+    if (state.totalSeen > 0) {
+      updated[id] = {
+        ...state,
+        sessionsSinceLastSeen: state.sessionsSinceLastSeen + 1,
+      }
+    } else {
+      updated[id] = state
     }
   }
   return updated
 }
 
-export function selectRoundQuestions(states, allIds, count, currentSession) {
+export function selectRoundQuestions(states, allIds, count, currentSession, categoryRetention = {}) {
   const due = []
   const missed = []
   const unseen = []
@@ -76,10 +81,23 @@ export function selectRoundQuestions(states, allIds, count, currentSession) {
     return a
   }
 
+  // Sort unseen questions so weak-category questions come first
+  if (Object.keys(categoryRetention).length > 0) {
+    unseen.sort((a, b) => {
+      const stateA = states[a]
+      const stateB = states[b]
+      const catsA = stateA?.categories || []
+      const catsB = stateB?.categories || []
+      const weakA = Math.min(...catsA.map(c => categoryRetention[c] ?? 50), 100)
+      const weakB = Math.min(...catsB.map(c => categoryRetention[c] ?? 50), 100)
+      return weakA - weakB  // lower retention = higher priority
+    })
+  }
+
   const pool = [
     ...shuffle(due),
     ...shuffle(missed),
-    ...shuffle(unseen),
+    ...unseen,
   ]
 
   return pool.slice(0, count)

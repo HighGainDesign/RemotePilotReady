@@ -109,6 +109,7 @@ export default function RoundEngine({
               key={i}
               onClick={() => handleSelect(i)}
               disabled={isAnswered}
+              aria-label={`Option ${letters[i]}: ${opt}`}
               className={`tap-highlight w-full text-left px-3 py-2.5 rounded-[0.625rem] border ${borderClass} ${bgClass} ${textClass} text-[0.8125rem] transition-all flex items-center gap-2.5`}
               style={{ backdropFilter: 'blur(2px)', ...extraStyle }}
             >
