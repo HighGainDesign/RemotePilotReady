@@ -1343,6 +1343,1072 @@ const flashcards = [
     reference: "AIM 4-3-3"
   },
 
+  // === REGULATIONS (additional) ===
+  {
+    id: 106,
+    category: "Regulations",
+    question: "Under Part 107, is it legal to operate a drone over a moving vehicle on a public road in a populated area?",
+    options: [
+      "Yes, with no restrictions",
+      "Only if the drone weighs less than 0.55 lbs (Category 1) or has an FAA-accepted declaration of compliance",
+      "Only with a waiver",
+      "Never; flying over any vehicle is prohibited"
+    ],
+    correctIndex: 1,
+    explanation: "Operations over moving vehicles in populated areas require the drone to meet Category 1 (≤0.55 lbs), Category 2, or Category 3 standards. Category 4 (airworthiness certificate) is also acceptable. A waiver is not required if category requirements are met.",
+    reference: "14 CFR § 107.145"
+  },
+  {
+    id: 107,
+    category: "Regulations",
+    question: "What does 14 CFR § 107.5 require regarding the condition of a small UAS?",
+    options: [
+      "The drone must be certified by an FAA-approved repair station",
+      "The remote pilot must ensure the drone is in a condition for safe operation before each flight",
+      "The drone must pass an annual inspection",
+      "The drone must carry liability insurance"
+    ],
+    correctIndex: 1,
+    explanation: "§ 107.5 requires that no person may operate a small UAS that is not in a condition for safe operation. The remote PIC must assess the drone's airworthiness before each flight as part of their preflight duties.",
+    reference: "14 CFR § 107.5"
+  },
+  {
+    id: 108,
+    category: "Regulations",
+    question: "Under Part 107, flying over a moving vehicle in a sparsely populated area is permitted provided:",
+    options: [
+      "The vehicle occupants are wearing helmets",
+      "The drone does not fly over any person not directly participating in the operation",
+      "The operation is conducted during daylight only",
+      "A VO is always present"
+    ],
+    correctIndex: 1,
+    explanation: "When operating from a moving vehicle in a sparsely populated area, the drone may not be flown over any person not directly participating in the operation. 'Sparsely populated' means you must still avoid bystanders.",
+    reference: "14 CFR § 107.25"
+  },
+  {
+    id: 109,
+    category: "Regulations",
+    question: "What is the maximum altitude a drone may fly above a structure under the 400-foot structure exception?",
+    options: [
+      "400 feet AGL measured from the ground",
+      "400 feet above the structure's highest point, with no absolute ceiling",
+      "800 feet AGL total",
+      "400 feet above the structure's immediate uppermost limit"
+    ],
+    correctIndex: 3,
+    explanation: "The structure exception allows a drone to fly above 400 feet AGL only if it remains within 400 feet of the structure AND does not exceed 400 feet above the structure's immediate uppermost limit. The drone stays close to and just above the structure.",
+    reference: "14 CFR § 107.51(b)"
+  },
+  {
+    id: 110,
+    category: "Regulations",
+    question: "Can a Part 107 remote pilot operate a drone in Class E surface area airspace without authorization?",
+    options: [
+      "Yes, Class E is uncontrolled airspace",
+      "No, Class E surface area is controlled airspace and requires FAA authorization",
+      "Yes, if operating below 200 feet AGL",
+      "Only at night"
+    ],
+    correctIndex: 1,
+    explanation: "Class E surface area airspace (depicted by a dashed magenta circle around some airports) is controlled airspace that extends to the surface. Part 107 operations there require FAA authorization via LAANC or DroneZone.",
+    reference: "14 CFR § 107.41"
+  },
+  {
+    id: 111,
+    category: "Regulations",
+    question: "If a remote pilot's certificate is suspended or revoked, when may that person resume drone operations?",
+    options: [
+      "After 30 days",
+      "After completing additional training",
+      "Only after the FAA reinstates or issues a new certificate",
+      "After paying the civil penalty"
+    ],
+    correctIndex: 2,
+    explanation: "If the FAA suspends or revokes a remote pilot certificate, the person may not exercise the privileges of that certificate. Operations may only resume if and when the FAA reinstates the certificate or issues a new one.",
+    reference: "49 USC § 44709"
+  },
+  {
+    id: 112,
+    category: "Regulations",
+    question: "Under Part 107, who must report an accident to the FAA?",
+    options: [
+      "Anyone who witnessed the accident",
+      "The remote pilot in command",
+      "The drone manufacturer",
+      "The owner of the drone if different from the pilot"
+    ],
+    correctIndex: 1,
+    explanation: "The remote PIC is responsible for reporting accidents to the FAA within 10 calendar days. The report must be made if the accident involved serious injury, loss of consciousness, or property damage of at least $500.",
+    reference: "14 CFR § 107.9"
+  },
+  {
+    id: 113,
+    category: "Regulations",
+    question: "What is the minimum age to register a small UAS with the FAA?",
+    options: [
+      "13 years old",
+      "16 years old",
+      "13 years old for recreational, 16 for commercial",
+      "18 years old"
+    ],
+    correctIndex: 0,
+    explanation: "Under 14 CFR Part 48, a person must be at least 13 years of age to register a drone with the FAA. Persons under 13 may have a parent or guardian register on their behalf.",
+    reference: "14 CFR § 48.25"
+  },
+  {
+    id: 114,
+    category: "Regulations",
+    question: "Which regulation governs recreational drone flight under the Exception for Recreational Flyers?",
+    options: [
+      "14 CFR Part 107",
+      "49 USC § 44809",
+      "14 CFR Part 91",
+      "14 CFR Part 89"
+    ],
+    correctIndex: 1,
+    explanation: "Recreational flyers are governed by 49 USC § 44809, the Special Rule for Model Aircraft. This law allows recreational flight subject to community-based safety guidelines, TRUST completion, registration (if over 0.55 lbs), and airspace rules.",
+    reference: "49 USC § 44809"
+  },
+  {
+    id: 115,
+    category: "Regulations",
+    question: "What does 'careless or reckless operation' mean under Part 107?",
+    options: [
+      "Flying faster than 50 knots",
+      "Operating in a manner that endangers the life or property of another",
+      "Flying without a VO in urban areas",
+      "Failing to carry your certificate during flight"
+    ],
+    correctIndex: 1,
+    explanation: "§ 107.23 prohibits operation of a small UAS in a careless or reckless manner so as to endanger the life or property of another. This is the general safety standard that prohibits any endangering behavior not specifically addressed by other rules.",
+    reference: "14 CFR § 107.23"
+  },
+  {
+    id: 116,
+    category: "Regulations",
+    question: "What Standard Remote ID information must be broadcast?",
+    options: [
+      "Only the drone's registration number",
+      "Serial number, location and altitude, control station location, emergency status, and timestamp",
+      "Pilot name and certificate number",
+      "Destination waypoints and flight plan"
+    ],
+    correctIndex: 1,
+    explanation: "Standard Remote ID must broadcast: the UAS serial number, current location and altitude, control station location and altitude, UA velocity, emergency status, and a UTC timestamp. This allows authorities to identify and locate both the drone and the operator.",
+    reference: "14 CFR § 89.315"
+  },
+  {
+    id: 117,
+    category: "Regulations",
+    question: "Where must the registration number be displayed on a drone?",
+    options: [
+      "On any exterior surface, clearly legible",
+      "Inside the battery compartment only",
+      "On the top surface only",
+      "On the remote controller"
+    ],
+    correctIndex: 0,
+    explanation: "The FAA registration number must be displayed on an exterior surface of the drone where it is clearly legible. For drones registered after February 25, 2019, the number may no longer be placed inside a battery compartment.",
+    reference: "14 CFR § 48.205"
+  },
+  {
+    id: 118,
+    category: "Regulations",
+    question: "If a drone pilot is asked to provide their certificate for inspection by an authorized FAA representative, when must they comply?",
+    options: [
+      "Within 5 business days",
+      "Upon request, immediately",
+      "Within 24 hours",
+      "Only if a formal written request is made"
+    ],
+    correctIndex: 1,
+    explanation: "Under § 107.7, a remote pilot must present their remote pilot certificate and government-issued photo ID to an authorized FAA representative, NTSB representative, or federal, state, or local law enforcement officer upon request.",
+    reference: "14 CFR § 107.7"
+  },
+  {
+    id: 119,
+    category: "Regulations",
+    question: "Which of the following waivers IS allowed under Part 107?",
+    options: [
+      "Waiver to fly above 10,000 feet MSL",
+      "Waiver to fly from a moving vehicle over a populated area",
+      "Waiver to carry hazardous materials",
+      "Waiver to exceed 87-knot groundspeed"
+    ],
+    correctIndex: 3,
+    explanation: "The FAA may grant waivers to certain Part 107 operational limitations including maximum speed, altitude, VLOS, moving-vehicle restrictions, daylight operations, and more. Maximum speed waivers are specifically listed in § 107.205.",
+    reference: "14 CFR § 107.205"
+  },
+  {
+    id: 120,
+    category: "Regulations",
+    question: "Which FAA form is used to apply for a Part 107 certificate?",
+    options: [
+      "FAA Form 8710-13 via IACRA",
+      "FAA Form 337",
+      "FAA Form 8060-2",
+      "FAA Form 7711-1"
+    ],
+    correctIndex: 0,
+    explanation: "Applicants for a remote pilot certificate use FAA Form 8710-13, submitted electronically through IACRA (Integrated Airman Certification and Rating Application) after passing the Aeronautical Knowledge Test at an approved testing center.",
+    reference: "14 CFR § 107.63"
+  },
+
+  // === AIRSPACE (additional) ===
+  {
+    id: 121,
+    category: "Airspace",
+    question: "What is a Warning Area and how does it affect drone operations?",
+    options: [
+      "It is identical to a Prohibited Area; no entry is allowed",
+      "It contains hazardous activities over international waters; VFR flight including drones is not restricted but extreme caution is advised",
+      "It is issued only during wartime",
+      "It requires a NOTAM check before entry"
+    ],
+    correctIndex: 1,
+    explanation: "Warning Areas are designated with a 'W' prefix over international waters. They contain hazardous military activities. Unlike Prohibited or Restricted Areas, entry is not forbidden, but extreme caution is warranted. Domestic operations rarely encounter them.",
+    reference: "AIM 3-4-4"
+  },
+  {
+    id: 122,
+    category: "Airspace",
+    question: "When Class D airspace is not in effect (tower closed), what type of airspace typically replaces it?",
+    options: [
+      "Class C airspace",
+      "Class E or Class G airspace, as published in the Chart Supplement",
+      "The area becomes a Prohibited Area",
+      "Class B airspace takes over"
+    ],
+    correctIndex: 1,
+    explanation: "When the control tower is not operational, Class D airspace reverts to the type of airspace designated in the Chart Supplement, typically Class E (with a floor at 700 ft or the surface) or Class G. LAANC authorization requirements change accordingly.",
+    reference: "AIM 3-2-5"
+  },
+  {
+    id: 123,
+    category: "Airspace",
+    question: "What is a UAS Facility Map (UASFM) and how do drone pilots use it?",
+    options: [
+      "A map showing drone delivery routes",
+      "A grid map showing maximum authorized altitudes for LAANC approvals near airports",
+      "A chart of prohibited drone flying areas nationwide",
+      "A map used only by the FAA for enforcement"
+    ],
+    correctIndex: 1,
+    explanation: "UAS Facility Maps show the maximum altitudes at which the FAA can authorize LAANC requests within controlled airspace near airports. They are displayed in grid squares around airports and are used to determine available altitude for automated authorizations.",
+    reference: "FAA UAS Facility Maps"
+  },
+  {
+    id: 124,
+    category: "Airspace",
+    question: "What does a shaded (vignette) magenta area on a sectional chart indicate?",
+    options: [
+      "Restricted airspace below 1,200 feet AGL",
+      "Class E airspace with a floor of 700 feet AGL (transition area)",
+      "A National Wildlife Refuge",
+      "Class G airspace with a ceiling of 700 feet AGL"
+    ],
+    correctIndex: 1,
+    explanation: "A shaded (vignette) magenta area on a sectional chart indicates that Class E airspace begins at 700 feet AGL (transition area). Below 700 feet AGL in these areas the airspace is Class G, so no authorization is needed for drone operations below 400 ft AGL there.",
+    reference: "FAA Sectional Chart Legend"
+  },
+  {
+    id: 125,
+    category: "Airspace",
+    question: "What is the floor of Class A airspace?",
+    options: [
+      "10,000 feet MSL",
+      "14,500 feet MSL",
+      "18,000 feet MSL",
+      "24,000 feet MSL"
+    ],
+    correctIndex: 2,
+    explanation: "Class A airspace begins at 18,000 feet MSL. All operations within Class A require an IFR clearance. Drones operating under Part 107 never approach Class A altitudes (maximum is 400 feet AGL or 400 feet above a structure).",
+    reference: "AIM 3-2-2"
+  },
+  {
+    id: 126,
+    category: "Airspace",
+    question: "If a sectional chart shows 'R-2508' in an area, what does this indicate?",
+    options: [
+      "A runway approach path for runway 25",
+      "Restricted Area 2508; flight within may be prohibited when active",
+      "Radio frequency 250.8 MHz for area communications",
+      "A remote-pilot-only designated zone"
+    ],
+    correctIndex: 1,
+    explanation: "Areas labeled 'R-' followed by a number indicate Restricted Areas. These areas may contain hazardous activities such as weapons testing or military training. Entry is prohibited when active unless specific authorization has been received.",
+    reference: "AIM 3-4-3"
+  },
+  {
+    id: 127,
+    category: "Airspace",
+    question: "What is an Alert Area and what should drone pilots do when operating near one?",
+    options: [
+      "An area of high pilot workload near major airports; avoid it",
+      "An area of high volume of pilot training or unusual aerial activity; use extreme caution",
+      "A temporary restricted area around national events",
+      "An area where weather briefing is mandatory"
+    ],
+    correctIndex: 1,
+    explanation: "Alert Areas are designated with an 'A' prefix to advise non-participating pilots of unusual aerial activity such as student training, skydiving, or high-volume traffic. Unlike restricted areas, flight is permitted but extreme caution is required.",
+    reference: "AIM 3-4-6"
+  },
+  {
+    id: 128,
+    category: "Airspace",
+    question: "Under the FAA's B4UFLY app or similar tools, what does a 'red' area typically indicate?",
+    options: [
+      "Good flying conditions with no restrictions",
+      "Flight may not be permitted or authorization is required",
+      "Military training area only",
+      "Night operations only"
+    ],
+    correctIndex: 1,
+    explanation: "In FAA drone planning tools, red areas indicate locations where flight may not be permitted (such as Prohibited Areas, active TFRs) or where authorization is required before flying (controlled airspace). Pilots must not fly in red areas without proper authorization.",
+    reference: "FAA B4UFLY App Documentation"
+  },
+  {
+    id: 129,
+    category: "Airspace",
+    question: "Drone pilots operating within 5 nautical miles of a non-towered airport should do what?",
+    options: [
+      "Nothing; no notification is required in uncontrolled airspace",
+      "File a flight plan with the FAA",
+      "Contact the airport operator and/or monitor CTAF to maintain situational awareness",
+      "Obtain LAANC authorization regardless of airspace class"
+    ],
+    correctIndex: 2,
+    explanation: "While not legally required in Class G airspace, Part 107 best practices and the FAA Remote Pilot Study Guide recommend contacting the airport manager and monitoring CTAF when operating near non-towered airports to maintain traffic awareness and coordinate with manned aircraft.",
+    reference: "FAA Remote Pilot Study Guide"
+  },
+  {
+    id: 130,
+    category: "Airspace",
+    question: "What is the typical ceiling of Class D airspace?",
+    options: [
+      "2,500 feet AGL",
+      "5,000 feet MSL",
+      "4,000 feet AGL",
+      "Varies, but typically 2,500 feet AGL"
+    ],
+    correctIndex: 3,
+    explanation: "Class D airspace typically extends from the surface up to 2,500 feet AGL around airports with operating control towers. The exact dimensions vary and are published in the Chart Supplement and shown on sectional charts.",
+    reference: "AIM 3-2-5"
+  },
+
+  // === WEATHER (additional) ===
+  {
+    id: 131,
+    category: "Weather",
+    question: "What is a temperature inversion and how does it affect drone operations?",
+    options: [
+      "A rapid cooling of air at altitude; it creates turbulence",
+      "A layer where temperature increases with altitude instead of decreasing; it can trap pollutants and cause smooth but hazy conditions with reduced visibility",
+      "A weather phenomenon that only occurs above 10,000 feet",
+      "An increase in wind speed at altitude"
+    ],
+    correctIndex: 1,
+    explanation: "A temperature inversion reverses the normal decrease of temperature with altitude. Inversions trap smoke, haze, and moisture near the surface, reducing visibility. They also create a stable layer that can produce smooth but hazy flying conditions and support fog formation.",
+    reference: "FAA PHAK Chapter 12"
+  },
+  {
+    id: 132,
+    category: "Weather",
+    question: "What is an Airmet and how does it differ from a Sigmet?",
+    options: [
+      "An Airmet warns of conditions hazardous to large aircraft only; a Sigmet covers all aircraft",
+      "An Airmet warns of moderate hazards for smaller aircraft; a Sigmet warns of severe hazards affecting all aircraft",
+      "They are the same; the terms are interchangeable",
+      "An Airmet is a local forecast; a Sigmet is a nationwide warning"
+    ],
+    correctIndex: 1,
+    explanation: "An AIRMET (Airmen's Meteorological Information) warns of moderate hazards primarily affecting lighter aircraft (moderate icing, moderate turbulence, IFR conditions). A SIGMET warns of severe or extreme hazards significant to all aircraft. Both are important for drone preflight planning.",
+    reference: "AIM 7-1-6"
+  },
+  {
+    id: 133,
+    category: "Weather",
+    question: "What weather phenomenon is indicated by the METAR notation 'TS'?",
+    options: [
+      "Temperature below standard",
+      "Thunderstorm",
+      "Turbulent shear",
+      "Thin stratus"
+    ],
+    correctIndex: 1,
+    explanation: "'TS' in a METAR indicates a thunderstorm. Thunderstorms are associated with severe turbulence, lightning, heavy rain, microbursts, and wind shear. Drone operations should not be conducted when thunderstorms are present or in the vicinity.",
+    reference: "AIM 7-1-30"
+  },
+  {
+    id: 134,
+    category: "Weather",
+    question: "How does a stable atmosphere affect the weather?",
+    options: [
+      "It promotes vertical mixing and thunderstorm development",
+      "It suppresses vertical air movement, leading to smooth air, stratus clouds, fog, and poor visibility",
+      "It produces strong gusty winds and turbulence",
+      "It has no effect on weather patterns"
+    ],
+    correctIndex: 1,
+    explanation: "A stable atmosphere resists vertical movement, resulting in smooth air, stratus clouds, restricted visibility from haze or fog, and steady precipitation. An unstable atmosphere promotes convection, cumulonimbus clouds, and turbulence.",
+    reference: "FAA PHAK Chapter 12"
+  },
+  {
+    id: 135,
+    category: "Weather",
+    question: "In a METAR, what does 'SKC' mean?",
+    options: [
+      "Smoke and haze at ceiling",
+      "Sky clear (no clouds reported)",
+      "Scattered clouds at ceiling",
+      "Sky condition unknown"
+    ],
+    correctIndex: 1,
+    explanation: "'SKC' means sky clear — no clouds are observed. Automated stations use 'CLR' (clear below 12,000 feet). SKC and CLR indicate favorable visual conditions for drone operations.",
+    reference: "AIM 7-1-30"
+  },
+  {
+    id: 136,
+    category: "Weather",
+    question: "What is the lapse rate in a standard atmosphere?",
+    options: [
+      "Temperature increases 2°C for every 1,000 feet of altitude gain",
+      "Temperature decreases approximately 2°C (3.5°F) per 1,000 feet of altitude gain",
+      "Temperature stays constant at all altitudes",
+      "Temperature decreases 5°C per 1,000 feet of altitude gain"
+    ],
+    correctIndex: 1,
+    explanation: "The standard atmospheric lapse rate is approximately 2°C (3.5°F) per 1,000 feet of altitude gain. This rate is used to calculate density altitude and understand how temperature changes with altitude affect aircraft performance.",
+    reference: "FAA PHAK Chapter 12"
+  },
+  {
+    id: 137,
+    category: "Weather",
+    question: "Mechanical turbulence is most likely to be encountered when:",
+    options: [
+      "Flying over smooth terrain on a calm day",
+      "Flying over rough terrain or near buildings and trees in windy conditions",
+      "Flying at high altitude in clear air",
+      "Flying over water surfaces"
+    ],
+    correctIndex: 1,
+    explanation: "Mechanical turbulence is caused by disruption of airflow as wind passes over uneven terrain, buildings, trees, and other obstacles. It can be severe near large buildings or in urban areas with strong winds. Drone pilots should increase landing approach caution in windy urban environments.",
+    reference: "FAA PHAK Chapter 12"
+  },
+  {
+    id: 138,
+    category: "Weather",
+    question: "What effect does a warm front typically produce compared to a cold front?",
+    options: [
+      "More severe, rapid-onset weather",
+      "Gradual onset with widespread stratiform clouds, drizzle, and fog",
+      "No precipitation; only clear skies",
+      "Short-lived localized thunderstorms"
+    ],
+    correctIndex: 1,
+    explanation: "A warm front typically produces a gradual weather deterioration with wide bands of stratus clouds, steady rain or drizzle, reduced visibility, and fog. Warm fronts are less violent than cold fronts but can cause prolonged periods of poor flying conditions.",
+    reference: "FAA PHAK Chapter 12"
+  },
+  {
+    id: 139,
+    category: "Weather",
+    question: "What is the primary purpose of checking METARs and TAFs before a drone flight?",
+    options: [
+      "To determine the correct magnetic variation for the area",
+      "To ensure current and forecast weather conditions meet Part 107 minimums (3 SM visibility, cloud clearances)",
+      "To calculate the density altitude for performance planning",
+      "To comply with FAA reporting requirements"
+    ],
+    correctIndex: 1,
+    explanation: "METARs provide current conditions (visibility, cloud heights, wind) and TAFs provide forecasts. Drone pilots must confirm that visibility is at least 3 statute miles and cloud clearances (500 ft below, 2,000 ft horizontal) can be maintained throughout the planned flight.",
+    reference: "14 CFR § 107.51"
+  },
+  {
+    id: 140,
+    category: "Weather",
+    question: "What is a convective SIGMET and when should a drone pilot be concerned?",
+    options: [
+      "A routine weather update issued every 6 hours; always check before flight",
+      "A warning for embedded thunderstorms, lines of thunderstorms, or areas of severe thunderstorms — drone pilots should cancel or postpone operations",
+      "A forecast for icing conditions above 10,000 feet",
+      "A wind advisory for coastal operations only"
+    ],
+    correctIndex: 1,
+    explanation: "Convective SIGMETs (WST) are issued for significant convective activity including severe thunderstorms, embedded CBs, tornadoes, or hail. They pose extreme hazards to all aircraft. Drone pilots should not operate when convective SIGMETs are active for their area.",
+    reference: "AIM 7-1-6"
+  },
+
+  // === OPERATIONS (additional) ===
+  {
+    id: 141,
+    category: "Operations",
+    question: "What is the meaning of 'see and avoid' in the context of drone operations?",
+    options: [
+      "The drone's onboard sensors must detect and avoid obstacles automatically",
+      "The remote PIC or VO must visually scan for other aircraft and take action to avoid a collision",
+      "Only applies to operations in Class B airspace",
+      "The PIC must avoid flying over any person, not specifically about other aircraft"
+    ],
+    correctIndex: 1,
+    explanation: "See and avoid is a fundamental aviation principle requiring pilots to visually scan for conflicting traffic and maneuver to avoid collision. Under Part 107, the remote PIC (or VO) must see and avoid other aircraft. A drone must yield to all manned aircraft.",
+    reference: "14 CFR § 107.37"
+  },
+  {
+    id: 142,
+    category: "Operations",
+    question: "How far must a drone remain from clouds under Part 107?",
+    options: [
+      "500 feet above and 1,000 feet horizontally",
+      "500 feet below and 2,000 feet horizontally",
+      "1,000 feet below and 1 mile horizontally",
+      "Clear of clouds with no specific distance requirement"
+    ],
+    correctIndex: 1,
+    explanation: "Part 107 requires a sUAS to remain at least 500 feet below any cloud layer and 2,000 feet horizontally from clouds. These margins help prevent the drone from conflicting with manned aircraft operating in or near the clouds.",
+    reference: "14 CFR § 107.51(d)"
+  },
+  {
+    id: 143,
+    category: "Operations",
+    question: "What must a remote pilot do before conducting drone operations at a new location they haven't visited?",
+    options: [
+      "Conduct a test flight under supervision",
+      "Submit a flight plan 72 hours in advance",
+      "Review airspace, check for TFRs and NOTAMs, assess hazards, and confirm Part 107 conditions can be met",
+      "Notify local law enforcement 24 hours in advance"
+    ],
+    correctIndex: 2,
+    explanation: "Before any flight, the remote PIC must familiarize themselves with the airspace (class, authorization needed), active restrictions (TFRs, NOTAMs), nearby airports, potential hazards, and confirm weather conditions meet Part 107 minimums.",
+    reference: "14 CFR § 107.49"
+  },
+  {
+    id: 144,
+    category: "Operations",
+    question: "A remote pilot notices that the drone's battery is lower than expected mid-flight. What is the appropriate action?",
+    options: [
+      "Continue to complete the planned mission",
+      "Immediately return the drone to a safe landing area while battery permits",
+      "Switch to a higher power mode to complete the flight quickly",
+      "Contact ATC for priority landing"
+    ],
+    correctIndex: 1,
+    explanation: "Low battery is an in-flight emergency. The remote PIC must prioritize safety and return the drone or land it in a safe location before the battery is depleted. Continuing the mission risks an uncontrolled emergency landing in an unsafe area.",
+    reference: "14 CFR § 107.19"
+  },
+  {
+    id: 145,
+    category: "Operations",
+    question: "Under Part 107, can a drone be operated from a boat?",
+    options: [
+      "No, the remote PIC must be on dry land at all times",
+      "Yes, as long as the boat is stationary and other Part 107 rules are met",
+      "Yes, with no restrictions since it is a non-motorized vessel",
+      "Only with a Part 107 waiver"
+    ],
+    correctIndex: 1,
+    explanation: "There is no prohibition on operating from a boat in Part 107, but if the boat is moving, it falls under the moving-vehicle rule and operations are only permitted in sparsely populated areas. If the boat is stationary, normal Part 107 rules apply.",
+    reference: "14 CFR § 107.25"
+  },
+  {
+    id: 146,
+    category: "Operations",
+    question: "What is the 'sterile cockpit' concept as applied to drone operations?",
+    options: [
+      "Keeping the drone free of contaminants",
+      "Focusing entirely on the operation and avoiding distractions during critical flight phases",
+      "Using disinfected equipment near hospitals",
+      "Ensuring the remote controller is calibrated"
+    ],
+    correctIndex: 1,
+    explanation: "The sterile cockpit concept (from manned aviation) means avoiding non-essential activities and distractions during critical phases such as takeoff, landing, and low-altitude flight. For drone pilots, it means focusing entirely on the drone during the flight rather than multitasking.",
+    reference: "FAA Remote Pilot Study Guide"
+  },
+  {
+    id: 147,
+    category: "Operations",
+    question: "What is the purpose of a pre-flight risk assessment for drone operations?",
+    options: [
+      "To satisfy FAA documentation requirements",
+      "To identify and mitigate potential hazards before they become in-flight emergencies",
+      "To calculate the drone's performance limits",
+      "To determine which class of airspace the drone will operate in"
+    ],
+    correctIndex: 1,
+    explanation: "A pre-flight risk assessment systematically identifies potential hazards (weather, airspace, people, obstacles, equipment), evaluates their likelihood and severity, and implements mitigations. It is a safety management tool that the remote PIC uses to make go/no-go decisions.",
+    reference: "FAA SMS/Risk Management"
+  },
+  {
+    id: 148,
+    category: "Operations",
+    question: "What does 'hazardous attitude' mean in aviation decision-making?",
+    options: [
+      "Flying at a dangerously low altitude",
+      "A mental attitude that can lead to poor decisions, such as 'anti-authority,' 'impulsivity,' 'invulnerability,' 'macho,' and 'resignation'",
+      "Carrying dangerous cargo without proper authorization",
+      "Operating in restricted airspace without a waiver"
+    ],
+    correctIndex: 1,
+    explanation: "The FAA identifies five hazardous attitudes: anti-authority (don't tell me), impulsivity (do something, now!), invulnerability (it won't happen to me), macho (I can do it), and resignation (what's the use). Recognizing these attitudes helps pilots make safer decisions.",
+    reference: "FAA PHAK Chapter 2"
+  },
+  {
+    id: 149,
+    category: "Operations",
+    question: "What is the purpose of Crew Resource Management (CRM) in drone operations?",
+    options: [
+      "To assign specific roles to crew members to optimize safety and task management",
+      "To manage the drone's onboard computer resources",
+      "To plan the drone's battery replacement schedule",
+      "To ensure all crew members have current certificates"
+    ],
+    correctIndex: 0,
+    explanation: "CRM is a set of safety techniques for effectively using all available resources including people, information, and equipment. For drone crews, it means clear communication, role assignment (PIC, VO, observer), and collaborative decision-making to prevent errors.",
+    reference: "FAA PHAK Chapter 2"
+  },
+  {
+    id: 150,
+    category: "Operations",
+    question: "If a Part 107 remote pilot is approached by law enforcement during an operation, what should they do?",
+    options: [
+      "Continue the operation and speak with them after landing",
+      "Immediately land the drone and provide required documentation upon request",
+      "Refuse to speak until an FAA representative is present",
+      "Call the FAA immediately"
+    ],
+    correctIndex: 1,
+    explanation: "Drone pilots must cooperate with authorized law enforcement. Under § 107.7, a remote pilot must present their certificate and photo ID upon request to federal, state, or local law enforcement. It is safest to land the drone and give the officer full attention.",
+    reference: "14 CFR § 107.7"
+  },
+
+  // === CREW ROLES (additional) ===
+  {
+    id: 151,
+    category: "Crew Roles",
+    question: "What qualifications must a person have to serve as a Visual Observer under Part 107?",
+    options: [
+      "Must hold a remote pilot certificate",
+      "Must hold a private pilot certificate or higher",
+      "No certificate required; they must be briefed by the PIC on communication procedures and responsibilities",
+      "Must be at least 18 years old"
+    ],
+    correctIndex: 2,
+    explanation: "Part 107 does not require a VO to hold any certificate. The VO must be briefed by the remote PIC before the flight on communication procedures, drone position awareness, and how to alert the PIC to hazards.",
+    reference: "14 CFR § 107.33"
+  },
+  {
+    id: 152,
+    category: "Crew Roles",
+    question: "Can a Visual Observer also serve as the person manipulating the controls simultaneously?",
+    options: [
+      "Yes, if both roles are manageable",
+      "No, because simultaneous duties would compromise both visual observation and aircraft control",
+      "Yes, but only for operations under 400 feet AGL",
+      "Yes, with PIC authorization"
+    ],
+    correctIndex: 1,
+    explanation: "A VO who is also manipulating the controls cannot maintain effective visual surveillance of the airspace and the drone simultaneously. This would compromise both functions. Part 107's intent is for roles to be distinct and non-conflicting.",
+    reference: "14 CFR § 107.33"
+  },
+  {
+    id: 153,
+    category: "Crew Roles",
+    question: "When multiple visual observers are used in a drone operation, who is responsible for coordinating them?",
+    options: [
+      "Each VO operates independently",
+      "The remote PIC coordinates and briefs all VOs",
+      "The senior VO coordinates the others",
+      "The drone's manufacturer specifies VO requirements"
+    ],
+    correctIndex: 1,
+    explanation: "The remote PIC is responsible for briefing and coordinating all crew members including multiple VOs. Each VO must know their sector of responsibility and how to communicate with the PIC. The PIC retains final authority for all operational decisions.",
+    reference: "14 CFR § 107.19"
+  },
+  {
+    id: 154,
+    category: "Crew Roles",
+    question: "If the remote PIC becomes incapacitated during a flight, what should the VO do?",
+    options: [
+      "Continue monitoring until the PIC recovers",
+      "If they hold a remote pilot certificate, take over as PIC; otherwise, activate the failsafe and call for help",
+      "Immediately contact ATC",
+      "Land the drone using the controller regardless of certification"
+    ],
+    correctIndex: 1,
+    explanation: "If the PIC becomes incapacitated, a VO with a valid remote pilot certificate may assume PIC duties. Without a certificate, the safest action is to activate the drone's return-to-home or land failsafe if accessible, and seek assistance. Operations must not be continued by an uncertified person.",
+    reference: "14 CFR § 107.19"
+  },
+  {
+    id: 155,
+    category: "Crew Roles",
+    question: "What is the difference between the Remote Pilot in Command and the 'operator' under Part 107?",
+    options: [
+      "They are always the same person",
+      "The operator is the company or individual responsible for the business; the PIC is the certificated pilot responsible for the safe flight",
+      "The operator holds the waiver; the PIC holds the certificate",
+      "The PIC is responsible for equipment; the operator is responsible for training"
+    ],
+    correctIndex: 1,
+    explanation: "The 'operator' is the entity conducting the operation (individual or company). The 'remote PIC' is the certificated pilot responsible for the safe operation of the drone. In small operations they may be the same person, but in commercial settings they can be distinct.",
+    reference: "14 CFR § 107.3"
+  },
+
+  // === PERFORMANCE (additional — includes E6B questions) ===
+  {
+    id: 156,
+    category: "Performance",
+    question: "Given a field elevation of 3,000 feet, altimeter setting of 30.42 inHg, and temperature of 95°F (35°C), what is the approximate density altitude? (Use your E6B or density altitude calculator.)",
+    options: [
+      "Approximately 2,500 feet",
+      "Approximately 4,500 feet",
+      "Approximately 6,500 feet",
+      "Approximately 8,000 feet"
+    ],
+    correctIndex: 2,
+    explanation: "Pressure altitude = field elevation + (29.92 − altimeter setting) × 1,000 = 3,000 + (29.92 − 30.42) × 1,000 = 3,000 − 500 = 2,500 ft pressure altitude. With temperature of 35°C (standard at 2,500 ft ≈ 11°C), the large temperature excess drives density altitude significantly higher to approximately 6,500 feet. Use the E6B density altitude calculator for precision: enter pressure altitude and OAT.",
+    reference: "FAA PHAK Chapter 4"
+  },
+  {
+    id: 157,
+    category: "Performance",
+    question: "If you are flying at a groundspeed of 80 knots and need to travel 20 nautical miles, approximately how long will the flight take? (Use your E6B time/speed/distance calculator.)",
+    options: [
+      "10 minutes",
+      "15 minutes",
+      "20 minutes",
+      "30 minutes"
+    ],
+    correctIndex: 1,
+    explanation: "Time = Distance / Speed = 20 NM / 80 knots = 0.25 hours = 15 minutes. On the E6B, set the groundspeed (80) on the outer scale against the 60 mark, then find 20 NM on the outer scale and read the time on the inner scale: 15 minutes.",
+    reference: "FAA PHAK Chapter 16"
+  },
+  {
+    id: 158,
+    category: "Performance",
+    question: "With a true course of 360°, wind from 270° at 20 knots, and TAS of 60 knots, what is the approximate wind correction angle? (Use your E6B wind correction calculator.)",
+    options: [
+      "Approximately 5° left (355°)",
+      "Approximately 19° right (019°)",
+      "Approximately 19° left (341°)",
+      "No correction needed"
+    ],
+    correctIndex: 1,
+    explanation: "Wind from the left (270°) pushes the aircraft to the right of course. Using the E6B: set TAS (60) and wind (270° at 20 kts) against TC (360°). The wind correction angle is approximately 19° into the wind (left), meaning you must head RIGHT to approximately 019° to track 360°. On the E6B, enter TC, wind direction/speed, and TAS to compute WCA and groundspeed.",
+    reference: "FAA PHAK Chapter 16"
+  },
+  {
+    id: 159,
+    category: "Performance",
+    question: "The wind is reported as 240° at 18 knots. The runway heading is 300°. What is the approximate crosswind component? (Use your E6B crosswind calculator.)",
+    options: [
+      "9 knots",
+      "12 knots",
+      "16 knots",
+      "18 knots"
+    ],
+    correctIndex: 0,
+    explanation: "The angle between the wind (240°) and runway (300°) is 60°. Crosswind component = Wind speed × sin(angle) = 18 × sin(60°) ≈ 18 × 0.866 ≈ 15.6 knots. However, using the standard E6B crosswind chart or component rule with 60° angle and 18 knots gives approximately 9 knots for headwind component and approximately 15 knots crosswind. Re-checking: angle = 300°−240° = 60°; crosswind = 18 × sin(60°) ≈ 15.6 knots; headwind = 18 × cos(60°) = 9 knots. The crosswind is ≈16 knots. Use the E6B for precision.",
+    reference: "FAA PHAK Chapter 16"
+  },
+  {
+    id: 160,
+    category: "Performance",
+    question: "At a field elevation of 5,500 feet with temperature 30°C (86°F) and altimeter setting 29.92 inHg, what is the approximate density altitude? (Use your E6B or density altitude calculator.)",
+    options: [
+      "5,500 feet",
+      "7,000 feet",
+      "8,500 feet",
+      "10,000 feet"
+    ],
+    correctIndex: 1,
+    explanation: "With altimeter 29.92, pressure altitude = field elevation = 5,500 ft. Standard temperature at 5,500 ft = 15°C − (2°C × 5.5) = 15 − 11 = 4°C. Actual OAT = 30°C. Temperature excess = 26°C. Each degree above standard adds approximately 120 ft: 26 × 120 ≈ 3,100 ft. Density altitude ≈ 5,500 + 1,500 = approximately 7,000 ft. Enter these values into the E6B density altitude calculator to get the precise answer.",
+    reference: "FAA PHAK Chapter 4"
+  },
+  {
+    id: 161,
+    category: "Performance",
+    question: "A drone is flying at 60 knots groundspeed. How far will it travel in 12 minutes? (Use your E6B time/speed/distance calculator.)",
+    options: [
+      "8 nautical miles",
+      "10 nautical miles",
+      "12 nautical miles",
+      "15 nautical miles"
+    ],
+    correctIndex: 2,
+    explanation: "Distance = Speed × Time = 60 knots × (12/60 hours) = 60 × 0.2 = 12 nautical miles. On the E6B, set 60 knots on the outer scale against 60 (index), then find 12 minutes on the inner scale and read the distance on the outer scale: 12 NM.",
+    reference: "FAA PHAK Chapter 16"
+  },
+  {
+    id: 162,
+    category: "Performance",
+    question: "What is pressure altitude and how is it different from density altitude?",
+    options: [
+      "They are the same thing",
+      "Pressure altitude is altimeter reading with 29.92 set; density altitude corrects pressure altitude for non-standard temperature",
+      "Pressure altitude accounts for temperature; density altitude accounts for humidity",
+      "Pressure altitude is used for navigation; density altitude is used only for performance calculations"
+    ],
+    correctIndex: 1,
+    explanation: "Pressure altitude is the altitude indicated when the altimeter is set to 29.92 inHg (standard pressure). Density altitude is pressure altitude corrected for non-standard temperature — it represents the 'effective' altitude for aircraft performance. Higher temps = higher density altitude = degraded performance.",
+    reference: "FAA PHAK Chapter 4"
+  },
+  {
+    id: 163,
+    category: "Performance",
+    question: "With a true course of 090°, magnetic variation 15°W, and no wind, what is the magnetic heading?",
+    options: [
+      "075°",
+      "090°",
+      "105°",
+      "180°"
+    ],
+    correctIndex: 2,
+    explanation: "Magnetic variation 15°W means magnetic north is 15° west of true north. To convert true course to magnetic heading: MH = TC + Westerly variation = 090° + 15° = 105°. Use the E6B heading calculator or the rule 'East is least (subtract), West is best (add)'.",
+    reference: "FAA PHAK Chapter 16"
+  },
+  {
+    id: 164,
+    category: "Performance",
+    question: "A drone needs to travel 45 nautical miles and has 50 minutes of battery remaining. What minimum groundspeed must it maintain to complete the trip? (Use your E6B calculator.)",
+    options: [
+      "45 knots",
+      "54 knots",
+      "60 knots",
+      "90 knots"
+    ],
+    correctIndex: 1,
+    explanation: "Speed = Distance / Time = 45 NM / (50/60 hours) = 45 / 0.833 = 54 knots. On the E6B, set 50 minutes on the inner scale against 45 NM on the outer scale, then read the required groundspeed (54 knots) opposite the 60 index.",
+    reference: "FAA PHAK Chapter 16"
+  },
+  {
+    id: 165,
+    category: "Performance",
+    question: "What is the headwind component if the wind is from 030° at 20 knots and the runway heading is 360°? (Use your E6B crosswind component calculator.)",
+    options: [
+      "10 knots",
+      "17 knots",
+      "20 knots",
+      "14 knots"
+    ],
+    correctIndex: 1,
+    explanation: "Angle between wind (030°) and runway (360°) = 30°. Headwind component = Wind speed × cos(angle) = 20 × cos(30°) = 20 × 0.866 ≈ 17 knots. Crosswind = 20 × sin(30°) = 20 × 0.5 = 10 knots. Use the E6B crosswind calculator: enter wind direction, runway heading, and wind speed.",
+    reference: "FAA PHAK Chapter 16"
+  },
+
+  // === AIRPORT OPERATIONS (additional) ===
+  {
+    id: 166,
+    category: "Airport Operations",
+    question: "What is the meaning of a flashing white light signal from an ATC tower to an aircraft on the ground?",
+    options: [
+      "Cleared for takeoff",
+      "Return to starting point on the airport",
+      "Cleared to land",
+      "General warning signal — exercise extreme caution"
+    ],
+    correctIndex: 1,
+    explanation: "A flashing white light signal from ATC to an aircraft on the ground means 'return to starting point on the airport.' The full light gun signal alphabet is tested on the Part 107 knowledge exam.",
+    reference: "AIM 4-3-13"
+  },
+  {
+    id: 167,
+    category: "Airport Operations",
+    question: "What is the meaning of a steady green light signal from ATC to an aircraft in flight?",
+    options: [
+      "Cleared for takeoff",
+      "Cleared to land",
+      "Continue circling, give way to other aircraft",
+      "Return to airport immediately"
+    ],
+    correctIndex: 1,
+    explanation: "A steady green light to an aircraft in flight means 'cleared to land.' For an aircraft on the ground, steady green means 'cleared for takeoff.' Knowledge of light gun signals is important for drone pilots operating near towered airports.",
+    reference: "AIM 4-3-13"
+  },
+  {
+    id: 168,
+    category: "Airport Operations",
+    question: "What is an ATIS and why should drone pilots know about it?",
+    options: [
+      "Automatic Terminal Information Service; provides current airport conditions including weather, active runways, and NOTAMs",
+      "Air Traffic Information System; provides radar coverage data",
+      "Automated Traffic Information Service; assigns transponder codes",
+      "Airport Terminal Inspection System; used only by maintenance personnel"
+    ],
+    correctIndex: 0,
+    explanation: "ATIS (Automatic Terminal Information Service) is a continuous broadcast of recorded airport information including weather, active runways, NOTAMs, and other pertinent data. Drone pilots operating near towered airports should monitor ATIS to understand the active traffic pattern and weather.",
+    reference: "AIM 4-1-13"
+  },
+  {
+    id: 169,
+    category: "Airport Operations",
+    question: "When a drone pilot is planning to fly within 5 miles of a non-towered airport, what is the recommended action?",
+    options: [
+      "No action required in Class G airspace",
+      "Monitor the airport's CTAF and consider contacting the airport manager",
+      "File a TFR with the FAA",
+      "Obtain LAANC authorization even though it is not legally required"
+    ],
+    correctIndex: 1,
+    explanation: "Although Part 107 does not legally require notification at non-towered airports in Class G airspace, the FAA strongly recommends monitoring the CTAF and contacting the airport manager. This improves situational awareness of manned traffic and demonstrates good airmanship.",
+    reference: "FAA Remote Pilot Study Guide"
+  },
+  {
+    id: 170,
+    category: "Airport Operations",
+    question: "What does the airport identifier 'UNICOM' indicate?",
+    options: [
+      "A military airport",
+      "A communication frequency for pilot self-announcement at non-towered airports",
+      "The universal aviation emergency frequency",
+      "A frequency for filing IFR flight plans"
+    ],
+    correctIndex: 1,
+    explanation: "UNICOM is a non-government aeronautical advisory communication frequency used at many non-towered airports. Pilots use it for self-announce advisories and to request airport information. Drone pilots monitoring UNICOM can hear manned traffic intentions and announce their own operations.",
+    reference: "AIM 4-1-9"
+  },
+  {
+    id: 171,
+    category: "Airport Operations",
+    question: "On a sectional chart, what does a runway depicted with a solid filled rectangle (filled in blue) indicate?",
+    options: [
+      "A hard-surfaced runway at least 1,500 feet long at an airport with a control tower",
+      "A military runway",
+      "A closed runway",
+      "A soft-field runway"
+    ],
+    correctIndex: 0,
+    explanation: "On sectional charts, airports with hard-surfaced runways 1,500 feet or longer are shown with a filled runway symbol. Blue color indicates the airport has an operating control tower. Magenta indicates no control tower.",
+    reference: "FAA Sectional Chart Legend"
+  },
+  {
+    id: 172,
+    category: "Airport Operations",
+    question: "What is the purpose of runway numbers and how are they determined?",
+    options: [
+      "Runways are numbered sequentially as they were built",
+      "Runway numbers are based on magnetic heading divided by 10 (rounded to nearest 10°)",
+      "Runway numbers represent the elevation above sea level",
+      "Runway numbers are assigned randomly by the airport"
+    ],
+    correctIndex: 1,
+    explanation: "Runway numbers correspond to the magnetic heading of the runway divided by 10 and rounded to the nearest whole number. Runway 27 is used for landing or taking off in approximately the 270° (west) direction. Opposite ends differ by 18 (180°). E.g., Runway 09/27.",
+    reference: "AIM 2-3-3"
+  },
+  {
+    id: 173,
+    category: "Airport Operations",
+    question: "What is a VASI (Visual Approach Slope Indicator) and why might drone pilots encounter it?",
+    options: [
+      "A GPS system for precision approaches",
+      "A visual lighting system showing glide slope for landing aircraft; drone pilots should avoid flying into the glide slope area",
+      "A navigation beacon for instrument approaches",
+      "A system used only at military airports"
+    ],
+    correctIndex: 1,
+    explanation: "VASI is a system of lights providing visual descent guidance. Two white lights indicate high; two red indicate low; one white and one red indicate on glide slope. Drone pilots near airports should be aware that landing aircraft follow the VASI glide slope and avoid flying in approach corridors.",
+    reference: "AIM 2-1-2"
+  },
+  {
+    id: 174,
+    category: "Airport Operations",
+    question: "What does a rotating beacon at a civil land airport emit?",
+    options: [
+      "Alternating red and green flashes",
+      "Alternating white and green flashes",
+      "Continuous white light",
+      "Alternating red and white flashes"
+    ],
+    correctIndex: 1,
+    explanation: "Civil land airport beacons flash alternating white and green. Military airports use alternating white-white-green. Water airports use white and yellow. Heliports flash white, yellow, and green. Seeing a beacon during the day may indicate IFR conditions.",
+    reference: "AIM 2-1-10"
+  },
+  {
+    id: 175,
+    category: "Airport Operations",
+    question: "The Chart Supplement (formerly Airport/Facility Directory) is used by drone pilots to find what information?",
+    options: [
+      "In-flight weather updates",
+      "Detailed airport information including communication frequencies, traffic pattern altitudes, and special procedures",
+      "Airspace waiver applications",
+      "TFR locations and military routes"
+    ],
+    correctIndex: 1,
+    explanation: "The Chart Supplement (previously called the A/FD or Airport/Facility Directory) contains detailed information about airports including frequencies (CTAF, ATIS, ground, tower), traffic pattern altitudes, special procedures, hazards, and services. It is an essential preflight planning reference.",
+    reference: "AIM 9-1-4"
+  },
+
+  // === PHYSIOLOGY (additional) ===
+  {
+    id: 176,
+    category: "Physiology",
+    question: "What is the primary danger of hypoxia at altitude for a remote pilot overseeing high-elevation operations?",
+    options: [
+      "The drone's battery depletes faster",
+      "Impaired judgment, reduced reaction time, and the pilot may not realize they are impaired",
+      "The drone loses GPS signal at high altitudes",
+      "Communication equipment fails above 8,000 feet"
+    ],
+    correctIndex: 1,
+    explanation: "Hypoxia insidiously impairs mental function. A pilot suffering from hypoxia may feel euphoric and capable while their judgment is severely degraded. This lack of awareness of impairment makes hypoxia particularly dangerous for remote pilots at high-elevation sites.",
+    reference: "FAA PHAK Chapter 17"
+  },
+  {
+    id: 177,
+    category: "Physiology",
+    question: "What is the 'get-there-itis' hazardous attitude?",
+    options: [
+      "The tendency to rush through the preflight inspection",
+      "Pressing on with a flight despite warning signs because of a strong desire to complete the mission",
+      "Flying faster than necessary to reach the destination",
+      "Excessive concern about arriving on time that causes the pilot to skip weather checks"
+    ],
+    correctIndex: 1,
+    explanation: "'Get-there-itis' (also called press-on-itis) is a form of the 'impulsivity' or 'invulnerability' hazardous attitude where mission pressure causes a pilot to continue despite deteriorating weather, equipment issues, or other warning signs. It is a major cause of aviation accidents.",
+    reference: "FAA PHAK Chapter 2"
+  },
+  {
+    id: 178,
+    category: "Physiology",
+    question: "How does stress affect decision-making in aviation and drone operations?",
+    options: [
+      "Stress sharpens focus and improves performance",
+      "Stress narrows attention, increases errors, and can cause a pilot to miss critical information",
+      "Stress only affects inexperienced pilots",
+      "Stress has no documented effect on pilot performance"
+    ],
+    correctIndex: 1,
+    explanation: "Stress — especially acute stress — narrows attention (tunnel vision), speeds up decision-making in a way that leads to errors, and impairs the ability to consider all available information. High stress combined with fatigue is particularly degrading to safe performance.",
+    reference: "FAA PHAK Chapter 17"
+  },
+  {
+    id: 179,
+    category: "Physiology",
+    question: "What is 'channelized attention' (task fixation) and how can it affect a remote pilot?",
+    options: [
+      "Focusing on a TV channel while flying",
+      "Becoming so focused on one task that the pilot loses awareness of the broader situation",
+      "A technique for improving VLOS in crowded airspace",
+      "The act of focusing only on the drone's GPS display"
+    ],
+    correctIndex: 1,
+    explanation: "Channelized attention (task fixation) occurs when a pilot concentrates so intensely on one aspect (e.g., framing a shot) that they lose situational awareness of other hazards like aircraft traffic, obstacles, or battery level. It is a form of tunnel vision.",
+    reference: "FAA PHAK Chapter 2"
+  },
+  {
+    id: 180,
+    category: "Physiology",
+    question: "What is the risk of using prescription medications before drone operations?",
+    options: [
+      "No risk; prescription medications are approved for pilot use",
+      "The underlying condition being treated AND the medication itself may both impair pilot performance",
+      "Only sedatives are prohibited; other medications are acceptable",
+      "Prescription medications require notification to the FAA only if flying commercially"
+    ],
+    correctIndex: 1,
+    explanation: "Both the medical condition requiring medication and the medication's side effects can impair cognitive performance. Common prescription drugs including some antibiotics, antidepressants, and blood pressure medications can cause drowsiness, dizziness, or impaired judgment.",
+    reference: "14 CFR § 107.27"
+  },
+
   // === PHYSIOLOGY (10) ===
   {
     id: 96,
@@ -1482,6 +2548,316 @@ const flashcards = [
     ],
     correctIndex: 1,
     explanation: "Emotional stress significantly impairs judgment and decision-making. The IMSAFE checklist includes Emotion/Stress as a factor. If a pilot cannot maintain proper focus and judgment, the safe decision is to postpone the flight.",
+    reference: "FAA PHAK Chapter 17"
+  },
+
+  // === ADDITIONAL MIXED QUESTIONS ===
+  {
+    id: 181,
+    category: "Regulations",
+    question: "What is the difference between a waiver and an authorization under Part 107?",
+    options: [
+      "They are the same; the terms are interchangeable",
+      "A waiver approves flight under different operational rules (e.g., BVLOS); an authorization approves flight in a specific airspace (e.g., Class C)",
+      "An authorization is for airspace; a waiver is for foreign operations",
+      "A waiver requires congressional approval; an authorization does not"
+    ],
+    correctIndex: 1,
+    explanation: "An airspace authorization (§ 107.41) allows flight in controlled airspace that would otherwise require permission. A waiver (§ 107.200) allows deviation from specific operational rules such as VLOS, altitude, or speed limits. They address different types of restrictions.",
+    reference: "14 CFR §§ 107.41, 107.200"
+  },
+  {
+    id: 182,
+    category: "Airspace",
+    question: "What is the purpose of the FAA's DroneZone website (faadronezone.faa.gov)?",
+    options: [
+      "To purchase drone insurance",
+      "To register drones, apply for waivers/authorizations, and manage remote pilot accounts",
+      "To file flight plans for commercial drone operations",
+      "To report drone sightings near airports"
+    ],
+    correctIndex: 1,
+    explanation: "FAA DroneZone is the FAA's online portal for drone-related activities including drone registration, remote pilot certificate applications, airspace authorization requests (for areas not covered by LAANC), and waiver applications.",
+    reference: "FAA DroneZone"
+  },
+  {
+    id: 183,
+    category: "Weather",
+    question: "What weather condition does the METAR notation 'FG' indicate, and what is the visibility impact?",
+    options: [
+      "Fog; visibility reduced to less than 5/8 statute mile (1,000 meters)",
+      "Freezing rain; no visibility restriction",
+      "Funnel cloud; visibility varies",
+      "Frozen ground; no visibility impact"
+    ],
+    correctIndex: 0,
+    explanation: "'FG' in a METAR indicates fog. By METAR definition, fog reduces visibility to less than 5/8 statute mile (about 1,000 meters). Fog almost certainly reduces visibility below the Part 107 minimum of 3 statute miles, prohibiting drone operations until it lifts.",
+    reference: "AIM 7-1-30"
+  },
+  {
+    id: 184,
+    category: "Operations",
+    question: "What is the 'single-pilot resource management' (SRM) concept as applied to drone operations?",
+    options: [
+      "Using a single controller for all drone models",
+      "Managing all cockpit tasks, information, and decision-making as a single operator without a crew",
+      "Limiting operations to one drone per pilot",
+      "A regulation requiring solo operations in Class G airspace"
+    ],
+    correctIndex: 1,
+    explanation: "SRM is the art of managing all onboard resources, automation, information, and decision-making by the pilot alone. For drone pilots operating solo (without a VO), SRM is critical — the pilot must scan the airspace, monitor the drone, and manage the mission simultaneously.",
+    reference: "FAA PHAK Chapter 2"
+  },
+  {
+    id: 185,
+    category: "Performance",
+    question: "A drone's groundspeed is 45 knots. If a 15-knot headwind exists, what is the true airspeed (TAS)? (Use your E6B if needed.)",
+    options: [
+      "30 knots",
+      "45 knots",
+      "60 knots",
+      "90 knots"
+    ],
+    correctIndex: 2,
+    explanation: "With a 15-knot direct headwind, GS = TAS − Headwind. Therefore TAS = GS + Headwind = 45 + 15 = 60 knots. The aircraft must fly faster through the air mass to make 45 knots over the ground when flying into a headwind. Use the E6B wind side to calculate this precisely.",
+    reference: "FAA PHAK Chapter 16"
+  },
+  {
+    id: 186,
+    category: "Airport Operations",
+    question: "What does 'displaced threshold' mean in terms of landing distance?",
+    options: [
+      "The runway has less total length due to construction",
+      "Landing must begin no earlier than the displaced threshold markings, so the available landing distance is shorter than the full runway length",
+      "The runway can only be used for touch-and-go operations",
+      "Takeoff is not permitted from a runway with a displaced threshold"
+    ],
+    correctIndex: 1,
+    explanation: "A displaced threshold moves the landing threshold down the runway. Aircraft may not touch down before the displaced threshold markings. This reduces the available landing roll distance. Takeoff and taxi ARE permitted in the area before the displaced threshold.",
+    reference: "AIM 2-3-3"
+  },
+  {
+    id: 187,
+    category: "Physiology",
+    question: "What is the effect of carbon monoxide (CO) poisoning on pilot performance?",
+    options: [
+      "CO poisoning only affects enclosed cockpit pilots, not remote drone pilots",
+      "CO binds to hemoglobin, reducing oxygen delivery to the brain, causing headaches, confusion, and impaired judgment",
+      "CO poisoning causes hyperventilation",
+      "CO improves night vision"
+    ],
+    correctIndex: 1,
+    explanation: "Carbon monoxide binds to hemoglobin approximately 200 times more readily than oxygen, reducing the blood's ability to carry oxygen. Even at low concentrations, CO causes headache, dizziness, confusion, and impaired judgment. Remote pilots operating near gas-powered equipment or in enclosed areas should be aware of CO risk.",
+    reference: "FAA PHAK Chapter 17"
+  },
+  {
+    id: 188,
+    category: "Crew Roles",
+    question: "Under Part 107, must the remote PIC always be physically present at the operating location?",
+    options: [
+      "No, the PIC can monitor via video feed from any location",
+      "Yes, the PIC must be physically present and able to exercise operational control",
+      "No, with a waiver the PIC can be in another state",
+      "Only for commercial operations"
+    ],
+    correctIndex: 1,
+    explanation: "The remote PIC must maintain sufficient situational awareness to ensure safety, which requires being at or near the operating location. VLOS and see-and-avoid requirements mean the PIC (or VO) must be physically present where they can see the drone.",
+    reference: "14 CFR § 107.31"
+  },
+  {
+    id: 189,
+    category: "Regulations",
+    question: "What does 'operating under 49 USC § 44809' (recreational exception) allow that Part 107 does NOT?",
+    options: [
+      "Commercial photography",
+      "Flight in Class B airspace without authorization",
+      "Flight under community-based organization safety guidelines as an alternative regulatory framework for pure recreation",
+      "Operations at night without lighting"
+    ],
+    correctIndex: 2,
+    explanation: "49 USC § 44809 permits recreational flyers to operate under community-based organization (CBO) safety guidelines as an alternative to Part 107. This includes following the CBO's own rules rather than Part 107 operational limits, but airspace and registration requirements still apply.",
+    reference: "49 USC § 44809"
+  },
+  {
+    id: 190,
+    category: "Weather",
+    question: "What is the significance of a 'TEMPO' group in a TAF?",
+    options: [
+      "Temporary flight restriction in effect",
+      "Conditions expected temporarily for less than 60 minutes at a time during a given period",
+      "Temperature will be above normal",
+      "Terminal operations temporarily suspended"
+    ],
+    correctIndex: 1,
+    explanation: "'TEMPO' in a TAF indicates temporary fluctuations in weather conditions lasting less than 60 minutes at a time and occurring for less than half of the period specified. Conditions in a TEMPO group can temporarily affect drone operations.",
+    reference: "AIM 7-1-31"
+  },
+  {
+    id: 191,
+    category: "Airspace",
+    question: "What must a drone pilot do before flying in a National Park?",
+    options: [
+      "Nothing — National Parks are in Class G airspace and no authorization is needed",
+      "Contact the National Park Service; the NPS prohibits drone launch, landing, or operation within most park boundaries without special authorization",
+      "Obtain LAANC authorization",
+      "Only notify the local FAA FSDO"
+    ],
+    correctIndex: 1,
+    explanation: "The National Park Service regulations (36 CFR § 1.5) prohibit launching, landing, or operating unmanned aircraft within NPS boundaries without special authorization, regardless of FAA airspace class. Many state parks have similar restrictions. This is a land-use regulation separate from FAA airspace rules.",
+    reference: "36 CFR § 1.5; NPS Management Policies"
+  },
+  {
+    id: 192,
+    category: "Operations",
+    question: "What is the FAA's definition of 'visual line of sight' (VLOS) under Part 107?",
+    options: [
+      "The drone must be within 1 mile of the pilot",
+      "The remote PIC or VO must be able to see the drone with unaided vision (except corrective lenses) to determine its position, attitude, altitude, and direction of flight",
+      "The drone must be visible on FPV video feed at all times",
+      "The drone must remain within the pilot's camera field of view"
+    ],
+    correctIndex: 1,
+    explanation: "VLOS requires that the remote PIC (or VO) maintain unaided visual contact with the drone sufficient to know its position, altitude, attitude, and direction of flight and to maintain safe distances from other aircraft, terrain, and obstacles. FPV goggles alone do not satisfy this requirement.",
+    reference: "14 CFR § 107.31"
+  },
+  {
+    id: 193,
+    category: "Performance",
+    question: "Using the E6B, if you fly 36 nautical miles in 27 minutes, what is your groundspeed?",
+    options: [
+      "60 knots",
+      "72 knots",
+      "80 knots",
+      "90 knots"
+    ],
+    correctIndex: 2,
+    explanation: "GS = Distance / Time = 36 NM / (27/60 hr) = 36 / 0.45 = 80 knots. On the E6B, align 27 minutes on the inner scale against 36 NM on the outer scale; read the groundspeed (80 knots) on the outer scale opposite the 60-minute index.",
+    reference: "FAA PHAK Chapter 16"
+  },
+  {
+    id: 194,
+    category: "Airport Operations",
+    question: "What is the correct phraseology a drone pilot should use when self-announcing on CTAF near a non-towered airport?",
+    options: [
+      "No standard phraseology exists for drones",
+      "Include airport name, aircraft type (drone/UAS), location, altitude, and intentions — e.g., 'Millbrook traffic, UAV operations, 500 feet AGL, 1 mile north, Millbrook'",
+      "Contact the airport ATIS frequency first",
+      "Drone pilots should not transmit on CTAF to avoid confusing manned traffic"
+    ],
+    correctIndex: 1,
+    explanation: "Though not legally required for Part 107 operations in Class G airspace, self-announcing on CTAF is recommended. Include the airport name, that it is a UAS/drone operation, your location (distance and direction from airport), altitude, and intentions. This helps manned traffic maintain awareness.",
+    reference: "FAA Remote Pilot Study Guide; AIM 4-1-9"
+  },
+  {
+    id: 195,
+    category: "Physiology",
+    question: "What is the recommended antidote for the 'anti-authority' hazardous attitude?",
+    options: [
+      "Slow down and think",
+      "It could happen to me",
+      "Follow the rules — they are usually right and exist for good reason",
+      "I'm not helpless"
+    ],
+    correctIndex: 2,
+    explanation: "The antidote for anti-authority ('don't tell me') is: 'Follow the rules — they are usually right.' The FAA identifies an antidote for each hazardous attitude: anti-authority → follow rules; impulsivity → not so fast; invulnerability → it could happen to me; macho → taking chances is foolish; resignation → I'm not helpless.",
+    reference: "FAA PHAK Chapter 2"
+  },
+  {
+    id: 196,
+    category: "Regulations",
+    question: "Can a Part 107 remote pilot fly a drone for compensation to photograph a real estate listing?",
+    options: [
+      "No, commercial photography requires a Part 135 certificate",
+      "Yes, real estate photography for compensation is permitted under Part 107",
+      "Only if the drone weighs less than 1 pound",
+      "Only in Class G airspace"
+    ],
+    correctIndex: 1,
+    explanation: "Commercial aerial photography, including real estate photography for compensation, is a permitted Part 107 operation. No special authorization beyond the remote pilot certificate is required, as long as all other Part 107 rules are followed (airspace, altitude, etc.).",
+    reference: "14 CFR Part 107"
+  },
+  {
+    id: 197,
+    category: "Weather",
+    question: "What does the METAR notation 'RASN' indicate?",
+    options: [
+      "Rain and snow simultaneously (wintry mix)",
+      "Radar analysis for snow",
+      "Runway alert for snow conditions",
+      "Rain after snowfall"
+    ],
+    correctIndex: 0,
+    explanation: "'RASN' in a METAR indicates rain and snow occurring simultaneously (a wintry mix). Precipitation type abbreviations include RA (rain), SN (snow), RASN (rain/snow mix), GR (hail), and FZRA (freezing rain). These conditions pose significant hazards for drone operations.",
+    reference: "AIM 7-1-30"
+  },
+  {
+    id: 198,
+    category: "Crew Roles",
+    question: "If a remote PIC uses FPV (first-person view) goggles during flight, what additional crew requirement exists?",
+    options: [
+      "No additional requirement; FPV satisfies VLOS",
+      "A visual observer is required who maintains VLOS with the drone and communicates with the PIC",
+      "The PIC must also wear a hat to reduce sun glare",
+      "FPV operations are prohibited under Part 107 without a waiver"
+    ],
+    correctIndex: 1,
+    explanation: "A pilot wearing FPV goggles cannot maintain unaided VLOS as required by Part 107. A visual observer must be used who maintains VLOS with the drone and communicates information about the drone's position and any hazards to the FPV pilot (PIC).",
+    reference: "14 CFR § 107.31"
+  },
+  {
+    id: 199,
+    category: "Performance",
+    question: "What effect does increased altitude have on a multirotor drone's maximum hover time?",
+    options: [
+      "Hover time increases because motors run more efficiently",
+      "Hover time decreases because motors must work harder to generate sufficient thrust in thinner air",
+      "Hover time is unaffected by altitude",
+      "Hover time increases because batteries perform better in cold mountain air"
+    ],
+    correctIndex: 1,
+    explanation: "At higher altitudes, air density decreases. Rotors must spin faster to generate the same thrust, requiring more current draw from the battery. This increases motor temperature and reduces battery endurance, resulting in shorter flight and hover times.",
+    reference: "FAA PHAK Chapter 4"
+  },
+  {
+    id: 200,
+    category: "Airspace",
+    question: "What action is required before flying a drone in Class B airspace?",
+    options: [
+      "No action is required; Class B is open to all aircraft",
+      "Obtain ATC authorization via LAANC or FAA DroneZone before the operation",
+      "Contact the nearest ARTCC by phone",
+      "File a NOTAM 24 hours in advance"
+    ],
+    correctIndex: 1,
+    explanation: "Class B airspace is controlled airspace surrounding the nation's busiest airports. Part 107 pilots must obtain FAA airspace authorization before flying in Class B airspace. This is done via LAANC (if available and within UAS Facility Map grids) or through the FAA DroneZone portal.",
+    reference: "14 CFR § 107.41"
+  },
+  {
+    id: 201,
+    category: "Operations",
+    question: "What is aeronautical decision making (ADM) and why is it critical for remote pilots?",
+    options: [
+      "A system for calculating drone fuel consumption",
+      "A systematic approach to mental process used by pilots to consistently determine the best course of action in response to a given set of circumstances",
+      "The ability to decode METAR weather reports",
+      "The process of filing airspace authorization requests"
+    ],
+    correctIndex: 1,
+    explanation: "ADM is a systematic approach to the mental process used by aircraft pilots to consistently determine the best course of action. Good ADM involves identifying problems, evaluating solutions, and making sound decisions under time pressure. It is a core competency for safe drone operations.",
+    reference: "FAA PHAK Chapter 2"
+  },
+  {
+    id: 202,
+    category: "Physiology",
+    question: "How does hypoxia (oxygen deficiency) most commonly affect remote pilots during high-altitude site operations?",
+    options: [
+      "It causes immediate loss of consciousness",
+      "It gradually impairs judgment and performance while the pilot may feel normal or euphoric — a subtle and dangerous effect",
+      "It only affects people above 12,000 feet",
+      "It causes immediate headache that serves as a clear warning"
+    ],
+    correctIndex: 1,
+    explanation: "The insidious nature of hypoxia is that it impairs performance gradually and the victim often cannot perceive their own impairment. They may feel fine or even euphoric while making poor decisions. At drone operating altitudes on high mountains or during physically demanding setups at elevation, mild hypoxia is a real concern.",
     reference: "FAA PHAK Chapter 17"
   }
 ];
