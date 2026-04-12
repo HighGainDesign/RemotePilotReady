@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo, useEffect } from 'react'
 import RoundEngine from './RoundEngine'
 import { chartRenderers } from './ChartSvg'
 import Dashboard from './Dashboard'
-import { loadState, saveState, KEYS } from '../lib/storage'
+import { loadState, saveState, removeState, KEYS } from '../lib/storage'
 import {
   createQuestionState,
   processAnswer,
@@ -38,12 +38,13 @@ export default function StudyMode() {
 
   const startRound = useCallback(() => {
     const allIds = getAllIds(activeTrack)
-    const selected = selectRoundQuestions(questionStates, allIds, trackConfig.roundSize, session)
+    const selected = selectRoundQuestions(questionStates, allIds, trackConfig.roundSize, session, categoryRetention)
     setRoundIds(selected)
     setRoundIndex(0)
     setRoundScore(0)
     setShowReward(false)
-  }, [activeTrack, questionStates, trackConfig, session])
+    saveState(KEYS.ACTIVE_ROUND, { track: activeTrack, questionIds: selected, currentIndex: 0, score: 0 })
+  }, [activeTrack, questionStates, trackConfig, session, categoryRetention])
 
   // Auto-start first round
   useEffect(() => {
@@ -200,6 +201,7 @@ export default function StudyMode() {
           </div>
         ) : currentQuestion ? (
           <RoundEngine
+            key={roundIds[roundIndex]}
             question={currentQuestion}
             questionNumber={roundIndex + 1}
             totalQuestions={roundIds?.length || 0}

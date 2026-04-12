@@ -1,7 +1,11 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react'
 import { chartRenderers } from './ChartSvg'
 import { loadState, saveState, removeState, KEYS } from '../lib/storage'
-import { getQuestionData, getAllIdsAllTracks, getTotalQuestions } from '../lib/question-data'
+import { getQuestionData, getTotalQuestions } from '../lib/question-data'
+import { getQuestionIds as getFlashcardIds } from '../data/flashcards'
+import { getQuestionIds as getScenarioIds } from '../data/scenarios'
+import { getQuestionIds as getChartIds } from '../data/charts'
+import { getQuestionIds as getMetarIds } from '../data/metars'
 import { calcProgress } from '../lib/spaced-repetition'
 
 const EXAM_DURATION = 2 * 60 * 60 * 1000 // 2 hours in ms
@@ -478,6 +482,8 @@ export default function ExamMode() {
   const [timeRemaining, setTimeRemaining] = useState(EXAM_DURATION)
   const [examResult, setExamResult] = useState(null)
   const timerRef = useRef(null)
+  const answersRef = useRef(answers)
+  useEffect(() => { answersRef.current = answers }, [answers])
 
   // Restore active exam on mount
   useEffect(() => {
@@ -513,7 +519,7 @@ export default function ExamMode() {
           const next = prev - 1000
           if (next <= 0) {
             clearInterval(timerRef.current)
-            submitExam()
+            submitExamRef.current()
             return 0
           }
           return next
@@ -526,14 +532,15 @@ export default function ExamMode() {
   const submitExam = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current)
 
-    // Calculate score
+    // Calculate score — use ref to avoid stale closure when called from timer
+    const currentAnswers = answersRef.current
     let score = 0
     const categoryScores = {}
 
     for (const qId of questionIds) {
       const qData = getQuestionData(qId)
       if (!qData) continue
-      const userAnswer = answers[qId]
+      const userAnswer = currentAnswers[qId]
       const correct = userAnswer === qData.correctIndex
       if (correct) score++
 
@@ -554,7 +561,7 @@ export default function ExamMode() {
       total: questionIds.length,
       passed: score / questionIds.length >= PASS_THRESHOLD,
       categoryScores,
-      answers: { ...answers },
+      answers: { ...currentAnswers },
       timestamp: Date.now(),
     }
 
@@ -568,11 +575,18 @@ export default function ExamMode() {
 
     // Remove active exam
     removeState(KEYS.ACTIVE_EXAM)
-  }, [questionIds, answers])
+  }, [questionIds])
+
+  const submitExamRef = useRef(submitExam)
+  useEffect(() => { submitExamRef.current = submitExam }, [submitExam])
 
   const beginExam = useCallback(() => {
-    const allIds = getAllIdsAllTracks()
-    const selected = shuffle(allIds).slice(0, EXAM_SIZE)
+    // Stratified selection matching real Part 107 exam distribution
+    const qIds = shuffle(getFlashcardIds()).slice(0, 45)
+    const sIds = shuffle(getScenarioIds()).slice(0, 8)
+    const cIds = shuffle(getChartIds()).slice(0, 4)
+    const mIds = shuffle(getMetarIds()).slice(0, 3)
+    const selected = shuffle([...qIds, ...sIds, ...cIds, ...mIds])
     setQuestionIds(selected)
     setAnswers({})
     setFlagged(new Set())
