@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import LandingPage from './components/LandingPage'
+import About from './components/About'
 import StudyMode from './components/StudyMode'
 import ExamMode from './components/ExamMode'
 import Calculator from './components/Calculator'
@@ -59,6 +60,7 @@ function RefIcon({ className }) {
 
 export default function App() {
   const [hasVisited, setHasVisited] = useState(() => loadState('rpr_has_visited', false))
+  const [showAbout, setShowAbout] = useState(false)
   const [activeTab, setActiveTab] = useState('study')
   const [questionStates, setQuestionStates] = useState(() => loadState(KEYS.QUESTIONS, {}))
 
@@ -86,7 +88,7 @@ export default function App() {
       {/* Header */}
       <header className="safe-top bg-cockpit-bg/80 backdrop-blur-md border-b border-cockpit-border sticky top-0 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <div className="w-9 h-9 shrink-0" style={{ filter: 'drop-shadow(0 0 6px rgba(74,252,146,0.3))' }}>
+          <button onClick={() => setShowAbout(true)} className="tap-highlight w-9 h-9 shrink-0" aria-label="About" style={{ filter: 'drop-shadow(0 0 6px rgba(74,252,146,0.3))' }}>
             <svg viewBox="0 0 64 64" className="w-9 h-9" fill="none">
               {/* iOS squircle background */}
               <path d="M12 0h40c6.6 0 10.4 1.2 12 4s4 5.4 4 12v32c0 6.6-1.2 10.4-4 12s-5.4 4-12 4H12c-6.6 0-10.4-1.2-12-4S-4 54.6-4 48V16C-4 9.4-2.8 5.6 0 4S5.4 0 12 0z" fill="#0c1a2e" stroke="#4afc92" strokeWidth="1.5" strokeOpacity="0.25" />
@@ -110,7 +112,7 @@ export default function App() {
               {/* Camera */}
               <circle cx="32" cy="37" r="2" fill="#080e1a" stroke="#4afc92" strokeWidth="0.8" />
             </svg>
-          </div>
+          </button>
           <div>
             <h1 className="font-instrument text-body-text text-[0.875rem] font-extrabold tracking-[0.15em] leading-tight">
               RPR
@@ -176,6 +178,9 @@ export default function App() {
           })}
         </div>
       </nav>
+
+      {/* About modal */}
+      {showAbout && <About onClose={() => setShowAbout(false)} />}
     </div>
   )
 }
