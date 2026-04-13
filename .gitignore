@@ -24,3 +24,13 @@ dist-ssr
 *.sln
 *.sw?
 .superpowers/
+
+# Agent config and dev docs (local only)
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.cursorrules
+HANDOFF.md
+.claude/
+.gemini/
+docs/

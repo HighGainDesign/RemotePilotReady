@@ -25,7 +25,7 @@ React 19, Vite 8, Tailwind CSS v4, Vitest, Vercel
 npm install
 npm run dev      # dev server at localhost:5173
 npm run build    # production build
-npm test         # run tests
+npm test         # run tests (22 tests)
 ```
 
 ## License
