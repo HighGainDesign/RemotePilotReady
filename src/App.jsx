@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import LandingPage from './components/LandingPage'
 import StudyMode from './components/StudyMode'
 import ExamMode from './components/ExamMode'
 import Calculator from './components/Calculator'
 import QuickReference from './components/QuickReference'
-import { loadState, KEYS } from './lib/storage'
+import { loadState, saveState, KEYS } from './lib/storage'
 import { calcRetention, calcProgress } from './lib/spaced-repetition'
 import { getTotalQuestions } from './lib/question-data'
 
@@ -57,8 +58,14 @@ function RefIcon({ className }) {
 
 
 export default function App() {
+  const [hasVisited, setHasVisited] = useState(() => loadState('rpr_has_visited', false))
   const [activeTab, setActiveTab] = useState('study')
   const [questionStates, setQuestionStates] = useState(() => loadState(KEYS.QUESTIONS, {}))
+
+  const handleEnterApp = useCallback(() => {
+    saveState('rpr_has_visited', true)
+    setHasVisited(true)
+  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,6 +76,10 @@ export default function App() {
 
   const retention = Math.round(calcRetention(questionStates))
   const progress = Math.round(calcProgress(questionStates, getTotalQuestions()))
+
+  if (!hasVisited) {
+    return <LandingPage onEnter={handleEnterApp} />
+  }
 
   return (
     <div className="flex flex-col h-full min-h-screen bg-cockpit-bg">
