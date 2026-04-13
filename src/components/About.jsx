@@ -37,15 +37,15 @@ export default function About({ onClose }) {
           Free, open-source study app for the FAA Part 107 Remote Pilot Certificate exam. Built with spaced repetition to help you actually remember what you study.
         </p>
 
-        {/* Tip Jar placeholder */}
-        {/*
         <a
-          href="#"
-          className="inline-block px-5 py-2 bg-amber-accent/15 border border-amber-accent/30 text-amber-accent font-instrument text-xs font-bold tracking-wider rounded-lg mb-4 transition-colors active:bg-amber-accent/25"
+          href="https://github.com/sponsors/HighGainDesign"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-accent/15 border border-amber-accent/30 text-amber-accent font-instrument text-xs font-bold tracking-wider rounded-lg mb-4 transition-colors active:bg-amber-accent/25"
         >
-          TIP JAR
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          SPONSOR
         </a>
-        */}
 
         <div className="border-t border-cockpit-border pt-4 space-y-2">
           <p className="text-inactive text-[0.6875rem]">
