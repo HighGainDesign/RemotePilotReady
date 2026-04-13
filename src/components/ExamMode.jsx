@@ -63,45 +63,125 @@ function QuestionContext({ context }) {
   return null
 }
 
+// --- Exam History ---
+function ExamHistoryPanel({ history }) {
+  if (history.length === 0) return null
+
+  const best = Math.max(...history.map(e => Math.round((e.score / e.total) * 100)))
+  const passCount = history.filter(e => e.passed).length
+  const recent = [...history].reverse().slice(0, 10)
+
+  return (
+    <div className="mb-6 text-left">
+      <div className="font-instrument text-phosphor text-[0.5625rem] font-bold tracking-widest mb-3 text-center">
+        EXAM HISTORY
+      </div>
+
+      {/* Summary stats */}
+      <div className="flex gap-2 mb-3">
+        <div className="flex-1 bg-cockpit-surface border border-cockpit-border rounded-lg p-2.5 text-center">
+          <div className="font-instrument text-body-text text-[1rem] font-bold">{history.length}</div>
+          <div className="font-instrument text-inactive text-[0.5rem] tracking-wider">ATTEMPTS</div>
+        </div>
+        <div className="flex-1 bg-cockpit-surface border border-cockpit-border rounded-lg p-2.5 text-center">
+          <div className="font-instrument text-phosphor text-[1rem] font-bold">{best}%</div>
+          <div className="font-instrument text-inactive text-[0.5rem] tracking-wider">BEST</div>
+        </div>
+        <div className="flex-1 bg-cockpit-surface border border-cockpit-border rounded-lg p-2.5 text-center">
+          <div className={`font-instrument text-[1rem] font-bold ${passCount > 0 ? 'text-phosphor' : 'text-inactive'}`}>{passCount}</div>
+          <div className="font-instrument text-inactive text-[0.5rem] tracking-wider">PASSED</div>
+        </div>
+      </div>
+
+      {/* Score trend — visual bar chart */}
+      <div className="bg-cockpit-surface border border-cockpit-border rounded-lg p-3">
+        <div className="flex items-end gap-1 h-16 mb-2">
+          {recent.map((exam, i) => {
+            const pct = Math.round((exam.score / exam.total) * 100)
+            return (
+              <div key={i} className="flex-1 flex flex-col items-center justify-end h-full">
+                <div
+                  className={`w-full rounded-sm transition-all ${exam.passed ? 'bg-phosphor' : 'bg-[#f87171]'}`}
+                  style={{
+                    height: `${pct}%`,
+                    minHeight: '2px',
+                    boxShadow: exam.passed ? '0 0 4px rgba(74,252,146,0.3)' : 'none',
+                  }}
+                />
+              </div>
+            )
+          })}
+        </div>
+        {/* Pass line */}
+        <div className="relative h-0 -mt-[calc(30%+0.5rem)]">
+          <div className="absolute w-full border-t border-dashed border-amber-accent/40" />
+        </div>
+        <div className="flex justify-between mt-1">
+          <span className="font-instrument text-inactive text-[0.5rem]">
+            {recent.length > 1 ? 'OLDEST' : ''}
+          </span>
+          <span className="font-instrument text-inactive text-[0.5rem]">
+            {recent.length > 1 ? 'LATEST' : ''}
+          </span>
+        </div>
+      </div>
+
+      {/* Recent scores list */}
+      <div className="mt-3 space-y-1">
+        {recent.slice(0, 5).map((exam, i) => {
+          const pct = Math.round((exam.score / exam.total) * 100)
+          const date = new Date(exam.timestamp)
+          const dateStr = date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+          const timeStr = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })
+          return (
+            <div key={i} className="flex items-center justify-between px-2 py-1.5 rounded bg-cockpit-surface/50">
+              <span className="text-inactive text-[0.6875rem]">{dateStr} {timeStr}</span>
+              <span className={`font-instrument text-[0.75rem] font-bold ${exam.passed ? 'text-phosphor' : 'text-[#f87171]'}`}>
+                {pct}% {exam.passed ? '✓' : '✗'}
+              </span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 // --- Setup Screen ---
 function SetupScreen({ onBegin }) {
   const questionStates = loadState(KEYS.QUESTIONS, {})
   const total = getTotalQuestions()
   const progress = calcProgress(questionStates, total)
   const examHistory = loadState(KEYS.EXAM_HISTORY, [])
-  const lastExam = examHistory.length > 0 ? examHistory[examHistory.length - 1] : null
 
   return (
-    <div className="px-4 py-12 text-center">
-      <div className="font-instrument text-phosphor text-[0.6875rem] font-bold tracking-widest mb-4 glow-phosphor-text">
-        PRACTICE EXAM
-      </div>
-      <p className="text-body-text text-[0.9375rem] mb-1 font-medium">60 questions · 2 hours · 70% to pass</p>
-      <p className="text-secondary-text text-[0.8125rem] mb-6">
-        Simulates the FAA Part 107 knowledge test
-      </p>
-
-      {lastExam && (
-        <div className="mb-4 p-3 rounded-lg bg-cockpit-surface border border-cockpit-border inline-block">
-          <span className="text-secondary-text text-[0.75rem]">Last score: </span>
-          <span className={`font-instrument text-[0.875rem] font-bold ${lastExam.passed ? 'text-phosphor' : 'text-[#f87171]'}`}>
-            {Math.round((lastExam.score / lastExam.total) * 100)}%
-          </span>
+    <div className="px-4 py-8">
+      <div className="text-center mb-6">
+        <div className="font-instrument text-phosphor text-[0.6875rem] font-bold tracking-widest mb-4 glow-phosphor-text">
+          PRACTICE EXAM
         </div>
-      )}
+        <p className="text-body-text text-[0.9375rem] mb-1 font-medium">60 questions · 2 hours · 70% to pass</p>
+        <p className="text-secondary-text text-[0.8125rem]">
+          Simulates the FAA Part 107 knowledge test
+        </p>
+      </div>
+
+      <ExamHistoryPanel history={examHistory} />
 
       {progress < 50 && (
-        <div className="mb-6 p-3 rounded-lg bg-[#78350f]/20 border border-[#f59e0b]/30 text-[#fbbf24] text-[0.8125rem]">
+        <div className="mb-6 p-3 rounded-lg bg-[#78350f]/20 border border-[#f59e0b]/30 text-[#fbbf24] text-[0.8125rem] text-center">
           You've covered {Math.round(progress)}% of the material. Consider studying more before taking a practice exam.
         </div>
       )}
 
-      <button
-        onClick={onBegin}
-        className="px-8 py-3 rounded-lg bg-phosphor/10 border-2 border-phosphor text-phosphor font-instrument font-bold tracking-wider text-[0.875rem] hover:bg-phosphor/20 active:bg-phosphor/30 transition-colors glow-phosphor"
-      >
-        BEGIN EXAM
-      </button>
+      <div className="text-center">
+        <button
+          onClick={onBegin}
+          className="px-8 py-3 rounded-lg bg-phosphor/10 border-2 border-phosphor text-phosphor font-instrument font-bold tracking-wider text-[0.875rem] hover:bg-phosphor/20 active:bg-phosphor/30 transition-colors glow-phosphor"
+        >
+          BEGIN EXAM
+        </button>
+      </div>
     </div>
   )
 }
