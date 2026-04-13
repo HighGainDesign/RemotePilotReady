@@ -1,16 +1,33 @@
-# React + Vite
+# RemotePilotReady
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A free, open-source study app for the FAA Part 107 Remote Pilot Certificate exam.
 
-Currently, two official plugins are available:
+**Live at [rpr.highga.in](https://rpr.highga.in)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **200+ multiple-choice questions** across 8 categories (Regulations, Airspace, Weather, Operations, Crew Roles, Performance, Airport Operations, Physiology)
+- **Session-based spaced repetition** — wrong answers come back at increasing intervals until mastered
+- **Practice exam simulator** — 60 questions, 2-hour timer, flag/skip/review, 70% pass threshold (mirrors real PSI test)
+- **Sectional chart trainer** — SVG-based airspace, obstruction, and airport symbol exercises
+- **METAR decoder** — practice decoding real weather reports with comprehension quizzes
+- **E6B calculator** — density altitude, magnetic heading, crosswind, time/speed/distance, unit converter
+- **Quick reference cards** — key Part 107 numbers at a glance
+- **Installable as PWA** — works offline on any device
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+React 19, Vite 8, Tailwind CSS v4, Vitest, Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Development
+
+```bash
+npm install
+npm run dev      # dev server at localhost:5173
+npm run build    # production build
+npm test         # run tests
+```
+
+## License
+
+MIT License. Copyright (c) 2026 Anand Mandapati, High Gain Design.
